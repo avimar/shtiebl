@@ -31,6 +31,22 @@ post({
           votes: "3.3k",
           x: `<p>You assume you said it the way you say it all year, and you go back.</p>`,
           src: "Shulchan Aruch OC 582:1 · Mishna Berura 582:3",
+          replies: [
+            {
+              by: "not_sure_what_i_said",
+              votes: "1.1k",
+              x: `<p>Can I just drill it 90 times first, like people do for <i>mashiv haruach</i>?</p>`,
+              src: "Mishna Berura 582:3",
+              replies: [
+                {
+                  by: "Mishna_Berura",
+                  votes: "4.2k",
+                  x: `<p>That trick doesn't work here. You can't practice saying <i>“Baruch Atah Hashem”</i> (a bracha in vain), and practice without the Name won't carry over to the real thing. <b>There's no fix.</b></p><p>One possible leniency: on Rosh Hashana and Yom Kippur, if you know you said <i>U'vchein</i> and you're only unsure about the ending, maybe you don't go back. All those additions break the year-round habit.</p>`,
+                  src: "Mishna Berura 582:3–4",
+                },
+              ],
+            },
+          ],
         },
       ],
     },
@@ -39,6 +55,29 @@ post({
       votes: "1.2k",
       x: `<p>Forgot <i>HaMelech HaMishpat</i> instead? Per the Rema you <b>don't</b> repeat, since you said “Melech” in the regular ending anyway. Sefardim do repeat.</p>`,
       src: "Rema & Shulchan Aruch OC 118:1",
+    },
+    {
+      by: "R_Elazar",
+      votes: "2.1k",
+      x: `<p>For the record, I held that you're covered even if you said <i>HaKel HaKadosh</i>. The verse itself says: “Hashem Tzevakos is exalted in justice, <b>and the holy God</b> is sanctified in righteousness.”</p>`,
+      src: "Berachos 12b:3 · Yeshayahu 5:16",
+      replies: [
+        {
+          by: "Rav_Yosef",
+          votes: "1.5k",
+          x: `<p>I agreed with him.</p>`,
+          src: "Berachos 12b:5",
+          replies: [
+            {
+              by: "GabbaiOnDuty",
+              votes: "5.8k",
+              x: `<p>Rabbah said like Rav, and the Gemara rules like Rabbah. <i>HaMelech HaKadosh</i> it is. Back to the start, everyone.</p>`,
+              img: "c_restart",
+              src: "Berachos 12b:5",
+            },
+          ],
+        },
+      ],
     },
     {
       by: "speedrunner_bochur",

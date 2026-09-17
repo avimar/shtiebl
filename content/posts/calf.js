@@ -63,6 +63,29 @@ post({
       ],
     },
     {
+      by: "Aharon_HaKohen",
+      votes: "-1.2k",
+      x: `<p>Before anyone asks: “Let not my lord be angry. You know this people, it's set on evil. They said ‘make us a god.’ I said ‘whoever has gold, take it off.’ They gave it to me, I threw it in the fire, and <b>out came this calf.</b>”</p>`,
+      img: "c_calfout",
+      src: "Shemos 32:22–24",
+      replies: [
+        {
+          by: "Rashi",
+          votes: "5.3k",
+          x: `<p>Read him fairly: “I threw it in the fire, and <b>I didn't know</b> this calf would come out. But out it came.” Also: all he said was “who has gold?”, and <i>they</i> hurried to break it off themselves.</p>`,
+          src: "Rashi, Shemos 32:24",
+          replies: [
+            {
+              by: "random_cow",
+              votes: "8.8k",
+              x: `<p>no relation</p>`,
+              flavor: true,
+            },
+          ],
+        },
+      ],
+    },
+    {
       by: "Moshe_Rabbeinu",
       votes: "15k",
       x: `<p class="quote">“Now, if You will forgive their sin… and if not, <b>erase me from Your book</b> that You have written.”</p>`,

@@ -39,6 +39,38 @@ post({
       votes: "15k",
       x: `<p>Since people are asking what “the deeds of Aharon” are: <b>love peace, pursue peace, love people and bring them close to Torah.</b></p>`,
       src: "Pirkei Avos 1:12",
+      replies: [
+        {
+          by: "Aharon_HaKohen",
+          votes: "11k",
+          x: `<p>Finally, a thread about me that isn't about the calf. 🙏</p><p>How I did it: two people have a fight. I go sit with the first one and tell him, “Look at your friend. He's tearing his clothes, saying ‘how can I face him, I'm the one who wronged him.’” I sit there until the anger is gone. Then I go do the same with the other one. Next time they meet, they hug.</p>`,
+          src: "Avos d'Rabbi Nosson 12:3",
+        },
+      ],
+    },
+    {
+      by: "Hillel_HaZaken",
+      flair: "their talmid",
+      votes: "18k",
+      x: `<p>Also, these two once saved my life. I paid the study hall guard half my daily wage to get into their shiur. One Friday I had no work, and he wouldn't let me in. So I climbed onto the roof and sat at the skylight to listen.</p><p>It was Teves. It snowed. <b>Three amos</b> of snow.</p>`,
+      img: "c_skylight",
+      src: "Yoma 35b:7–8",
+      replies: [
+        {
+          by: "Shemaya",
+          votes: "9.3k",
+          x: `<p>At dawn I said: “Avtalyon, my brother, every day at this hour the room is bright, and today it's dark. Is it cloudy?” We looked up and saw <b>the shape of a man</b> in the skylight.</p>`,
+          src: "Yoma 35b:8",
+          replies: [
+            {
+              by: "Avtalyon",
+              votes: "8.8k",
+              x: `<p>We dug him out, washed him, rubbed him with oil and sat him by the fire. It was Shabbos. We said: <b>“This one is worth breaking Shabbos for.”</b></p>`,
+              src: "Yoma 35b:8",
+            },
+          ],
+        },
+      ],
     },
     {
       by: "popcorn_levi",

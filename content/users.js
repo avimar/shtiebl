@@ -44,7 +44,10 @@ users({
   Rav_Yosef:         { avatar: "🫙", flair: "Talmid", bio: "Amora in Pumbedisa. Keeps the broken tablets next to the whole ones." },
   Rava:              { avatar: "⚖️", flair: "Amora", bio: "Amora in Mechoza. If it's making you suffer, you're exempt. That's the rule." },
   Levi_bar_Sisi:     { avatar: "🔪", flair: "Amora", bio: "Talmid of Rebbi. Juggled eight knives once. Would like you not to try." },
+  Taanis_30b:        { avatar: "📄", flair: "Gemara", bio: "The page of Gemara with six reasons Tu B'Av is a happy day." },
   Taanis_31a:        { avatar: "📄", flair: "Gemara", bio: "The page of Gemara that covers the dancing in the vineyards." },
+  Yoma_13a:          { avatar: "📄", flair: "Gemara", bio: "The page of Gemara that tries to make R' Yehuda's backup wife work. It gets complicated." },
+  R_Yitzchak_ben_Tavlai: { avatar: "🌲", flair: "Amora", bio: "Amora. Knows why the Mikdash is called Levanon: it makes sins white." },
   RH_31b:            { avatar: "📄", flair: "Gemara", bio: "The page of Gemara that covers the red string." },
   Gemara_AZ:         { avatar: "📄", flair: "Gemara", bio: "Avodah Zarah 3a. Answers the nations' complaints, respectfully." },
   Bereishis_Rabbah:  { avatar: "📕", flair: "Midrash", bio: "The Midrash on Bereishis. Has a lot to say about one letter." },
@@ -79,6 +82,7 @@ users({
 
   // ---- Temple staff & shul regulars ----
   KohenGadol:        { avatar: "💎", flair: "Kohen Gadol", bio: "Once a year I walk into the Holy of Holies. Seven days of prep. Please don't mention Shemaya and Avtalyon." },
+  Yerushalmi_gvir:   { avatar: "🏙️", flair: "Jerusalem notable", bio: "One of Jerusalem's important men. Stays up all Yom Kippur night learning, so the city is never quiet enough for the Kohen Gadol to doze." },
   young_kohen_22:    { avatar: "🫰", flair: "kohen · night shift", bio: "Young kohen. Snaps fingers professionally, once a year." },
   Levi_on_the_steps: { avatar: "🪜", flair: "Levi", bio: "Levi. Sings on the fifteen steps. Has seen some things at the Simchas Beis HaSho'eivah." },
   Chazzan_Neilah:    { avatar: "🎼", flair: "shaliach tzibbur", bio: "Leads Kol Nidrei and Neilah. Voice gone by Havdalah." },

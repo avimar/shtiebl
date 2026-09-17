@@ -73,6 +73,29 @@ post({
       ],
     },
     {
+      by: "nervous_yisrael",
+      votes: "5.6k",
+      x: `<p>sorry, go back. a backup <b>WIFE</b>??</p>`,
+      src: "Mishna Yoma 1:1",
+      replies: [
+        {
+          by: "KohenGadol",
+          votes: "6.9k",
+          x: `<p>R' Yehuda's view. The verse says I atone “for himself and for <b>his house</b>,” and “his house” means my wife. If, God forbid, she died, I'd have no house. So: a backup.</p><p>The Sages told him: “Then there's no end to it.” What if the backup dies too?</p>`,
+          img: "c_benchwife",
+          src: "Yoma 2a:2 · Vayikra 16:6",
+          replies: [
+            {
+              by: "Yoma_13a",
+              votes: "4.0k",
+              x: `<p>And the logistics get worse. Designating her isn't enough: she isn't his “house” until he marries her. Marry her, and now he has <b>two</b> houses. So he gives her a <i>get</i> on a condition… and the Gemara tries condition after condition, and keeps finding a case that leaves him with two wives, or none.</p>`,
+              src: "Yoma 13a:6–12",
+            },
+          ],
+        },
+      ],
+    },
+    {
       by: "Avtalyon_fan",
       votes: "2.5k",
       x: `<p>Any comment on the Shemaya & Avtalyon incident? 👀 <a onclick="go('thread','roast')">(link)</a></p>`,

@@ -19,6 +19,14 @@ post({
       votes: "6.4k",
       x: `<p>All forty years that Shimon HaTzadik served, the lot for Hashem came up in his right hand <b>every time</b> and the thread turned white every time. After him: sometimes yes, sometimes no.</p>`,
       src: "Yoma 39a:15",
+      replies: [
+        {
+          by: "Shimon_HaTzadik_era",
+          votes: "5.2k",
+          x: `<p>From the file on his last year. He told them he would die that year. How did he know? “Every Yom Kippur an old man <b>dressed in white</b> went in with me and came out with me. This year he was <b>dressed in black</b>. He went in with me. He didn't come out.”</p><p>After Sukkos he was sick for seven days, and died.</p>`,
+          src: "Yoma 39b:3",
+        },
+      ],
     },
     {
       by: "RH_31b",
@@ -27,10 +35,41 @@ post({
       src: "Rosh Hashana 31b:13–14",
     },
     {
+      by: "curious_cheder_kid",
+      votes: "1.4k",
+      x: `<p>but how did they even know when the goat got to the wilderness??</p>`,
+      src: "Mishna Yoma 6:8",
+      replies: [
+        {
+          by: "Temple_appointee",
+          votes: "3.6k",
+          x: `<p>Live tracking. We built platforms all along the road, and men on them <b>waved scarves</b> so the Temple would know.</p><p>R' Yehuda says we didn't need them: just count the time it takes to walk the mils. R' Yishmael says we didn't need them either: <b>just watch the strip</b>.</p>`,
+          img: "c_relay",
+          src: "Mishna Yoma 6:8",
+        },
+      ],
+    },
+    {
       by: "Yochanan_ben_Zakai",
       votes: "11k",
       x: `<p>Same forty years: the doors of the Heichal kept opening <b>by themselves</b>. I told them: “Heichal, Heichal, why are you frightening yourself? I know your end is to be destroyed.”</p>`,
       src: "Yoma 39b:5–6",
+      replies: [
+        {
+          by: "Zecharia_HaNavi",
+          votes: "7.9k",
+          x: `<p class="quote">“Open your doors, O Levanon, and let fire consume your cedars.”</p>`,
+          src: "Zecharia 11:1 · Yoma 39b:6",
+          replies: [
+            {
+              by: "R_Yitzchak_ben_Tavlai",
+              votes: "4.5k",
+              x: `<p>Why is the Mikdash called <i>Levanon</i>? Because it makes Israel's sins <b>white</b> (<i>malbin</i>).</p>`,
+              src: "Yoma 39b:7",
+            },
+          ],
+        },
+      ],
     },
     {
       by: "chills",

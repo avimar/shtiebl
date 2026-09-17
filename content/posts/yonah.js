@@ -42,6 +42,29 @@ post({
       ],
     },
     {
+      by: "curious_cheder_kid",
+      votes: "2.7k",
+      x: `<p>why do we read THIS on Yom Kippur though</p>`,
+      src: "Megillah 31a:11",
+      replies: [
+        {
+          by: "Mishna_Berura",
+          votes: "6.0k",
+          x: `<p>Two reasons. It's all about <b>teshuva</b>. And it shows that <b>nobody can run away from Hashem</b>.</p><p>And we don't end on the question: the haftarah closes with <span class="he">מִי אֵל כָּמוֹךָ</span>, “Who is a God like You, who bears sin and passes over transgression.”</p>`,
+          src: "Mishna Berura 622:7 · Shulchan Aruch OC 622:2 · Micha 7:18–20",
+          replies: [
+            {
+              by: "Tarshish_Sailor",
+              votes: "5.5k",
+              x: `<p>can confirm the second one</p>`,
+              img: "c_cantrun",
+              flavor: true,
+            },
+          ],
+        },
+      ],
+    },
+    {
       by: "Mechilta",
       votes: "8.8k",
       x: `<p>In OP's defense: he ran because gentiles repent quickly, and he didn't want that to make Israel look bad by comparison. “He stood up for the honor of the son, not the honor of the Father.”</p>`,

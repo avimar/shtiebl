@@ -36,6 +36,43 @@ post({
       src: "Yoma 87a:16",
     },
     {
+      by: "R_Yirmiyah",
+      votes: "9.6k",
+      x: `<p>Other side of this: I once owed R' Abba an apology, so I went and sat on his doorstep. His maid emptied the wash water. <b>It landed on my head.</b></p><p>I said: “They've made me a trash heap. ‘He raises the needy from the trash heap.’”</p><p>R' Abba heard, ran out, and said: “Now <i>I</i> have to apologize to <i>you</i>.”</p>`,
+      img: "c_splash",
+      src: "Yoma 87a:14",
+    },
+    {
+      by: "Rema",
+      votes: "5.4k",
+      x: `<p>The one being asked should not be cruel and refuse, unless he's holding out for the other person's own good. <b>Exception:</b> if the guy spread a bad name about you, you don't have to forgive.</p>`,
+      src: "Rema OC 606:1",
+      replies: [
+        {
+          by: "throwaway_shvigger",
+          votes: "-340",
+          x: `<p>he told the whole kiddush my cholent was “fine.” is that a bad name??</p>`,
+          flavor: true,
+          replies: [
+            {
+              by: "Rava",
+              votes: "7.2k",
+              x: `<p>Whoever lets go of what others owe him, <b>Heaven lets go of all his sins</b>. “He bears sin and passes over transgression”: whose sin does He bear? The one who passes over.</p><p>Let it go.</p>`,
+              src: "Rosh Hashana 17a:14 · Micha 7:18",
+              replies: [
+                {
+                  by: "OPs_wife",
+                  votes: "4.1k",
+                  x: `<p>told you. again.</p>`,
+                  flavor: true,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
       by: "OPs_wife",
       votes: "12k",
       x: `<p>told you.</p>`,
