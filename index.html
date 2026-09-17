@@ -222,6 +222,9 @@ function countView(){
         <input type="hidden" name="access_key" value="a962efda-732c-4fa4-91d0-0a54fc67f142">
         <input type="hidden" name="subject" value="shtiebl feedback">
         <input type="hidden" name="from_name" value="shtiebl site">
+        <!-- filled in on submit: the link and view the reader was on -->
+        <input type="hidden" name="page">
+        <input type="hidden" name="viewing">
         <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <textarea name="message" required placeholder="Your message" aria-label="Your message"></textarea>
         <div class="row">
@@ -623,6 +626,15 @@ $("#fbForm").addEventListener("submit", async e=>{
   const show = (cls, msg) => { status.className = cls; status.textContent = msg; };
   const captcha = form.querySelector("[name=h-captcha-response]");
   if (captcha && !captcha.value) { show("err", "Please tick the “I am human” box first."); return; }
+  // what the reader was looking at, so "this post" in a message makes sense
+  form.page.value = location.href;
+  let viewing = viewName(view);
+  if (view[0] === "thread") {
+    const p = POSTS.find(x => x.id === view[1].split("/c/")[0]);
+    viewing = `r/${p.sub}: ${p.title}`;
+  }
+  if (view[0] === "search") viewing = "search: " + view[1];
+  form.viewing.value = viewing;
   btn.disabled = true; show("", "");
   try {
     const res = await fetch(form.action, {method: "POST", headers: {Accept: "application/json"}, body: new FormData(form)});
