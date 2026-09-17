@@ -35,22 +35,17 @@
   .logo small{font-weight:400;font-size:11px;color:var(--muted);display:block;margin-top:-3px}
   .search{flex:1;min-width:160px;max-width:520px;background:var(--chip);border:1px solid var(--line);border-radius:20px;padding:7px 14px;color:var(--ink);font:inherit}
   .search:focus{outline:none;border-color:var(--accent);background:var(--card)}
-  .seg{display:flex;border:1px solid var(--line);border-radius:20px;overflow:hidden}
-  .seg button{border:0;background:transparent;color:var(--ink);padding:6px 11px;cursor:pointer;font:inherit}
-  .seg button.on{background:var(--accent);color:#fff}
   .iconbtn{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:20px;padding:6px 10px;cursor:pointer}
 
   #menuBtn{display:none}
   @media (max-width:700px){
-    /* phones: one-row header (logo + ⚙ button); switchers open below on tap */
+    /* phones: one-row header (logo + ⚙ button); search and dark mode open below on tap */
     header{padding:6px 10px;gap:8px}
     .logo{font-size:18px} .logo small{display:none} .logo .dot{width:28px;height:28px;font-size:15px}
     #menuBtn{display:inline-block;margin-left:auto;font-size:15px;order:1}
-    .search{order:2} header .seg{order:3} #darkBtn{order:4}
-    .search, header .seg, #darkBtn{display:none}
+    .search{order:2} #darkBtn{order:3}
+    .search, #darkBtn{display:none}
     header.open .search{display:block;max-width:none;flex:0 0 100%;font-size:16px}
-    header.open .seg{display:flex;width:100%}
-    header.open .seg button{flex:1;padding:6px 2px;font-size:12.5px}
     header.open #darkBtn{display:inline-block}
     main{margin:10px auto;padding:0 6px}
     .votes{width:34px}
@@ -171,11 +166,8 @@
 <header>
   <div class="logo" onclick="logo()"><div class="dot">ש</div><div>shtiebl<small>the front page of the beis medrash</small></div></div>
   <input class="search" id="q" type="search" placeholder="🔍 Search shtiebl" aria-label="Search posts and comments">
-  <div class="seg" id="picSeg" title="Picture style">
-    <button data-p="snapshot_gpt">📸 Snapshot HD</button><button data-p="snapshot">📷 Snapshot (FLUX)</button><button data-p="cartoon">🖍 Cartoon</button><button data-p="cinematic">🏛 Epic</button>
-  </div>
   <button class="iconbtn" id="darkBtn" onclick="document.body.classList.toggle('dark')" title="Dark mode">🌓</button>
-  <button class="iconbtn" id="menuBtn" onclick="$('header').classList.toggle('open')" title="Search, pictures & dark mode"></button>
+  <button class="iconbtn" id="menuBtn" onclick="$('header').classList.toggle('open')" title="Search & dark mode">🔍 ⚙</button>
   <div id="threadbar"></div>
 </header>
 <div id="loadErr"></div>
@@ -274,12 +266,8 @@ function linkSources(src){
 // SEFARIA-END
 
 /* ============ RENDER ============ */
-let pic = localStorage.getItem("shtiebl-pic") || "snapshot_gpt";
-if (pic === "vintage") pic = "snapshot";
-// cartoon = img/<id>.jpg; other styles = img/<style>/<id>.jpg (web copies made by img/optimize.py).
-// New images are Snapshot HD only, so a missing one falls back to img/snapshot_gpt/<id>.jpg, then hides.
-const imgSrc = id => pic === "cartoon" ? `img/${id}.jpg` : `img/${pic}/${id}.jpg`;
-const imgFallback = id => `if(!this.dataset.fb && !this.src.includes('/snapshot_gpt/')){this.dataset.fb=1;this.src='img/snapshot_gpt/${id}.jpg'}else{this.remove()}`;
+// Pictures are img/snapshot_gpt/<id>.jpg (web copies made by img/optimize.py); a missing one hides.
+const imgSrc = id => `img/snapshot_gpt/${id}.jpg`;
 let hol = "all";
 const $ = s => document.querySelector(s);
 
@@ -303,7 +291,7 @@ function postCard(p, full){
       <span class="tag">${HOLIDAYS[p.hol]}</span></div>
     <a class="title" href="${open}">${p.title}${p.verdict?`<span class="flair verdict">${p.verdict}</span>`:""}</a>
     <div class="hook">${p.hook}</div>
-    <a href="${open}"><img class="pimg" src="${imgSrc(p.img)}" alt="" loading="lazy" onerror="${imgFallback(p.img)}"></a>
+    <a href="${open}"><img class="pimg" src="${imgSrc(p.img)}" alt="" loading="lazy" onerror="this.remove()"></a>
     <div class="text">${full && p.op || p.body}</div>
     <div class="src">${linkSources(p.src)}</div>
     <div class="actions"><a href="${open}">💬 ${p.comments} Comments</a><span>🎁 Award</span><span onclick="share('${p.id}')">↪ Share</span><span>🔖 Save</span></div>
@@ -320,7 +308,7 @@ function comment(c, op, cid){
   const flairTag = flair && !u.admin ? `<span class="flair">${flair}</span>` : "";
   return `<div class="${u.admin ? "c adm" : "c"}" id="cm-${cid}">
     <div class="ch"><span class="av">${u.avatar || "🙂"}</span>${userLink(c.by)}${badges}${flairTag}<span>· ${c.votes} points</span></div>
-    <div class="cb">${c.x}${c.img?`<img class="cimg" src="${imgSrc(c.img)}" alt="" onerror="${imgFallback(c.img)}">`:""}${c.src?`<div class="src">${linkSources(c.src)}</div>`:""}</div>
+    <div class="cb">${c.x}${c.img?`<img class="cimg" src="${imgSrc(c.img)}" alt="" onerror="this.remove()">`:""}${c.src?`<div class="src">${linkSources(c.src)}</div>`:""}</div>
     ${c.replies?`<div class="kids">${c.replies.map((r,i)=>comment(r, op, cid+"."+i)).join("")}</div>`:""}
   </div>`;
 }
@@ -523,8 +511,6 @@ function toast(msg){
   clearTimeout(toast.t); toast.t = setTimeout(()=>el.classList.remove("show"), 2200);
 }
 function render(){
-  document.querySelectorAll("#picSeg button").forEach(b=>b.classList.toggle("on",b.dataset.p===pic));
-  $("#menuBtn").textContent = `${{snapshot_gpt:"📸",snapshot:"📷",cartoon:"🖍",cinematic:"🏛"}[pic]} ⚙`;
   document.body.classList.toggle("in-thread", view[0] === "thread");
   $("#threadbar").innerHTML = "";
   // the box shows the current query (while typing they already match, so the caret isn't disturbed)
@@ -536,7 +522,6 @@ function render(){
   else if (view[0] === "search") renderSearch(view[1]);
   else renderList("", POSTS);
 }
-document.querySelectorAll("#picSeg button").forEach(b=>b.onclick=()=>{pic=b.dataset.p;localStorage.setItem("shtiebl-pic",pic);render();});
 // Typing: the first letter opens the search view (one history entry); later letters update it in place.
 $("#q").addEventListener("input", e=>{
   const q = e.target.value;

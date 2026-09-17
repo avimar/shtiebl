@@ -11,7 +11,6 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parent.parent
 PORT = int(os.environ.get("SHTIEBL_PORT", 8765))   # override to run two checks at once
 BASE = f"http://localhost:{PORT}/"
-STYLES = ["snapshot_gpt", "snapshot", "cartoon", "cinematic"]
 ROUTE_KINDS = ["p", "r", "u"]
 SEF_CACHE = ROOT / "tools" / ".sefaria_ok.json"   # refs already verified (gitignored)
 QUICK = "--quick" in sys.argv
@@ -33,7 +32,7 @@ def check_files(pg):
       POSTS.forEach(p => { if (!USERS[p.by]) out.add(p.by); p.thread.forEach(walk); });
       return [...out]; }""")
     for u in missing: fail(f"user not in content/users.js: {u}")
-    # every image a post or comment uses exists in Snapshot HD (the fallback for every other style)
+    # every image a post or comment uses exists
     used = pg.evaluate("""() => { const out = new Set();
       const walk = c => { if (c.img) out.add(c.img); (c.replies||[]).forEach(walk); };
       POSTS.forEach(p => { out.add(p.img); p.thread.forEach(walk); });
@@ -42,7 +41,7 @@ def check_files(pg):
         if not (ROOT / "img" / "snapshot_gpt" / f"{i}.jpg").exists(): fail(f"missing img/snapshot_gpt/{i}.jpg")
     # every local .png original has a provenance entry (the .png files are gitignored, so only checkable here)
     manifest = json.loads((ROOT / "img" / "manifest.json").read_text(encoding="utf-8"))
-    for png in (ROOT / "img").rglob("*.png"):
+    for png in (ROOT / "img" / "snapshot_gpt").glob("*.png"):
         if png.relative_to(ROOT / "img").as_posix() not in manifest: fail(f"no img/manifest.json entry for {png.name} ({png.parent.name})")
     if pg.inner_text("#loadErr"): fail(pg.inner_text("#loadErr"))
 
@@ -61,27 +60,19 @@ def open_route(pg, r):
 
 
 def check_views(pg, errors, hrefs):
-    """No page errors; every image loads in every style; every .src box has a link."""
-    for style in STYLES:
-        pg.evaluate(f"localStorage.setItem('shtiebl-pic','{style}')")
-        for r in routes(pg):
-            errors.clear()
-            open_route(pg, r)
-            pg.evaluate("document.querySelectorAll('img').forEach(i => i.loading = 'eager')")
-            pg.wait_for_function("[...document.images].every(i => i.complete)", timeout=20000)
-            for e in errors: fail(f"{r}: pageerror {e}")
-            bad_js = "[...document.querySelectorAll('#col img')].filter(i => !i.naturalWidth).map(i => i.src)"
-            if pg.evaluate(bad_js):
-                # a missing style image swaps to its Snapshot HD fallback in onerror; give those a moment to load
-                pg.wait_for_load_state("networkidle")
-                pg.wait_for_function("[...document.images].every(i => i.complete)", timeout=20000)
-            bad = pg.evaluate(bad_js)
-            for b in bad: fail(f"[{style}] {r}: image did not load {b}")
-            if style == STYLES[0]:
-                empty = pg.evaluate("[...document.querySelectorAll('.src')].filter(s => !s.querySelector('a')).map(s => s.textContent)")
-                for t in empty: fail(f"{r}: source box without a link: {t}")
-                hrefs.update(pg.evaluate("[...document.querySelectorAll('.src a')].map(a => a.href)"))
-    pg.evaluate("localStorage.removeItem('shtiebl-pic')")
+    """No page errors; every image loads; every .src box has a link."""
+    for r in routes(pg):
+        errors.clear()
+        open_route(pg, r)
+        pg.evaluate("document.querySelectorAll('img').forEach(i => i.loading = 'eager')")
+        pg.wait_for_function("[...document.images].every(i => i.complete)", timeout=20000)
+        for e in errors: fail(f"{r}: pageerror {e}")
+        # a missing image removes itself in onerror; check_files catches those by name
+        bad = pg.evaluate("[...document.querySelectorAll('#col img')].filter(i => !i.naturalWidth).map(i => i.src)")
+        for b in bad: fail(f"{r}: image did not load {b}")
+        empty = pg.evaluate("[...document.querySelectorAll('.src')].filter(s => !s.querySelector('a')).map(s => s.textContent)")
+        for t in empty: fail(f"{r}: source box without a link: {t}")
+        hrefs.update(pg.evaluate("[...document.querySelectorAll('.src a')].map(a => a.href)"))
 
 
 def check_permalinks(pg):

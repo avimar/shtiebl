@@ -9,8 +9,7 @@ Locally, open `index.html` in a browser. There is no build step. The page loads 
 - **Search:** the header box (inside the ⚙ menu on phones) matches every post and comment as you type: text, sources, `u/…` and `r/…` names. Hebrew vowels are ignored. Results live at `#/search/<query>` (shareable). Typing adds one history entry, not one per letter. `renderSearch()` in `index.html`.
 - **Navigation:** each list view (feed, sub page, profile, search) saves its scroll spot in its own history entry when you leave it. The thread's "← Back to …" links (top and bottom) and the browser's Back button return to that exact spot. The logo goes to the feed; on the feed it scrolls to the top. In-site links are real `<a href="#/…">` links (Ctrl-click and copy work); one click handler sends plain clicks through `go()`. In content files, link to another thread as `<a href="#/r/<Sub>/<id>">`.
 - **Holiday chips** filter the feed: Aseres Yemei Teshuva, Yom Kippur, Sukkos, Shemini Atzeres/Simchas Torah.
-- **Images:** the site loads `img/[<style>/]<id>.jpg`. Comment images are `c_*`, attached with `img: "c_name"`. The `.png` originals are local only (gitignored). `img/optimize.py` makes the `.jpg` copies and runs automatically after `gen_images.py`.
-- **Picture switcher** (Snapshot HD, the default, / Snapshot FLUX / Cartoon / Epic) swaps image sets. A missing image falls back to Snapshot HD.
+- **Images:** the site loads `img/snapshot_gpt/<id>.jpg` (one picture set, "Snapshot HD"; a missing image hides). Comment images are `c_*`, attached with `img: "c_name"`. The `.png` originals are local only (gitignored). `img/optimize.py` makes the `.jpg` copies and runs automatically after `gen_images.py`.
 - **Stats:** [GoatCounter](https://shtiebl.goatcounter.com). `countView()` in `index.html` records one hit per view with the `#/` route as the path. It runs when the script loads and on each new navigation in `go()` (Back/Forward are not counted). Local and `file://` visits are skipped.
 - **Sign-up:** the `#signup` box under every view has a WhatsApp channel button and an email form. The channel/newsletter icon and email banner are `brand/icon.png` and `brand/banner.png`, rendered from `brand/brand.html` by `python brand/render.py`. The email form posts to Kit form 9929696 ([app.kit.com](https://app.kit.com)). It is Kit's HTML embed, styled by `#signup` CSS. Don't switch to Kit's one-line script embed: it serves the form as saved in Kit's editor, which had no email field.
 - **Sources link to Sefaria.** `linkSources()` in `index.html` maps the citation names to Sefaria refs (the `SEF_NAMES` table). Anything it can't parse becomes a Sefaria search link. When you add a new book name, add it to the table.
@@ -38,16 +37,16 @@ To add a post: write `content/posts/<id>.js`, add the id to `POST_ORDER`, and ad
     python tools/check.py            # full check, about 2 minutes
     python tools/check.py --quick    # skips the scroll test and the Sefaria lookups
 
-It checks for page errors, broken images in every style, source boxes without links, unknown users, the feed ↔ thread scroll behavior, the phone header, and that every Sefaria link resolves. Needs Playwright with Edge (`channel="msedge"`).
+It checks for page errors, broken or missing images, source boxes without links, unknown users, the feed ↔ thread scroll behavior, the phone header, and that every Sefaria link resolves. Needs Playwright with Edge (`channel="msedge"`).
 
 ## Images
-Scene prompts and the per-style prefixes are in `img/prompts.json`. `img/manifest.json` records, for every `.png` original, the style, scene, full prompt sent, model, quality and date, so any image can be regenerated or tweaked.
+Scene prompts and the style prefix are in `img/prompts.json`. `img/manifest.json` records, for every `.png` original, the style, scene, full prompt sent, model, quality and date, so any image can be regenerated or tweaked.
 
-**New images are Snapshot HD only** (GPT Image 2.5 via fal, quality low, ~$0.004 each). The Snapshot FLUX, Cartoon and Epic sets are kept but not extended: a missing image in those styles falls back to the Snapshot HD one.
+Images are GPT Image 2.5 via fal, quality low, ~$0.004 each. (The old FLUX, Cartoon and Epic sets and the picture switcher were removed on 2026-09-17; git history has them.)
 
     python img/gen_images.py snapshot <id> --as snapshot_gpt --fal-model openai/gpt-image-2.5/flare/text-to-image --quality low --count 3
     python img/gen_images.py snapshot <id> --as snapshot_gpt --pick 2     # keep take 2, recycle the others
 
 - Never drop `--quality low`: fal bills GPT Image at high (~9×) otherwise. Without `--fal-model` the script uses FLUX schnell.
 - New comment images get a `c_` scene key in `prompts.json`. `--prompt-override "<scene>"` tries a different scene for one image without editing the shared prompt (the manifest still records the full prompt).
-- Look at every take before publishing: as few women as possible (say "men and boys only" in the scene when it can do without them), modest dress (long sleeves and skirts, married women's hair covered), no crosses or church domes, God never depicted. **FLUX can't handle negatives** ("no crosses" put crosses *in*), so describe what you want instead.
+- Look at every take before publishing: no women unless the scene can't work without one (end the scene with "Every person in the picture is a man or a boy; no women or girls anywhere."; zoom into the background, where they slip in), modest dress (long sleeves and skirts, married women's hair covered), no crosses or church domes, God never depicted. **FLUX can't handle negatives** ("no crosses" put crosses *in*), so describe what you want instead.

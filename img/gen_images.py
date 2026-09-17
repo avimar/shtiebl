@@ -3,11 +3,10 @@
     python gen_images.py <style> [id ...] [--count N] [--force] [--prompt-override "..."]
     python gen_images.py <style> <id> --pick N [--as DIR]
 
-style = cartoon | cinematic | snapshot (see prompts.json "_styles").
-cartoon writes img/<id>.png; the other styles write img/<style>/<id>.png.
+style = snapshot (the prefix in prompts.json "_styles"). Writes img/<style>/<id>.png, or img/<AS>/ with --as.
 No ids = every scene. Existing files are skipped unless --force.
 
-New images are Snapshot HD only (GPT Image 2.5, quality low, ~$0.004 each):
+The site uses one set, img/snapshot_gpt/ (GPT Image 2.5, quality low, ~$0.004 each):
     gen_images.py snapshot c_newthing --as snapshot_gpt --fal-model openai/gpt-image-2.5/flare/text-to-image --quality low
 Never drop --quality low: fal bills GPT Image at high (~9x) otherwise. Without --fal-model it is FLUX schnell.
 
@@ -39,7 +38,7 @@ ap.add_argument("--pick", type=int, help="keep take N of a --count run as <id>.p
 a = ap.parse_args()
 
 P = json.loads((HERE / "prompts.json").read_text(encoding="utf-8"))
-out_dir = HERE / a.as_dir if a.as_dir else (HERE if a.style == "cartoon" else HERE / a.style)
+out_dir = HERE / (a.as_dir or a.style)
 out_dir.mkdir(exist_ok=True)
 ids = a.ids or [k for k in P if not k.startswith("_")]
 if (a.prompt_override or a.pick) and len(ids) != 1:
