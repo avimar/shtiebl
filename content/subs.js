@@ -74,4 +74,19 @@ subs({
     color: "#334155",
     aka: "r/UnresolvedMysteries",
   },
+  Parenting: {
+    icon: "🧸",
+    color: "#db7a2c",
+    aka: "r/Parenting",
+  },
+  WellThatSucks: {
+    icon: "😣",
+    color: "#6b7280",
+    aka: "r/Wellthatsucks",
+  },
+  YouInParticular: {
+    icon: "🎯",
+    color: "#be123c",
+    aka: "",
+  },
 });

@@ -677,6 +677,14 @@
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low"
  },
+ "snapshot_gpt/bookends.png": {
+  "style": "snapshot",
+  "scene": "bookends",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a quiet stone study room where one elderly bearded scholar in a kippah sits alone at a wooden table, looking thoughtfully at an open parchment Torah scroll on two wooden rollers; at the left end of the table sit neatly folded simple leather garments, and at the right end lies a small shovel beside a little mound of desert earth; soft warm window light Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
  "snapshot_gpt/bulls.png": {
   "style": "snapshot",
   "scene": "bulls",
@@ -709,6 +717,22 @@
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low"
  },
+ "snapshot_gpt/c_blessing.png": {
+  "style": "snapshot",
+  "scene": "c_blessing",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a modern Jewish father in a white robe and prayer shawl, eyes full of tears, resting both hands on the head of his young son in a white shirt and kippah, blessing him by the front door of their home in the late afternoon; the mother in a long-sleeved dress and a headscarf covering all of her hair stands beside them with a daughter in a long dress, candles glowing on a table behind Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_chasan.png": {
+  "style": "snapshot",
+  "scene": "c_chasan",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a proud seven-year-old boy with a kippah standing on a stool at a synagogue reading table next to an open Torah scroll, his father's white prayer shawl draped over his small shoulders, grinning widely, a crowd of men cheering behind him Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
  "snapshot_gpt/c_cow.png": {
   "style": "snapshot",
   "scene": "c_cow",
@@ -726,6 +750,94 @@
   "quality": "low",
   "note": "retried once (transient fal error)"
  },
+ "snapshot_gpt/c_friday.png": {
+  "style": "snapshot",
+  "scene": "c_friday",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a chaotic modern kitchen on a Friday afternoon: pots boiling on every burner, a bundle of beaten willow branches lying on the counter next to braided challah loaves, a father in a white shirt and kippah stirring a pot, a mother in a long-sleeved dress and a headscarf covering all of her hair checking the oven Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_grave.png": {
+  "style": "snapshot",
+  "scene": "c_grave",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a rocky desert mountain slope: Roman soldiers in armor split into two groups, the group on the mountaintop points down the slope, the group at the bottom points up the slope, both groups looking confused and arguing Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_helene.png": {
+  "style": "snapshot",
+  "scene": "c_helene",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: an extremely tall hut with a leafy palm-branch roof towering several stories high above a courtyard in an ancient town, a dignified queen in a long embroidered modest gown and a veil covering all of her hair under a small crown standing proudly at the door, next to her seven boys lined up by height like a staircase, from a teenager down to a small child, while elderly bearded rabbis walk in and out of the hut Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_kimchis.png": {
+  "style": "snapshot",
+  "scene": "c_kimchis",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a proud elderly Jewish mother in an ancient stone home, wearing a long modest dress with long sleeves and a large headscarf covering all of her hair, beaming and clasping her hands, standing in front of her seven grown bearded sons of different heights lined up in a row, all wearing identical plain white linen priestly robes and white turbans Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_line.png": {
+  "style": "snapshot",
+  "scene": "c_line",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a very long queue of sleepy Jewish men with kippot and towels over their shoulders stretching out the door of a small stone building and around the corner at early dawn, one man yawning widely, one holding a thermos Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_lips.png": {
+  "style": "snapshot",
+  "scene": "c_lips",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a large brown bull standing in line at the gate of an ancient stone temple, looking offended, while beside it a man in a white robe with no animal stands with his eyes closed, praying; a priest at the gate waves the praying man in first Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_menashe.png": {
+  "style": "snapshot",
+  "scene": "c_menashe",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: an elderly bearded patriarch in ancient robes sitting up on a bed, arms crossed so that his right hand rests on the head of the younger boy and his left hand on the head of the older boy, blessing them; their father in fine Egyptian-style robes stands nearby, surprised Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_moving.png": {
+  "style": "snapshot",
+  "scene": "c_moving",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a smiling ancient family in long robes leading a donkey cart piled high with belongings along a road out of town toward green hills, waving goodbye, the wife in a long dress with a headscarf covering all of her hair Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_raise.png": {
+  "style": "snapshot",
+  "scene": "c_raise",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a stern Temple official in robes pointing upward and shouting at a young priest in white on a stone altar, and the priest nervously holds a golden jug high above his head with his arm fully stretched up, pouring water down into a silver basin Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_receipt.png": {
+  "style": "snapshot",
+  "scene": "c_receipt",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: the men's section of an old stone synagogue, only bearded men in white prayer shawls on the benches: a young man in a prayer shawl sits after praying with arms folded, tapping his foot and staring expectantly at the ceiling like a customer waiting for an order at a counter, an hourglass on the bench beside him Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_roof.png": {
+  "style": "snapshot",
+  "scene": "c_roof",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: close-up of an ancient flat roof: bare wooden beams exposed, chunks of white plaster piled neatly to one side, fresh green palm branches laid across the beams; an elderly man's sandaled feet and a long wooden builder's measuring rod beside them Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
  "snapshot_gpt/c_sailors.png": {
   "style": "snapshot",
   "scene": "c_sailors",
@@ -734,6 +846,38 @@
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low"
  },
+ "snapshot_gpt/c_smell.png": {
+  "style": "snapshot",
+  "scene": "c_smell",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: close-up of a bearded man in a white shirt holding a bright yellow citron fruit up to his nose, eyes closed in bliss, inside a leafy sukkah hut, while behind him a palm frond bundle lies untouched on a shelf Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_table.png": {
+  "style": "snapshot",
+  "scene": "c_table",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a quiet empty stone house: a steaming potato kugel in a baking dish on a dry dinner table set for one, and through the open doorway heavy rain pours onto a small leafy-roofed hut outside Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_twoparties.png": {
+  "style": "snapshot",
+  "scene": "c_twoparties",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: two separate festive banquet pavilions side by side in ancient Jerusalem, one decorated with gold temple vessels, the other with leafy palm-branch roofs, and a wise young king in royal robes standing between them, firmly holding the two pavilion doors apart with outstretched arms Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_wall.png": {
+  "style": "snapshot",
+  "scene": "c_wall",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a very old stone wall of an ancient study hall leaning forward at a steep angle, like it is bowing politely, over a doorway, while scholars in robes walk underneath carefully and look up nervously Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
  "snapshot_gpt/calf.png": {
   "style": "snapshot",
   "scene": "calf",
@@ -741,6 +885,14 @@
   "date": "2026-09-17",
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low"
+ },
+ "snapshot_gpt/choranit.png": {
+  "style": "snapshot",
+  "scene": "choranit",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a small hut with a palm-branch roof built right against the doorway of an ancient stone house: a bearded sage sits with his head and body inside the hut but leans far back through the house door, stretching one arm to reach a dinner table set inside the house; at the hut entrance two groups of elderly bearded rabbis in robes watch him, one group frowning with arms crossed, the other group calm and shrugging Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
  },
  "snapshot_gpt/clouds.png": {
   "style": "snapshot",
@@ -757,6 +909,22 @@
   "date": "2026-09-17",
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low"
+ },
+ "snapshot_gpt/esrogim.png": {
+  "style": "snapshot",
+  "scene": "esrogim",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: the stone ramp of the great altar in the Second Temple courtyard: a priest in white linen robes smugly pours water from a golden jug onto his own sandaled feet, while a huge festive crowd below, each person holding a palm frond bundle, throws yellow citron fruits at him; dozens of yellow citrons fly through the air toward him and he raises an arm to shield himself Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/fasting.png": {
+  "style": "snapshot",
+  "scene": "fasting",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a modern Jewish family kitchen on the morning of Yom Kippur, everyone dressed in white: a determined nine-year-old boy with a kippah and sidelocks sits at the table with arms crossed, staring hard at an hourglass on the table, while his smiling mother in a long-sleeved dress and a headscarf covering all of her hair holds a plate with a small breakfast just out of his reach, waiting for the sand to run out Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
  },
  "snapshot_gpt/happy.png": {
   "style": "snapshot",
@@ -782,6 +950,22 @@
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low"
  },
+ "snapshot_gpt/kids.png": {
+  "style": "snapshot",
+  "scene": "kids",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: inside a crowded modern synagogue on Simchat Torah: dozens of little boys with kippot and sidelocks packed tightly onto a small raised wooden reading platform around an open Torah scroll, squeezed shoulder to shoulder, while their fathers in white prayer shawls stand around the platform holding their hands up over the children in blessing, and an old gabbai with a white beard is squeezed at the very edge, holding on Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/kimchis.png": {
+  "style": "snapshot",
+  "scene": "kimchis",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: an ancient Jerusalem market street: a Jewish high priest in plain white linen robes, white sash and white turban stands frozen in horror, holding out his sleeve and staring at one tiny wet droplet on the white linen; a chatty merchant in a long robe, seen from behind, is mid-sentence with his hands raised; in the background at the temple gate, the priest's younger brother cheerfully puts on an identical white turban and gives a thumbs up Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
  "snapshot_gpt/lev.png": {
   "style": "snapshot",
   "scene": "lev",
@@ -789,6 +973,22 @@
   "date": "2026-09-17",
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low"
+ },
+ "snapshot_gpt/lovelevel.png": {
+  "style": "snapshot",
+  "scene": "lovelevel",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: at an ancient money-changer's wooden table in a sunny stone marketplace, a burly muscular former gladiator with a scarred face, now dressed as a humble scholar in a simple long robe and head covering, slides a small pile of dull black pebbles across the table, and the smiling old money-changer slides back a much bigger pile of shining gold coins; male onlookers in head wraps gasp Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/luach.png": {
+  "style": "snapshot",
+  "scene": "luach",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a modern Jewish family's leafy sukkah hut on a Shabbat afternoon, white tablecloth, silver candlesticks: a young boy with a kippah stares longingly at a palm-frond lulav bundle and a ram's horn shofar lying on a high shelf behind a red velvet rope like a museum display, while his father, eyes closed, happily sniffs a yellow citron fruit Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
  },
  "snapshot_gpt/melech.png": {
   "style": "snapshot",
@@ -798,6 +998,14 @@
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low"
  },
+ "snapshot_gpt/mikvah.png": {
+  "style": "snapshot",
+  "scene": "mikvah",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: dawn over an old stone Jerusalem neighborhood: an all-male line of bearded Jewish men and teenage boys in white shirts and kippot, towels over their shoulders, waiting outside a small stone bathhouse, and soft sparkling rain falls from glowing golden clouds onto the whole town, so every man in the line is already being gently sprinkled, looking up in surprise and smiling Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
  "snapshot_gpt/minim.png": {
   "style": "snapshot",
   "scene": "minim",
@@ -805,6 +1013,14 @@
   "date": "2026-09-17",
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low"
+ },
+ "snapshot_gpt/pending.png": {
+  "style": "snapshot",
+  "scene": "pending",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: inside a grand ancient stone hall of judgment, three enormous open ledger books on tall wooden stands; smiling men in robes walk away happily holding scrolls sealed with red wax, while one anxious bearded man in a simple robe and head covering stands at a wooden counter pressing a brass service bell again and again, staring at a large hourglass that is only half run out, a long queue of people behind him Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
  },
  "snapshot_gpt/rain.png": {
   "style": "snapshot",
@@ -821,6 +1037,22 @@
   "date": "2026-09-17",
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low"
+ },
+ "snapshot_gpt/shammai.png": {
+  "style": "snapshot",
+  "scene": "shammai",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: cutaway view of an ancient two-story stone house: on the flat roof a stern elderly bearded sage in robes with a hammer and chisel chips away white plaster from between the wooden beams and lays green palm branches over the opening; directly below, inside the room, a newborn baby sleeps in a wooden cradle right under the leafy opening, while the young mother in a long modest dress and a headscarf covering all of her hair sits up in bed looking at the ceiling in astonishment Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/shlomo.png": {
+  "style": "snapshot",
+  "scene": "shlomo",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a giant joyful banquet in the courtyard of the First Temple in Jerusalem, a gleaming white-and-gold stone temple facade with two tall bronze pillars, long tables piled with food, crowds of bearded men feasting and dancing in circles with arms on each other's shoulders; in the corner three men with worried faces glance nervously at a stone sundial while still holding their food Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
  },
  "snapshot_gpt/snap.png": {
   "style": "snapshot",
@@ -854,6 +1086,14 @@
   "date": "2026-09-17",
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low"
+ },
+ "snapshot_gpt/wall.png": {
+  "style": "snapshot",
+  "scene": "wall",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a narrow old-city alley: a cheerful young Jewish man with a kippah sits cross-legged on the ground eating a sandwich directly under a tall man-made wall of stacked square cut-stone blocks, the corner of an old building, which leans dramatically out over him at a scary angle, a crack running up it, propped up by one thin wooden plank, a few pebbles falling; bearded men in long robes passing by stop and stare in horror, one covering his eyes; bright sun Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
  },
  "snapshot_gpt/yonah.png": {
   "style": "snapshot",

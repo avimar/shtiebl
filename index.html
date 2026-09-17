@@ -189,10 +189,12 @@ const HOLIDAYS = {ayt:"Aseres Yemei Teshuva", yk:"Yom Kippur", suk:"Sukkos", st:
 // SEFARIA-START
 const SEF_NAMES = (()=>{
   const tanach = {Bereishis:"Genesis",Shemos:"Exodus",Vayikra:"Leviticus",Bamidbar:"Numbers",Devarim:"Deuteronomy",
-    Yeshayahu:"Isaiah",Yonah:"Jonah",Tehillim:"Psalms",Zecharia:"Zechariah"};
+    Yeshayahu:"Isaiah",Yonah:"Jonah",Tehillim:"Psalms",Zecharia:"Zechariah",
+    Yirmiyahu:"Jeremiah",Yechezkel:"Ezekiel",Hoshea:"Hosea","Melachim I":"I_Kings"};
   const bavli = {"Avodah Zarah":"Avodah_Zarah","Bava Basra":"Bava_Batra","Bava Metzia":"Bava_Metzia",Berachos:"Berakhot",
     Gittin:"Gittin",Megillah:"Megillah",Menachos:"Menachot","Rosh Hashana":"Rosh_Hashanah",Shabbos:"Shabbat",
-    Sukkah:"Sukkah",Taanis:"Taanit",Yoma:"Yoma"};
+    Sukkah:"Sukkah",Taanis:"Taanit",Yoma:"Yoma",
+    Makkos:"Makkot","Moed Katan":"Moed_Katan",Sotah:"Sotah"};
   const m = {
     "Rema & Shulchan Aruch OC":"Shulchan_Arukh,_Orach_Chayim", "Rema OC":"Shulchan_Arukh,_Orach_Chayim",
     "Shulchan Aruch OC":"Shulchan_Arukh,_Orach_Chayim", "Tur OC":"Tur,_Orach_Chaim",
@@ -201,6 +203,8 @@ const SEF_NAMES = (()=>{
     "Rambam, Avodas Yom HaKippurim":"Mishneh_Torah,_Service_on_the_Day_of_Atonement",
     "Pirkei Avos":"Pirkei_Avot", "Vayikra Rabbah":"Vayikra_Rabbah", "Bereishis Rabbah":"Bereshit_Rabbah",
     "Avos d'Rabbi Nosson":"Avot_D'Rabbi_Natan", "Mechilta, Pischa":"Mekhilta_DeRabbi_Yishmael,_Tractate_Pischa",
+    "Kitzur Shulchan Aruch":"Kitzur_Shulchan_Arukh",
+    "Tosafos, Rosh Hashana":"Tosafot_on_Rosh_Hashanah", "Rashi, Yoma":"Rashi_on_Yoma", "Rashi, Sukkah":"Rashi_on_Sukkah",
   };
   for (const [he,en] of Object.entries(tanach)) { m[he]=en; m["Rashi, "+he]=m["Rashi "+he]="Rashi_on_"+en; }
   for (const [he,en] of Object.entries(bavli)) { m[he]=en; m["Mishna "+he]="Mishnah_"+en; }

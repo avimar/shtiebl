@@ -18,6 +18,8 @@ users({
   Tarshish_Sailor:   { avatar: "⚓", flair: "deckhand", bio: "Ship to Tarshish, one trip. Rowed hard. Prayed harder." },
   random_cow:        { avatar: "🐄", bio: "Nineveh livestock. Fasted once, involuntarily." },
   Sancheriv_genealogy: { avatar: "🏺", flair: "history nerd", bio: "Tracks which enemies' descendants ended up teaching Torah. The list is longer than you think." },
+  Yaakov_Avinu:      { avatar: "⭐", flair: "Avos", bio: "Avinu. Blessed his grandsons Ephraim and Menashe. Kids still get that blessing on Simchas Torah." },
+  Shlomo_HaMelech:   { avatar: "🦁", flair: "King · verified", bio: "Built the Beis HaMikdash. Wisest of all men. Threw a fourteen-day dedication party." },
 
   // ---- Tannaim & Amoraim ----
   Rashi:             { avatar: "📜", flair: "Parshan · verified", bio: "11th-c. France. Wine merchant. Explains everything in five words." },
@@ -49,6 +51,21 @@ users({
   Midrash_body_parts: { avatar: "🫀", flair: "Vayikra Rabbah", bio: "Vayikra Rabbah, on the four minim as the four parts of you." },
   Shimon_HaTzadik_era: { avatar: "🗃️", flair: "archivist", bio: "Keeps the records from the forty years of Shimon HaTzadik." },
   Zecharia_ben_Kevutal: { avatar: "📚", flair: "night-shift reader", bio: "Read to the Kohen Gadol all night, many times. From Daniel." },
+  Shammai_HaZaken:   { avatar: "📐", flair: "Av Beis Din", bio: "Shammai the Elder. Keeps a builder's cubit handy. Strict, even about newborns and sukkah." },
+  Beis_Shammai:      { avatar: "🏛️", flair: "school of Shammai", bio: "The school of Shammai. Usually outvoted. Stands by every word." },
+  Beis_Hillel:       { avatar: "🕊️", flair: "school of Hillel", bio: "The school of Hillel. Usually the halacha. Quotes the other side first." },
+  R_Elazar_ben_Azarya: { avatar: "🧑‍🦳", flair: "Tanna", bio: "Made Nasi young. Found the fine print in “before Hashem you shall be purified.”" },
+  R_Yitzchak:        { avatar: "📝", flair: "Amora", bio: "Amora. Has a whole page of Rosh Hashana rulings, each one starting “And R' Yitzchak said.”" },
+  R_Simlai:          { avatar: "🧵", flair: "Amora", bio: "Amora. Counted the 613 mitzvos. Noticed the Torah starts and ends with chesed." },
+  R_Chama_bar_Chanina: { avatar: "🔥", flair: "Amora", bio: "Amora. Explains how to walk after a consuming fire: copy His ways." },
+  Queen_Helene:      { avatar: "🏰", flair: "Queen", bio: "Mother of King Munbaz. Gave a gold chandelier for the Heichal entrance. Seven sons, one very tall sukkah." },
+  Kimchis:           { avatar: "🧕", flair: "mother of seven Kohanim Gedolim", bio: "All seven sons served as Kohen Gadol. The beams of her house never saw her hair." },
+  R_Yishmael_ben_Kimchis: { avatar: "🖐️", flair: "Kohen Gadol (usually)", bio: "Kohen Gadol with enormous hands. Twice got spattered in the market, and twice a brother filled in." },
+  Yeshevav_ben_Kimchis: { avatar: "🔁", flair: "Kohen Gadol (fill-in)", bio: "Filled in for his brother once. Their mother was there." },
+  Yosef_ben_Kimchis: { avatar: "🔁", flair: "Kohen Gadol (fill-in)", bio: "Filled in for his brother the other time." },
+  Yoma_47a:          { avatar: "📄", flair: "Gemara", bio: "The page of Gemara about Kimchis and her seven sons." },
+  Yoma_82a:          { avatar: "📄", flair: "Gemara", bio: "The page of Gemara on children and the Yom Kippur fast. Three opinions on the ages." },
+  Gemara_Sukkah:     { avatar: "📄", flair: "Gemara", bio: "Masechta Sukkah. Knows the rules on huts, lulavim, and who counts as a kid." },
 
   // ---- Rishonim & Acharonim ----
   Tur:               { avatar: "🏷️", flair: "Rishon", bio: "R' Yaakov ben Asher. Sorted halacha into four rows. Knows why the sukkah is in Tishrei." },
@@ -56,6 +73,9 @@ users({
   Rema:              { avatar: "🧺", flair: "Acharon", bio: "R' Moshe Isserles of Cracow. Adds the tablecloth to the Shulchan Aruch." },
   Rema_fan:          { avatar: "🥯", flair: "Ashkenazi", bio: "Follows the Rema. Will tell you when Sefardim do it differently." },
   Gra_reader:        { avatar: "🕯️", flair: "Vilna", bio: "Reads the Vilna Gaon so you don't have to. (You should, though.)" },
+  Tosafos:           { avatar: "➕", flair: "Baalei HaTosafos", bio: "French and German Rishonim. A question on the page, an answer from across Shas." },
+  Mishna_Berura:     { avatar: "📓", flair: "Acharon", bio: "R' Yisrael Meir Kagan, the Chafetz Chaim. Explains the Shulchan Aruch line by line." },
+  Kitzur_Shulchan_Aruch: { avatar: "📒", flair: "Acharon", bio: "R' Shlomo Ganzfried. The Shulchan Aruch in short, for everyone." },
 
   // ---- Temple staff & shul regulars ----
   KohenGadol:        { avatar: "💎", flair: "Kohen Gadol", bio: "Once a year I walk into the Holy of Holies. Seven days of prep. Please don't mention Shemaya and Avtalyon." },
@@ -68,6 +88,9 @@ users({
   baal_koreh:        { avatar: "📏", flair: "baal koreh", bio: "Reads from the Torah. Finishes it and rewinds it on the same morning." },
   AYT_regular:       { avatar: "🙂", flair: "shul regular", bio: "Front row for selichos. Knows every addition to the Ten Days' davening." },
   EY_resident:       { avatar: "🌴", flair: "Eretz Yisrael", bio: "Lives in Eretz Yisrael. One day of Yom Tov, and proud of it." },
+  Temple_appointee:  { avatar: "📣", flair: "memuneh", bio: "Temple official. Tells whoever pours the water to raise his hand. Every time." },
+  tzeduki_kohen:     { avatar: "🦶", flair: "Tzeduki", bio: "Sadducee kohen. Didn't accept the water libation. Poured it on his feet once. Only once." },
+  luach_nerd:        { avatar: "📅", flair: "calendar", bio: "Checks the luach before anyone asks. Knows which days Rosh Hashana can't fall on." },
 
   // ---- everybody else ----
   throwaway_shvigger: { avatar: "😤", bio: "Brother-in-law of someone who apologizes a lot." },
@@ -101,4 +124,10 @@ users({
   the_crowns:        { avatar: "✨", flair: "tagin", bio: "The little crowns on the letters of a sefer Torah." },
   eighth_row_regular: { avatar: "💺", bio: "Eighth row, every shiur. Someone was in his seat." },
   kid_on_shoulders:  { avatar: "🚩", bio: "On a father's shoulders every Simchas Torah. Flag in one hand, candy in the other." },
+  beinoni_4life:     { avatar: "🟰", bio: "Exactly half merits, half sins. Refreshes the status page daily." },
+  shortcut_guy:      { avatar: "🥪", bio: "Eats lunch in the shade of whatever is leaning." },
+  ima_of_five:       { avatar: "🍼", flair: "Ima", bio: "Five kids, one sukkah, zero quiet." },
+  tired_abba:        { avatar: "😴", flair: "Abba", bio: "Hears “Ima, Ima” at night and pretends he doesn't." },
+  shammais_daughter_in_law: { avatar: "👶", flair: "new mom", bio: "Just had a baby. Her father-in-law is Shammai. Part of the ceiling is now schach." },
+  beis_peor_garrison: { avatar: "🗺️", flair: "Roman garrison", bio: "Sent to find a grave. It kept being somewhere else." },
 });
