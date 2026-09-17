@@ -3,7 +3,7 @@
 **Live:** https://avimar.github.io/shtiebl/ (GitHub Pages, served from `main`, so pushing is publishing).
 Locally, open `index.html` in a browser. There is no build step. The page loads the content files directly.
 
-- **Permalinks:** `#/r/<Sub>/<post id>` opens that thread at the top, showing the whole post. Only a tap from a list skips past most of the image, since that reader already saw it. Add `/c/<cid>` to jump to one comment and flash it (`cid` = position path, e.g. `2.0` = 3rd comment's 1st reply; it shifts if comments are inserted above). Old `#/p/<post id>` links still work. **Share** copies the permalink and shows "Link copied to clipboard".
+- **Permalinks:** `#/r/<Sub>/<post id>` opens that thread. Threads always open at the top, and a blue bar in the header ("← Back to …") plus a darker page background show you're inside one. Add `/c/<cid>` to jump to one comment and flash it (`cid` = position path, e.g. `2.0` = 3rd comment's 1st reply; it shifts if comments are inserted above). Old `#/p/<post id>` links still work. **Share** copies the permalink and shows "Link copied to clipboard".
 - **Sub pages:** `#/r/<Sub>` shows that community's header and only its posts. Tap any `r/…` name to go there.
 - **Profiles:** `#/u/<user>` shows avatar, flair, bio, every comment (each links to its spot in the thread) and the user's posts. Tap any `u/…` name to go there.
 - **Navigation:** each list view (feed, sub page, profile) saves its scroll spot in its own history entry when you leave it. The thread's "← Back to …" links (top and bottom) and the browser's Back button return to that exact spot. The logo goes to the feed; on the feed it scrolls to the top.
@@ -26,7 +26,7 @@ A comment is `{by, flair?, votes, x, src?, img?, flavor?, replies?}`. The OP bad
 To add a post: write `content/posts/<id>.js`, add the id to `POST_ORDER`, and add any new users to `users.js`. Countdown dates live in `DATES` in `index.html`. Update them each season with `hdate`.
 
 ## Content rules
-1. Every post and comment has a `src`, and the source really says it.
+1. Every post and comment has a `src`, and the source really says it. Gemara refs name the Sefaria line: `Shabbos 87a:5`, `Sotah 13b:9–14a:2` (check.py fails on a bare daf).
 2. The ADMIN (u/HaMelech) quotes only Tanach or Chazal.
 3. Invented lines get `flavor: true` and show a grey FLAVOR badge.
 
