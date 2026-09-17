@@ -97,6 +97,7 @@ function countView(){
   .chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
   .chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:16px;padding:5px 12px;cursor:pointer;font:inherit;font-size:13px}
   .chip.on{background:var(--ink);color:var(--card)}
+  .chip-sep{flex:0 0 1px;margin:4px 4px;background:var(--line)}
   @media (max-width:700px){ .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none} .chip{white-space:nowrap} }
 
   /* post card */
@@ -105,6 +106,7 @@ function countView(){
   .votes{width:44px;background:var(--chip);display:flex;flex-direction:column;align-items:center;padding:8px 0;gap:2px;font-weight:700;font-size:12px;flex-shrink:0}
   .votes b{cursor:pointer;color:var(--muted);font-size:17px;line-height:1;user-select:none}
   .votes b.up.on{color:var(--orange)} .votes b.down.on{color:#7193ff}
+  .votes:has(.up.on) span{color:var(--orange)} .votes:has(.down.on) span{color:#7193ff}
   .pbody{padding:8px 12px 4px;min-width:0;flex:1}
   .meta{font-size:12px;color:var(--muted);display:flex;gap:6px;align-items:center;flex-wrap:wrap}
   .sub{color:var(--ink);font-weight:700} .subicon + .sub{margin-left:5px} a.sub:hover{text-decoration:underline}
@@ -277,20 +279,40 @@ function linkSources(src){
 // Pictures are img/snapshot_gpt/<id>.jpg (web copies made by img/optimize.py); a missing one hides.
 const imgSrc = id => `img/snapshot_gpt/${id}.jpg`;
 let hol = "all";
+// "My votes" filter on list views: "all", "up", "down" or "none". Its chips show once you've voted on something.
+let voteFilter = "all";
+const VOTE_FILTERS = {up: "⬆ Upvoted", down: "⬇ Downvoted", none: "No vote"};
+const VOTE_VALUE = {up: 1, down: -1, none: undefined};
 const $ = s => document.querySelector(s);
 
 function subTag(name){
   const s = SUBS[name];
   return `<span class="subicon" style="background:${s.color}">${s.icon}</span><a class="sub" href="#/r/${name}">r/${name}</a>`;
 }
-function voteCol(v){
-  return `<div class="votes"><b class="up" onclick="vote(this,1)">⬆</b><span>${v}</span><b class="down" onclick="vote(this,-1)">⬇</b></div>`;
+// Your own ⬆/⬇ on each post, kept in this browser only: localStorage "shtiebl-votes" = {postId: 1 | -1}.
+// It colors the arrow and the count; the count itself is content and never changes.
+let myVotes = {};
+try { myVotes = JSON.parse(localStorage.getItem("shtiebl-votes")) || {}; } catch {}
+function voteCol(id, v){
+  const mine = myVotes[id];
+  return `<div class="votes"><b class="up${mine === 1 ? " on" : ""}" onclick="vote(this,'${id}',1)">⬆</b><span>${v}</span>` +
+    `<b class="down${mine === -1 ? " on" : ""}" onclick="vote(this,'${id}',-1)">⬇</b></div>`;
 }
-function vote(el,d){
+// Tapping your current vote again clears it.
+function vote(el, id, d){
+  const hadVotes = Object.keys(myVotes).length > 0;
+  if (myVotes[id] === d) delete myVotes[id];
+  else myVotes[id] = d;
+  try { localStorage.setItem("shtiebl-votes", JSON.stringify(myVotes)); } catch {}
   const col = el.parentElement;
-  const on = el.classList.contains("on");
-  col.querySelectorAll("b").forEach(b=>b.classList.remove("on"));
-  if(!on) el.classList.add("on");
+  col.querySelector(".up").classList.toggle("on", myVotes[id] === 1);
+  col.querySelector(".down").classList.toggle("on", myVotes[id] === -1);
+  // first vote or last vote cleared: redraw so the "My votes" chips appear or go away
+  const hasVotes = Object.keys(myVotes).length > 0;
+  if (hasVotes !== hadVotes) {
+    voteFilter = "all";
+    if (LISTS.includes(view[0])) render();
+  }
 }
 function postCard(p, full){
   const open = hashFor("thread", p.id);
@@ -300,7 +322,7 @@ function postCard(p, full){
   let pic = `<img class="pimg" src="${imgSrc(p.img)}" alt="" loading="lazy" onerror="this.remove()">`;
   if (full) title = `<div class="title">${titleText}</div>`;
   else pic = `<a href="${open}">${pic}</a>`;
-  return `<div class="post">${voteCol(p.votes)}<div class="pbody">
+  return `<div class="post">${voteCol(p.id, p.votes)}<div class="pbody">
     <div class="meta">${subTag(p.sub)} · Posted by ${userLink(p.by)} · ${p.age} ago <span class="awards">${p.awards||""}</span>
       <span class="tag">${HOLIDAYS[p.hol]}</span></div>
     ${title}
@@ -353,11 +375,20 @@ function commentRow({post, c, cid}, q){
 function renderList(head, posts, noChips, tail = ""){
   const chips = [["all","🔥 All"],...Object.entries(HOLIDAYS)].map(([k,l])=>
     `<button class="chip ${hol===k?"on":""}" onclick="hol='${k}';render()">${l}</button>`).join("");
-  const list = posts.filter(p=>hol==="all"||p.hol===hol);
+  // tapping the chip that's already on turns the vote filter off
+  let voteChips = "";
+  if (Object.keys(myVotes).length) {
+    voteChips = `<span class="chip-sep"></span>` + Object.entries(VOTE_FILTERS).map(([k,l])=>
+      `<button class="chip ${voteFilter===k?"on":""}" onclick="voteFilter = voteFilter==='${k}' ? 'all' : '${k}';render()">${l}</button>`).join("");
+  }
+  let list = posts.filter(p=>hol==="all"||p.hol===hol);
+  if (voteFilter !== "all") list = list.filter(p => myVotes[p.id] === VOTE_VALUE[voteFilter]);
+  let emptyMsg = `Nothing here for ${HOLIDAYS[hol]} yet.`;
+  if (voteFilter !== "all") emptyMsg = `No posts match “${VOTE_FILTERS[voteFilter]}” here.`;
   if (noChips) { $("#col").innerHTML = head + tail; return; }
-  $("#col").innerHTML = head + `<div class="chips">${chips}</div>` +
+  $("#col").innerHTML = head + `<div class="chips">${chips}${voteChips}</div>` +
     (list.length ? list.map(p=>`<div id="p-${p.id}">${postCard(p)}</div>`).join("")
-                 : `<div class="empty">Nothing here for ${HOLIDAYS[hol]} yet.</div>`) + tail;
+                 : `<div class="empty">${emptyMsg}</div>`) + tail;
 }
 function renderSub(name){
   const s = SUBS[name], posts = POSTS.filter(p=>p.sub===name);
