@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>shtiebl — the front page of the beis medrash</title>
+<!-- GoatCounter (https://shtiebl.goatcounter.com). The site is one page, so countView() sends the #/ route as the path. -->
+<script data-goatcounter="https://shtiebl.goatcounter.com/count" data-goatcounter-settings='{"no_onload": true}'
+        async src="https://gc.zgo.at/count.js" onload="countView()"></script>
 <meta name="description" content="Real Torah dressed up as the internet: Yom Kippur, Sukkos and Simchas Torah as Reddit threads. Every post cites its source on Sefaria.">
 <meta property="og:title" content="shtiebl — the front page of the beis medrash">
 <meta property="og:description" content="AITR for smashing the tablets my Boss wrote Himself? Real Torah as Reddit threads, every line sourced.">
@@ -66,7 +69,19 @@
   #loadErr:not(:empty){background:#b91c1c;color:#fff;padding:8px 18px;font-weight:600}
 
   main{display:flex;gap:24px;max-width:1100px;margin:18px auto;padding:0 14px;align-items:flex-start}
-  #col{flex:1;min-width:0}
+  #colwrap{flex:1;min-width:0}
+  #signup{margin-top:18px}
+  #signup .wa{display:block;margin-top:10px;padding:9px;border-radius:4px;background:#25d366;color:#fff;font-weight:700;text-align:center}
+  #signup form{margin-top:10px}
+  #signup .formkit-fields{display:flex;gap:8px;flex-wrap:wrap}
+  #signup .formkit-input{flex:1 1 200px;min-width:0;padding:9px 10px;font:inherit;border:1px solid var(--line);border-radius:4px;background:var(--card);color:var(--ink)}
+  #signup .formkit-submit{padding:9px 18px;font:inherit;font-weight:700;border:0;border-radius:4px;background:var(--accent);color:#fff;cursor:pointer}
+  #signup .formkit-spinner{display:none}
+  #signup .formkit-alert{list-style:none;margin:0 0 8px;padding:8px;border-radius:4px}
+  #signup .formkit-alert:empty{display:none}
+  #signup .formkit-alert-error{background:#fde8e2;color:#b3300c}
+  #signup .formkit-alert-success{background:#d3fbeb;color:#0c6b45}
+  #signup [data-element="powered-by"]{display:inline-block;margin-top:6px}
   aside{width:312px;flex-shrink:0;display:flex;flex-direction:column;gap:14px}
   @media (max-width:900px){aside{display:none}}
 
@@ -166,7 +181,25 @@
 <div id="loadErr"></div>
 
 <main>
-  <div id="col"></div>
+  <div id="colwrap">
+    <div id="col"></div>
+    <!-- Kit sign-up: form 9929696 (app.kit.com), from Kit's "HTML" embed with its style block swapped for #signup CSS.
+         Not Kit's one-line script embed: that serves the saved form, which had no email field. ck.5.js shows errors/success in place.
+         Outside #col so render() never wipes it; shows under every view, phones included. -->
+    <div class="box" id="signup"><h3>📬 Get the next threads</h3><div class="in">
+      New threads on the parsha and each Yom Tov, by WhatsApp or email.
+      <a class="wa" href="https://whatsapp.com/channel/0029VbDTdHV7DAX2CUMhaq3m" target="_blank" rel="noopener">Follow on WhatsApp</a>
+      <form action="https://app.kit.com/forms/9929696/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9929696" data-uid="d62f7c55fa" data-format="inline" data-version="5" data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;message&quot;,&quot;success_message&quot;:&quot;Success! Now check your email to confirm your subscription.&quot;,&quot;redirect_url&quot;:&quot;&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:true,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}">
+        <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+        <div data-element="fields" class="seva-fields formkit-fields">
+          <input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="Email address" required type="email">
+          <button data-element="submit" class="formkit-submit"><div class="formkit-spinner"><div></div><div></div><div></div></div><span>Subscribe</span></button>
+        </div>
+        <a href="https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic" data-element="powered-by" class="note" target="_blank" rel="nofollow noopener">Built with Kit</a>
+      </form>
+      <script async src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+    </div></div>
+  </div>
   <aside>
     <div class="box"><h3>⏳ Coming up (Eretz Yisrael)</h3><div class="in" id="countdown"></div></div>
     <div class="box"><h3>About shtiebl</h3><div class="in">
@@ -386,6 +419,12 @@ function currentSpot(clicked){
   const el = clicked ? document.getElementById(clicked) : cards.find(c => c.getBoundingClientRect().bottom > headerH());
   return el ? {el: el.id, top: el.getBoundingClientRect().top} : null;
 }
+// One GoatCounter hit per view, path = the #/ route. Runs when count.js loads (the landing view)
+// and on each new navigation in go(). pushState fires no hashchange, so the hash can't be watched.
+// Back/Forward are not counted. GoatCounter skips localhost and file:// by itself.
+function countView(){
+  if (window.goatcounter && goatcounter.count) goatcounter.count({path: location.pathname + (location.hash || "#/")});
+}
 // state = the history entry being shown (browser Back/Forward, fresh load); omitted = a new navigation.
 function go(v, arg, state){
   if (!state) {
@@ -396,6 +435,7 @@ function go(v, arg, state){
     if (leavingList) history.replaceState({...history.state, spot: currentSpot(clicked)}, "");
     state = {v, arg, from: v === "thread" && leavingList ? view : null};
     history.pushState(state, "", location.pathname + location.search + hashFor(v, arg));
+    countView();
   }
   view = [v, arg];
   document.body.style.paddingBottom = "";

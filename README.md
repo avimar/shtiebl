@@ -11,6 +11,8 @@ Locally, open `index.html` in a browser. There is no build step. The page loads 
 - **Holiday chips** filter the feed: Aseres Yemei Teshuva, Yom Kippur, Sukkos, Shemini Atzeres/Simchas Torah.
 - **Images:** the site loads `img/[<style>/]<id>.jpg`. Comment images are `c_*`, attached with `img: "c_name"`. The `.png` originals are local only (gitignored). `img/optimize.py` makes the `.jpg` copies and runs automatically after `gen_images.py`.
 - **Picture switcher** (Snapshot HD, the default, / Snapshot FLUX / Cartoon / Epic) swaps image sets. A missing image falls back to Snapshot HD.
+- **Stats:** [GoatCounter](https://shtiebl.goatcounter.com). `countView()` in `index.html` records one hit per view with the `#/` route as the path. It runs when the script loads and on each new navigation in `go()` (Back/Forward are not counted). Local and `file://` visits are skipped.
+- **Sign-up:** the `#signup` box under every view has a WhatsApp channel button and an email form. The channel/newsletter icon and email banner are `brand/icon.png` and `brand/banner.png`, rendered from `brand/brand.html` by `python brand/render.py`. The email form posts to Kit form 9929696 ([app.kit.com](https://app.kit.com)). It is Kit's HTML embed, styled by `#signup` CSS. Don't switch to Kit's one-line script embed: it serves the form as saved in Kit's editor, which had no email field.
 - **Sources link to Sefaria.** `linkSources()` in `index.html` maps the citation names to Sefaria refs (the `SEF_NAMES` table). Anything it can't parse becomes a Sefaria search link. When you add a new book name, add it to the table.
 
 ## Content files
