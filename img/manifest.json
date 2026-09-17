@@ -763,6 +763,14 @@
   "quality": "low",
   "date": "2026-09-17"
  },
+ "snapshot_gpt/c_chips.png": {
+  "style": "snapshot",
+  "scene": "c_chips",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: alone on a bare rocky mountain top in the desert at dawn, nobody else anywhere on the mountain: an old bearded leader in plain robes is carving two blank stone tablets with rounded tops out of a block of glowing deep-blue sapphire, hammer and chisel in hand; at his feet lies a big pile of sparkling blue sapphire chips, and he pauses to glance at the pile with a small surprised smile while scooping a handful into a leather pouch. He is the only person in the picture; no women or girls anywhere. Every person in the picture is a man or a boy; no women or girls anywhere. Everyone modestly dressed: long sleeves, long skirts, high necklines. Show men and boys; include women only when the scene cannot work without them. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
  "snapshot_gpt/c_cow.png": {
   "style": "snapshot",
   "scene": "c_cow",
@@ -783,6 +791,14 @@
   "style": "snapshot",
   "scene": "c_dinner",
   "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a Jewish high priest in plain white linen robes, white sash and white turban sitting alone at the head of a long wooden table in a stone temple chamber at dusk, staring sadly at one tiny plate holding a single small piece of bread, while stern elderly bearded rabbis stand around the table with folded arms, and a basket of eggs, a yellow citron fruit and a wine jug are being carried out of the room by a young priest. Every person in the picture is a man or a boy; no women or girls anywhere. Everyone modestly dressed: long sleeves, long skirts, high necklines. Show men and boys; include women only when the scene cannot work without them. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_drip.png": {
+  "style": "snapshot",
+  "scene": "c_drip",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: beside an ancient stone well in the hills of Judea: a forty-year-old bearded shepherd in a rough wool cloak, his staff and a few sheep beside him, crouches and stares in wide-eyed realization at a thick stone slab under a dripping rope bucket, where the steady drips of water have worn a deep round hole clean through the stone; a single drop is falling mid-air. Every person in the picture is a man or a boy; no women or girls anywhere. Everyone modestly dressed: long sleeves, long skirts, high necklines. Show men and boys; include women only when the scene cannot work without them. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low",
   "date": "2026-09-17"
@@ -962,6 +978,14 @@
   "quality": "low",
   "date": "2026-09-17"
  },
+ "snapshot_gpt/c_scold.png": {
+  "style": "snapshot",
+  "scene": "c_scold",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: inside a simple ancient stone study hall in Roman-era Judea, with no desks and no hats: bearded rabbis in plain ancient robes and wound cloth head-wraps sit on low stone benches and mats along the walls; the two long side walls are leaning steeply inward over their heads, frozen halfway through falling, stones hanging at impossible angles; one elderly rabbi stands up with a raised finger, sternly scolding the leaning wall as if it were a misbehaving student, while an old rabbi on the other side sits calmly with folded arms, and the rest look up nervously. Every person in the picture is a man or a boy; no women or girls anywhere. Everyone modestly dressed: long sleeves, long skirts, high necklines. Show men and boys; include women only when the scene cannot work without them. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
  "snapshot_gpt/c_ship.png": {
   "style": "snapshot",
   "scene": "c_ship",
@@ -1002,10 +1026,26 @@
   "quality": "low",
   "date": "2026-09-17"
  },
+ "snapshot_gpt/c_tears.png": {
+  "style": "snapshot",
+  "scene": "c_tears",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: night inside a simple ancient tent lit by one oil lamp: a very old white-bearded leader in plain robes sits writing the final column of a long parchment scroll with a reed pen, tears running down his cheeks and dripping onto the parchment, while his loyal younger attendant stands quietly in the tent doorway, watching with a heavy heart. The parchment shows only blank columns. Every person in the picture is a man or a boy; no women or girls anywhere. Everyone modestly dressed: long sleeves, long skirts, high necklines. Show men and boys; include women only when the scene cannot work without them. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
  "snapshot_gpt/c_twoparties.png": {
   "style": "snapshot",
   "scene": "c_twoparties",
   "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: two separate festive banquet pavilions side by side in ancient Jerusalem, one decorated with gold temple vessels, the other with leafy palm-branch roofs, and a wise young king in royal robes standing between them, firmly holding the two pavilion doors apart with outstretched arms Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_unpack.png": {
+  "style": "snapshot",
+  "scene": "c_unpack",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: evening in an ancient Jerusalem street of pale stone houses: a bearded pilgrim father in robes, smiling warmly, is untying huge bundles from a hugely overloaded donkey that he had just finished packing for the trip home (rolled blankets, clay pots, baskets, bundles of palm branches), while his young sons happily carry the bundles back inside through the doorway; the donkey looks relieved. Every person in the picture is a man or a boy; no women or girls anywhere. Everyone modestly dressed: long sleeves, long skirts, high necklines. Show men and boys; include women only when the scene cannot work without them. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low",
   "date": "2026-09-17"
@@ -1022,6 +1062,14 @@
   "style": "snapshot",
   "scene": "c_wall",
   "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a very old stone wall of an ancient study hall leaning forward at a steep angle, like it is bowing politely, over a doorway, while scholars in robes walk underneath carefully and look up nervously Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_wave.png": {
+  "style": "snapshot",
+  "scene": "c_wave",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: an ancient wooden sailing ship on a grey sea: one gigantic wave stands tall over the ship like a wall of water, paused mid-air; on the deck an elderly dignified sage in fine robes and a wound turban stands upright, one hand on his chest, looking up at the wave and speaking earnestly, while two wide-eyed sailors hold on to the mast. Every person in the picture is a man or a boy; no women or girls anywhere. Everyone modestly dressed: long sleeves, long skirts, high necklines. Show men and boys; include women only when the scene cannot work without them. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low",
   "date": "2026-09-17"

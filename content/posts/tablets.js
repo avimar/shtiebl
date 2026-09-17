@@ -37,6 +37,29 @@ post({
       votes: "9.9k",
       x: `<p>Fun fact: the <b>last three words of the whole Torah</b>, <span class="he">לְעֵינֵי כָּל יִשְׂרָאֵל</span>, “before the eyes of all Israel,” refer to this. Moshe's heart moved him to break the tablets in front of everyone, and Hashem agreed.</p><p>So the Torah literally ends on this post. See you Simchas Torah.</p>`,
       src: "Rashi, Devarim 34:12",
+      replies: [
+        {
+          by: "Rashi",
+          votes: "7.4k",
+          x: `<p>And why “carve <i>yourself</i> two tablets” the second time? A parable. A king went overseas and left his fiancée with her maids. The maids misbehaved, and her name got dragged in too. The best man tore up the kesubah: if the king wants to put her to death, she isn't his wife yet.</p><p>The king checked, and found it was only the maids. The best man: “Write her a new kesubah, the old one is torn.” The king: “<b>You</b> tore it. You buy the new paper, and I'll write it in My own handwriting.”</p><p>The king is Hashem, the maids are the <i>erev rav</i>, the best man is Moshe, the fiancée is Israel.</p>`,
+          src: "Rashi, Shemos 34:1",
+        },
+      ],
+    },
+    {
+      by: "R_Chama_bar_Chanina",
+      votes: "4.7k",
+      x: `<p>And the paper paid off. Moshe only got rich from the chips of the second tablets: “carve <i>for yourself</i>” means the scraps are yours. (Rashi: Hashem showed him a sapphire quarry in his tent.)</p>`,
+      img: "c_chips",
+      src: "Nedarim 38a:3 · Rashi, Shemos 34:1",
+      replies: [
+        {
+          by: "Aharon_HaKohen",
+          votes: "2.2k",
+          x: `<p>So the one who broke the tablets gets the sapphire chips, and the calf is what everyone brings up with me. Noted.</p>`,
+          flavor: true,
+        },
+      ],
     },
     {
       by: "Aharon_HaKohen",

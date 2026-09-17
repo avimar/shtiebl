@@ -20,6 +20,7 @@ users({
   Sancheriv_genealogy: { avatar: "🏺", flair: "history nerd", bio: "Tracks which enemies' descendants ended up teaching Torah. The list is longer than you think." },
   Yaakov_Avinu:      { avatar: "⭐", flair: "Avos", bio: "Avinu. Blessed his grandsons Ephraim and Menashe. Kids still get that blessing on Simchas Torah." },
   Shlomo_HaMelech:   { avatar: "🦁", flair: "King · verified", bio: "Built the Beis HaMikdash. Wisest of all men. Threw a fourteen-day dedication party." },
+  Eliyahu_HaNavi:    { avatar: "🔥", flair: "Nevi'im · verified", bio: "Went up to heaven in a storm. Still drops by. Told R' Nassan what happened Above after the oven of Achnai." },
 
   // ---- Tannaim & Amoraim ----
   Rashi:             { avatar: "📜", flair: "Parshan · verified", bio: "11th-c. France. Wine merchant. Explains everything in five words." },
@@ -35,7 +36,8 @@ users({
   Yochanan_ben_Zakai: { avatar: "🚪", flair: "Tanna", bio: "Saved Yavneh and its sages. Talked to the Heichal doors when they opened on their own." },
   Abba_Shaul:        { avatar: "🌙", flair: "Tanna", bio: "Tanna. Keeps notes on customs and where they went wrong." },
   Mechilta:          { avatar: "📙", flair: "Midrash Halacha", bio: "Tannaitic midrash on Shemos. Reads between the lines of every verse." },
-  R_Yochanan:        { avatar: "🎙️", flair: "Amora", bio: "R' Yochanan bar Nafcha, head of the yeshiva in Teveria. Famously handsome. Quotes the Thirteen Attributes on request." },
+  the_Rabbanan:      { avatar: "👥", flair: "the majority", bio: "The Sages of Yavneh, speaking together. Unmoved by carob trees, streams or walls." },
+  R_Yochanan:      { avatar: "🎙️", flair: "Amora", bio: "R' Yochanan bar Nafcha, head of the yeshiva in Teveria. Famously handsome. Quotes the Thirteen Attributes on request." },
   R_Abahu:           { avatar: "🏛️", flair: "Amora", bio: "Amora in Caesarea. Says the things that couldn't be said if they weren't written." },
   R_Zeira:           { avatar: "🚶", flair: "Amora", bio: "Amora. Walks back and forth in front of people who owe him an apology, to make it easy for them." },
   Rav_Abba_Arikha:   { avatar: "🎓", flair: "Amora", bio: "Rav. Founded the yeshiva in Sura. Very tall. Knows how to apologize (thirteen times)." },
@@ -126,7 +128,8 @@ users({
   the_one_bull:      { avatar: "🐂", bio: "The single bull of Shemini Atzeres." },
   eved_neeman:       { avatar: "🫗", bio: "A servant who poured his Master a drink. It came back in his face." },
   Rabbi_Nassan:      { avatar: "🔊", flair: "Tanna", bio: "R' Nassan. Once asked Eliyahu what the Holy One did at that moment." },
-  study_hall_wall:   { avatar: "🧱", flair: "load-bearing", bio: "A wall in the beis medrash. Still leaning. Out of respect." },
+  the_letter_alef:   { avatar: "🔠", flair: "first letter", bio: "First letter of the alef-beis. The Torah opens with a beis. Waited twenty-six generations to open the Aseres HaDibros." },
+  study_hall_wall:{ avatar: "🧱", flair: "load-bearing", bio: "A wall in the beis medrash. Still leaning. Out of respect." },
   the_crowns:        { avatar: "✨", flair: "tagin", bio: "The little crowns on the letters of a sefer Torah." },
   eighth_row_regular: { avatar: "💺", bio: "Eighth row, every shiur. Someone was in his seat." },
   kid_on_shoulders:  { avatar: "🚩", bio: "On a father's shoulders every Simchas Torah. Flag in one hand, candy in the other." },
