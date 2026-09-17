@@ -1,0 +1,35 @@
+post({
+  id: "bulls",
+  sub: "TodayILearned",
+  by: "R_Elazar",
+  hol: "suk",
+  age: "1,850 yr",
+  votes: "31.0k",
+  comments: "1.1k",
+  awards: "🌍",
+  title: "TIL we brought 70 bulls every year on behalf of every nation on earth. Their thank-you note: burning the place down.",
+  hook: "R' Yochanan: “Woe to them. They lost something and don't even know what they lost.”",
+  img: "bulls",
+  body: `<p>R' Elazar: the seventy bulls brought over the seven days of Sukkos correspond to the seventy nations. R' Yochanan added: woe to the nations, who lost and don't know what they lost. While the Temple stood, the altar atoned for them. Now, who will?</p>`,
+  src: "Bamidbar 29:12–34 · Sukkah 55b",
+  thread: [
+    {
+      by: "Rashi",
+      votes: "7.2k",
+      x: `<p>Notice the bulls <b>go down</b> each day: 13, 12, 11… A sign that the nations will diminish. And the 98 lambs over the week correspond to the 98 curses in Ki Savo, to atone them away.</p>`,
+      src: "Rashi, Bamidbar 29:18",
+    },
+    {
+      by: "Zecharia_HaNavi",
+      votes: "6.0k",
+      x: `<p>Future update: the nations will go up to Jerusalem <b>every year</b> to bow to the King and to celebrate Sukkos.</p>`,
+      src: "Zecharia 14:16 (first-day Sukkos haftarah)",
+    },
+    {
+      by: "math_kohen",
+      votes: "1.5k",
+      x: `<p>13+12+11+10+9+8+7 = 70. I checked twice. With a kohen's calculator.</p>`,
+      flavor: true,
+    },
+  ],
+});

@@ -2,3 +2,4 @@ img/**/*.png
 img/*.png
 __pycache__/
 
+tools/.sefaria_ok.json

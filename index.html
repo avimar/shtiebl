@@ -44,18 +44,17 @@
     .search{display:none}
     #menuBtn{display:inline-block;margin-left:auto;font-size:15px;order:1}
     header .seg{order:2} #darkBtn{order:3}
-    header .seg, #darkBtn, .tonebar{display:none}
+    header .seg, #darkBtn{display:none}
     header.open .seg{display:flex;width:100%}
     header.open .seg button{flex:1;padding:6px 2px;font-size:12.5px}
     header.open #darkBtn{display:inline-block}
-    header.open + .tonebar{display:block}
     main{margin:10px auto;padding:0 6px}
     .votes{width:34px}
     .pbody{padding:8px 10px 4px}
     .title{font-size:17px}
     .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none} .chip{white-space:nowrap}
   }
-  .tonebar{background:var(--card);border-bottom:1px solid var(--line);padding:6px 18px;font-size:12px;color:var(--muted)}
+  #loadErr:not(:empty){background:#b91c1c;color:#fff;padding:8px 18px;font-weight:600}
 
   main{display:flex;gap:24px;max-width:1100px;margin:18px auto;padding:0 14px;align-items:flex-start}
   #col{flex:1;min-width:0}
@@ -131,16 +130,13 @@
 <header>
   <div class="logo" onclick="backToFeed()"><div class="dot">ש</div><div>shtiebl<small>the front page of the beis medrash</small></div></div>
   <div class="search">🔍 Search shtiebl</div>
-  <div class="seg" id="toneSeg" title="Same facts, three voices">
-    <button data-t="spicy">🌶 Spicy</button><button data-t="warm">🤗 Warm</button><button data-t="dry">🎩 Deadpan</button>
-  </div>
   <div class="seg" id="picSeg" title="Picture style">
     <button data-p="snapshot_gpt">📸 Snapshot HD</button><button data-p="snapshot">📷 Snapshot (FLUX)</button><button data-p="cartoon">🖍 Cartoon</button><button data-p="cinematic">🎬 Movie</button>
   </div>
   <button class="iconbtn" id="darkBtn" onclick="document.body.classList.toggle('dark')" title="Dark mode">🌓</button>
-  <button class="iconbtn" id="menuBtn" onclick="$('header').classList.toggle('open')" title="Tone & pictures"></button>
+  <button class="iconbtn" id="menuBtn" onclick="$('header').classList.toggle('open')" title="Pictures & dark mode"></button>
 </header>
-<div class="tonebar" id="toneDesc"></div>
+<div id="loadErr"></div>
 
 <main>
   <div id="col"></div>
@@ -148,7 +144,7 @@
     <div class="box"><h3>⏳ Coming up (Eretz Yisrael)</h3><div class="in" id="countdown"></div></div>
     <div class="box"><h3>About shtiebl</h3><div class="in">
       Real Torah, dressed up as the internet. Every post links to where it's actually written.
-      <p class="note">Mock-up. The tone switcher at the top changes only titles and opening lines. The facts and sources stay the same, so you can compare voices side by side.</p>
+      <p class="note">Mock-up. The jokes are ours; the facts are Chazal's. Tap any 📜 source to read it on Sefaria.</p>
     </div></div>
     <div class="box"><h3>📋 Community rules</h3><div class="in"><ol>
       <li><b>Cite or it didn't happen.</b> Every post gets a source.</li>
@@ -162,491 +158,17 @@
 
 <script>
 /* ============ DATA ============ */
-const SUBS = {
-  TodayILearned:  {icon:"💡", color:"#0079d3", aka:"r/todayilearned"},
-  AmITheRasha:    {icon:"⚖️", color:"#c2410c", aka:"r/AmItheAsshole"},
-  ThatsInsane:    {icon:"😱", color:"#b91c1c", aka:"r/ThatsInsane"},
-  NextLevel:      {icon:"🚀", color:"#7c3aed", aka:"r/nextlevel"},
-  MildlyInfuriating:{icon:"😤", color:"#ca8a04", aka:"r/mildlyinfuriating"},
-  MadeMeSmile:    {icon:"😊", color:"#16a34a", aka:"r/MadeMeSmile"},
-  RespectfullyRoasted:{icon:"🔥", color:"#ea580c", aka:"r/MurderedByWords"},
-  ExplainLikeImFive:{icon:"🧒", color:"#0891b2", aka:"r/explainlikeimfive"},
-  MinorityOpinion:{icon:"🗳️", color:"#475569", aka:"r/unpopularopinion (a daas yachid!)"},
-  ShulProTips:    {icon:"✅", color:"#15803d", aka:"r/LifeProTips"},
-  MikvahThoughts: {icon:"🚿", color:"#0284c7", aka:"r/Showerthoughts"},
-  IAmA:           {icon:"🎤", color:"#db2777", aka:"r/IAmA"},
-  SecondChances:  {icon:"🔁", color:"#9333ea", aka:"r/GetMotivated"},
-  Humbled:        {icon:"🙇", color:"#64748b", aka:"r/humblebrag, reversed"},
-  UnexplainedHistory:{icon:"🕯️", color:"#334155", aka:"r/UnresolvedMysteries"},
-};
-
+// Content lives in content/*.js (see README). Each file calls one of these.
+const SUBS = {}, USERS = {}, POSTS = [];
+function subs(o){ Object.assign(SUBS, o); }
+function users(o){ Object.assign(USERS, o); }
+function post(o){ POSTS.push(o); }
 const HOLIDAYS = {ayt:"Aseres Yemei Teshuva", yk:"Yom Kippur", suk:"Sukkos", st:"Shemini Atzeres · Simchas Torah"};
-
-const TONES = {
-  spicy:"🌶 <b>Spicy</b>: Reddit-native. Clickbait titles and a little cheek. Closest to the viral posts.",
-  warm:"🤗 <b>Warm</b>: kid-friendly and heimish. Good for the Shabbos table.",
-  dry:"🎩 <b>Deadpan</b>: title reads like a news wire or a footnote. The joke is how straight it plays.",
-};
-
-// Each post: t = titles by tone, h = opening hook by tone, body = shared facts
-const POSTS = [
- {id:"melech", sub:"TodayILearned", hol:"ayt", by:"u/GabbaiOnDuty", age:"4 hr", v:"18.2k", c:"612", aw:"🏅🕯️",
-  t:{spicy:"TIL if you say “HaKel HaKadosh” this week instead of “HaMelech HaKadosh”, you go all the way back to the start of Shemoneh Esrei. No checkpoints.",
-     warm:"TIL that for ten days a year we change one word in davening, from “the holy God” to “the holy King”",
-     dry:"TIL: omitting “HaMelech HaKadosh” during the Ten Days requires repeating the Amidah"},
-  h:{spicy:"Speedrunners hate this one weird rule.",
-     warm:"It's like Hashem is visiting town in His royal robes, so we greet Him by His royal title.",
-     dry:"Per Rav, as cited by Rabbah bar Chinena Saba."},
-  body:`<p>All year the third bracha ends <i>HaKel HaKadosh</i>. From Rosh Hashana through Yom Kippur it ends <i>HaMelech HaKadosh</i>, “the holy King.” <i>Melech ohev tzedakah u'mishpat</i> likewise becomes <i>HaMelech HaMishpat</i>.</p>
-        <p><b>Pro tip:</b> if you catch the mistake right away (within <i>toch k'dei dibbur</i>, about 2 seconds), just say it correctly and keep going.</p>`,
-  src:"Berachos 12b · Shulchan Aruch OC 582:1"},
-
- {id:"dirshu", sub:"ShulProTips", hol:"ayt", by:"u/Yeshayahu_HaNavi", age:"9 hr", v:"9.4k", c:"201", aw:"✨",
-  t:{spicy:"SPT: The Office is running extended hours this week. Walk-ins welcome. No appointment needed.",
-     warm:"The ten days when Hashem is closest to us. Now's the time to talk to Him.",
-     dry:"PSA: the Talmud applies Isaiah 55:6 (“seek Him while He may be found”) to the Ten Days"},
-  h:{spicy:"Normally you need a minyan to get fast-tracked. This week, solo requests get the same service.",
-     warm:"Imagine your favorite person saying “I'm right here, just call me.”",
-     dry:"See below for the relevant text."},
-  body:`<p><span class="he">דִּרְשׁוּ ה׳ בְּהִמָּצְאוֹ, קְרָאֻהוּ בִּהְיוֹתוֹ קָרוֹב</span>: “Seek Hashem when He can be found, call Him when He is near.”</p>
-        <p>The Gemara asks when that is, and answers: <b>the ten days between Rosh Hashana and Yom Kippur</b>. It says this in the context of an <i>individual's</i> prayer, which is otherwise weaker than a community's.</p>`,
-  src:"Yeshayahu 55:6 · Rosh Hashana 18a"},
-
- {id:"apology", sub:"AmITheRasha", hol:"ayt", by:"u/throwaway_shvigger", age:"1 day", v:"24.7k", c:"3.1k", aw:"🏆🥇", verdict:"YTR (per the Rambam)",
-  t:{spicy:"AITR for refusing my brother-in-law's apology? This is the THIRD time he's asked.",
-     warm:"My brother-in-law keeps asking me to forgive him before Yom Kippur. Do I have to?",
-     dry:"Query: obligation to accept a third apology (Hil. Teshuva 2:10)"},
-  h:{spicy:"He brought three friends this time, like it's a whole production. I said no. Now my wife says <i>I'm</i> the one in the wrong??",
-     warm:"He's been really sincere. I'm still hurt, though.",
-     dry:"Facts: three requests made, each before witnesses. Forgiveness withheld."},
-  body:`<p><b>Top comment (u/Rambam_1138):</b> Yom Kippur does not atone for what you did to another person until you make it right with them. So he's doing exactly what he's supposed to do. He comes, and if you refuse, he comes back with three friends, up to three times. After that <b>he's off the hook, and the one who refused is the sinner.</b></p>
-        <p>Also: “a person should be easy to appease and hard to anger.” Forgive with a whole heart. <b>YTR.</b></p>
-        <p class="note">Exception: if it's your rebbe, he keeps coming, even a thousand times.</p>`,
-  src:"Mishna Yoma 8:9 (85b) · Rambam, Hilchos Teshuva 2:9–10"},
-
- {id:"calf", sub:"SecondChances", hol:"yk", by:"u/Moshe_Rabbeinu", age:"3,338 yr", v:"61.0k", c:"4.4k", aw:"🏆🏆💎", thread:"calf",
-  t:{spicy:"How I talked my Boss out of starting over from scratch (a.k.a. the origin story of Yom Kippur)",
-     warm:"The day Hashem forgave us for the Golden Calf, and why it became Yom Kippur",
-     dry:"Transcript: negotiations following the Golden Calf incident, Shemos 32–34"},
-  h:{spicy:"Forty days after Sinai, the people made a calf. He offered to make a new nation out of me. I said no thanks.",
-     warm:"Even after a really big mistake, Moshe kept asking, and Hashem gave a second chance.",
-     dry:"Full exchange in the thread. Every line of dialogue is cited."},
-  body:`<p>Full exchange in the comments. TL;DR: I came down with the second tablets on the 10th of Tishrei, and that day became a day of forgiveness forever.</p>`,
-  src:"Shemos 32–34 · Taanis 30b · Rashi Shemos 33:11"},
-
- {id:"kgama", sub:"IAmA", hol:"yk", by:"u/KohenGadol", age:"2,100 yr", v:"33.5k", c:"2.8k", aw:"🥇🕯️", thread:"kgama",
-  t:{spicy:"IAmA the Kohen Gadol. Once a year I walk into the Holy of Holies. It's tomorrow. AMA",
-     warm:"Meet the Kohen Gadol! Ask him anything about his biggest day of the year",
-     dry:"AMA: Kohen Gadol, day before Yom Kippur (proof: Mishna Yoma)"},
-  h:{spicy:"Been in a lockdown room for 7 days. They have a backup priest on standby in case I mess up. No pressure.",
-     warm:"He's been getting ready for a whole week!",
-     dry:"Sequestered since the 3rd of Tishrei in the Parhedrin chamber."},
-  body:`<p>Proof: I've been sequestered seven days (they keep a backup kohen ready). Tomorrow brings five immersions and ten washings of hands and feet. Ask away.</p>`,
-  src:"Mishna Yoma 1:1, 3:3"},
-
- {id:"snap", sub:"ThatsInsane", hol:"yk", by:"u/young_kohen_22", age:"2,050 yr", v:"12.9k", c:"388", aw:"😱",
-  t:{spicy:"Coworkers snap in the High Priest's face ALL NIGHT so he doesn't fall asleep before the biggest shift of the year",
-     warm:"The young kohanim stayed up all night helping the Kohen Gadol stay awake",
-     dry:"Temple staff employed finger-snapping as a wakefulness protocol on Yom Kippur eve"},
-  h:{spicy:"And then they tell him to go stand on the freezing marble floor. Team-building.",
-     warm:"They sang, they read, they kept each other going till morning.",
-     dry:"The procedure is set out below."},
-  body:`<p>The Kohen Gadol could not sleep the night before Yom Kippur. If he was a scholar he taught; if not, scholars taught before him. They read Iyov, Ezra and Divrei HaYamim.</p>
-        <p>If he started to doze, the young kohanim would snap their middle finger and say: <i>“My master the Kohen Gadol, stand up and cool off once on the floor!”</i> They kept him busy until dawn.</p>`,
-  src:"Mishna Yoma 1:6–7 (19b)"},
-
- {id:"roast", sub:"RespectfullyRoasted", hol:"yk", by:"u/Avtalyon_fan", age:"2,040 yr", v:"41.2k", c:"1.9k", aw:"🔥🔥🏆",
-  t:{spicy:"High Priest tries to snub two sages from a convert family. Gets absolutely cooked in one line.",
-     warm:"Everyone left the Kohen Gadol to walk the humble sages home, and they taught him a lesson",
-     dry:"Exchange of greetings between a Kohen Gadol and Shemaya & Avtalyon, Yoma 71b"},
-  h:{spicy:"Crowd ditches him mid-parade. He gets salty. Big mistake.",
-     warm:"Being a good person matters more than who your ancestors were.",
-     dry:"Setting: the procession home after Yom Kippur."},
-  body:`<p>After Yom Kippur the whole crowd was escorting the Kohen Gadol home. Then they saw Shemaya and Avtalyon, the leading sages, who descended from converts, and <b>everyone left him to follow them.</b></p>
-        <p>Later the sages came to say goodbye to him. <b>KG:</b> “Let the descendants of gentiles go in peace.”</p>
-        <p><b>Shemaya & Avtalyon:</b> “Let the descendants of gentiles who do the deeds of Aharon go in peace, and not the descendant of Aharon who does not do the deeds of Aharon.”</p>`,
-  src:"Yoma 71b"},
-
- {id:"happy", sub:"TodayILearned", hol:"yk", by:"u/RabbanShimonBG", age:"1,900 yr", v:"27.3k", c:"940", aw:"💃✨",
-  t:{spicy:"TIL Yom Kippur used to be one of the two biggest party days of the year. There was dancing in the vineyards.",
-     warm:"TIL Yom Kippur is one of the happiest days on the Jewish calendar",
-     dry:"TIL: the Mishna ranks Yom Kippur and Tu B'Av as the most joyous days of the year"},
-  h:{spicy:"Nobody tells you this in the 6-hour Mussaf.",
-     warm:"Because it's the day we get a fresh, clean start.",
-     dry:"This contradicts common perception."},
-  body:`<p>Rabban Shimon ben Gamliel: “Israel had no days as joyous as the 15th of Av and Yom Kippur.” The young women went out in <b>borrowed</b> white clothes so that nobody who owned no nice clothes would be embarrassed, and they danced in the vineyards.</p>
-        <p>The Gemara explains why for Yom Kippur: it's a day of forgiveness, and the day the second tablets were given.</p>`,
-  src:"Mishna Taanis 4:8 · Taanis 30b"},
-
- {id:"thread", sub:"UnexplainedHistory", hol:"yk", by:"u/Yochanan_ben_Zakai", age:"1,950 yr", v:"15.8k", c:"720", aw:"🕯️",
-  t:{spicy:"The red string that turned white every Yom Kippur. Then, 40 years before the Temple fell, it just… stopped.",
-     warm:"“Even if your mistakes are red like scarlet, they'll become white as snow”: the miracle of the red thread",
-     dry:"Documented cessation of the scarlet-thread phenomenon, c. 30 CE"},
-  h:{spicy:"Nobody has a clean explanation. Chazal do have one.",
-     warm:"A sign everyone could see that they were forgiven.",
-     dry:"Primary sources below."},
-  body:`<p>A strip of scarlet wool was tied up during the <i>se'ir la'azazel</i> service. When the goat reached the wilderness, the strip turned white. It fulfilled the verse <span class="he">אִם יִהְיוּ חֲטָאֵיכֶם כַּשָּׁנִים כַּשֶּׁלֶג יַלְבִּינוּ</span>.</p>
-        <p>The Gemara says that in the last 40 years before the destruction, the strip no longer turned white.</p>`,
-  src:"Mishna Yoma 6:8 · Yoma 39a · Yeshayahu 1:18"},
-
- {id:"yonah", sub:"AmITheRasha", hol:"yk", by:"u/Yonah_ben_Amitai", age:"2,780 yr", v:"88.1k", c:"9.9k", aw:"🐋🏆💎", verdict:"Asked by ADMIN. No reply from OP.", thread:"yonah",
-  t:{spicy:"AITR for being mad that my Boss DIDN'T destroy the city I warned?",
-     warm:"Yonah didn't want Nineveh to be forgiven. Hashem taught him why they should be.",
-     dry:"Dispute: prophet objects to the cancellation of a prophesied destruction (Yonah ch. 4)"},
-  h:{spicy:"I tried to quit, got swallowed by a fish, did the job anyway with a FIVE-WORD sermon, and it WORKED. Somehow I'm the bad guy?",
-     warm:"We read this whole story on Yom Kippur afternoon.",
-     dry:"The Book of Yonah is read at Mincha on Yom Kippur."},
-  body:`<p>Long post with a full comment thread. Open it to see how it ends (spoiler: with a question).</p>`,
-  src:"Yonah 1–4 · Megillah 31a"},
-
- {id:"rain", sub:"MildlyInfuriating", hol:"suk", by:"u/eved_ne'eman", age:"2 days", v:"14.6k", c:"530", aw:"🌧️",
-  t:{spicy:"Poured my King a drink. He threw the whole pitcher in my face. (It's a parable about rain in the sukkah.)",
-     warm:"Why do we feel sad when it rains on Sukkos? A parable from the Mishna",
-     dry:"Mishna classifies rain during Sukkos as a sign of displeasure, using a servant–master parable"},
-  h:{spicy:"Mildly infuriating is an understatement.",
-     warm:"It's okay to go inside when it pours. The Mishna even says when.",
-     dry:"On the halachic threshold for leaving the sukkah due to rain."},
-  body:`<p>When is it raining hard enough to go inside? “When the porridge would spoil.”</p>
-        <p>The Mishna gives a parable: a servant comes to pour a cup for his master, and the master pours the pitcher in his face. Rain on Sukkos means He isn't accepting our service right now.</p>
-        <p class="note">Related: someone who is genuinely uncomfortable in the sukkah (<i>mitzta'er</i>) is exempt (Sukkah 26a).</p>`,
-  src:"Mishna Sukkah 2:9 (28b) · Sukkah 26a"},
-
- {id:"kick", sub:"AmITheRasha", hol:"suk", by:"u/Umos_HaOlam", age:"the future", v:"52.4k", c:"6.0k", aw:"☀️🦶🏆", verdict:"YTR (the kicking specifically)",
-  t:{spicy:"AITR for kicking the sukkah on my way out? It was REALLY hot.",
-     warm:"When it's hard to do a mitzvah, how you walk away still matters",
-     dry:"Avodah Zarah 3a: the nations' sukkah trial and the manner of their exit"},
-  h:{spicy:"He gave us ONE easy mitzvah as a test. Then He turned the sun all the way up. I left, and yes, I kicked it a little on the way.",
-     warm:"Even when we have to stop, we leave gently.",
-     dry:"The claimant disputes the test's fairness."},
-  body:`<p>In the future the nations will say: “Give us the Torah now, and we'll keep it.” They get one easy mitzvah to try: <b>sukkah</b>. Each one builds a sukkah on his roof. Then Hashem takes the sun out of its sheath and makes it blaze, and each one <b>kicks his sukkah and leaves.</b></p>
-        <p><b>Top comment:</b> the Gemara points out that a Jew also leaves when it's too hot, because he's exempt. But he doesn't <i>kick</i> it. <b>YTR.</b></p>`,
-  src:"Avodah Zarah 3a"},
-
- {id:"torches", sub:"NextLevel", hol:"suk", by:"u/Levi_on_the_steps", age:"1,960 yr", v:"73.9k", c:"2.2k", aw:"🔥🔥🔥🏆",
-  t:{spicy:"Nasi of the Sanhedrin juggles EIGHT flaming torches at the Temple party. Doesn't drop one.",
-     warm:"The happiest party ever: Simchas Beis HaSho'eivah",
-     dry:"Rabban Shimon ben Gamliel's torch-juggling at the Water-Drawing celebration"},
-  h:{spicy:"Then he does a handstand bow on his thumbs. The Nasi. Of the Sanhedrin.",
-     warm:"Whoever didn't see it never saw real happiness!",
-     dry:"The Gemara records it without comment."},
-  body:`<p>“Whoever has not seen the Simchas Beis HaSho'eivah has never seen joy in his life.” There were golden lamps so bright that <b>every courtyard in Jerusalem</b> was lit up. The wicks were made from the kohanim's worn-out garments. Pious men danced with torches, and the Levi'im played on the fifteen steps.</p>
-        <p>Rabban Shimon ben Gamliel juggled eight torches of fire, and none touched the ground. He also did <i>kidah</i>: a bow balanced on his two thumbs.</p>`,
-  src:"Mishna Sukkah 5:1–4 · Sukkah 51a, 53a"},
-
- {id:"clouds", sub:"MinorityOpinion", hol:"suk", by:"u/RebEliezer", age:"1,900 yr", v:"6.1k", c:"1.4k", aw:"☁️",
-  t:{spicy:"Hot take: the sukkah was never about the huts",
-     warm:"Our sukkah reminds us of the Clouds of Glory that hugged us in the desert",
-     dry:"Sukkah 11b: R' Eliezer (Clouds of Glory) vs. R' Akiva (literal booths)"},
-  h:{spicy:"“I made the Children of Israel dwell in sukkos” means the Clouds of Glory. Fight me. (R' Akiva did.)",
-     warm:"Hashem wrapped us up like a warm blanket for forty years.",
-     dry:"Both positions have later support."},
-  body:`<p><b>R' Eliezer:</b> the sukkos in the verse were the Clouds of Glory.<br><b>R' Akiva:</b> they were real booths.</p>
-        <p>Plot twist for a “minority opinion”: the Tur and Shulchan Aruch present the Clouds of Glory as the reason, so this take won the upvotes in the long run.</p>`,
-  src:"Vayikra 23:43 · Sukkah 11b · Tur OC 625"},
-
- {id:"bulls", sub:"TodayILearned", hol:"suk", by:"u/R_Elazar", age:"1,850 yr", v:"31.0k", c:"1.1k", aw:"🌍",
-  t:{spicy:"TIL the Temple sacrificed 70 bulls on Sukkos for the benefit of the entire world, and the world had no idea",
-     warm:"TIL on Sukkos we pray for all the nations of the world, not just ourselves",
-     dry:"TIL: the 70 Sukkos bulls correspond to the 70 nations (Sukkah 55b)"},
-  h:{spicy:"“If they had known what they were losing, they'd have put guards around the Temple to protect it.”",
-     warm:"The Beis HaMikdash was a blessing for everyone.",
-     dry:"Count: 13+12+11+10+9+8+7 = 70."},
-  body:`<p>R' Elazar: the seventy bulls brought over the seven days of Sukkos correspond to the seventy nations. R' Yochanan added: woe to the nations, who lost and don't know what they lost. While the Temple stood, the altar atoned for them. Now, who will?</p>`,
-  src:"Bamidbar 29:12–34 · Sukkah 55b"},
-
- {id:"minim", sub:"ExplainLikeImFive", hol:"suk", by:"u/curious_cheder_kid", age:"5 hr", v:"8.8k", c:"260", aw:"🍋",
-  t:{spicy:"ELI5: why do we shake a lemon and three plants in every direction",
-     warm:"ELI5: what do the Four Minim mean?",
-     dry:"ELI5: the symbolic taxonomy of the arba minim (Vayikra Rabbah 30:12)"},
-  h:{spicy:"Asking for a friend who got side-eye for holding it upside down.",
-     warm:"My kids asked, and I wanted a good answer.",
-     dry:"Seeking a concise summary."},
-  body:`<p><b>Top answer:</b> Imagine four kinds of people.</p>
-        <p>🍋 <b>Esrog</b>: tastes good <i>and</i> smells good. Knows Torah and does good deeds.<br>
-        🌴 <b>Lulav</b>: the dates taste good but have no smell. Learns but has fewer deeds.<br>
-        🌿 <b>Hadas</b>: smells good, no taste. Good deeds without much learning.<br>
-        🍃 <b>Aravah</b>: no taste, no smell.</p>
-        <p>Hashem says: tie them all together in one bundle, and they'll atone for each other. Nobody gets left out.</p>`,
-  src:"Vayikra Rabbah 30:12"},
-
- {id:"atzeres", sub:"MadeMeSmile", hol:"st", by:"u/bnei_melachim", age:"6 hr", v:"45.6k", c:"1.7k", aw:"❤️🥹🏆",
-  t:{spicy:"My Dad threw a 7-day party for the entire world. Then He pulled just us aside: “stay one more day.”",
-     warm:"Shemini Atzeres: Hashem asks us to stay just one more day",
-     dry:"Rashi's explanation of Shemini Atzeres as a private royal banquet"},
-  h:{spicy:"Not crying, you're crying.",
-     warm:"Because saying goodbye to us is hard for Him.",
-     dry:"Parable per Rashi on Vayikra 23:36."},
-  body:`<p>Rashi explains <i>atzeres</i> as “holding back.” It's like a king who invited his children to a feast for several days. When it was time to go, he said: <span class="he">קָשָׁה עָלַי פְּרֵידַתְכֶם</span>, “My children, please, stay one more day. <b>Your leaving is hard for me.</b>”</p>
-        <p class="note">Sukkos had 70 bulls for the nations. Shemini Atzeres has just one, for Israel alone.</p>`,
-  src:"Rashi, Vayikra 23:36 · Sukkah 55b"},
-
- {id:"tablets", sub:"AmITheRasha", hol:"st", by:"u/Moshe_Rabbeinu", age:"3,338 yr", v:"112k", c:"12.4k", aw:"🏆🏆🏆💎", verdict:"NTR (ADMIN)", thread:"tablets",
-  t:{spicy:"AITR for smashing the tablets my Boss wrote Himself?",
-     warm:"Moshe broke the Luchos. What did Hashem say about it?",
-     dry:"Retroactive divine approval of the breaking of the Tablets (Shabbos 87a)"},
-  h:{spicy:"Now everyone's talking. And apparently it's the last thing mentioned in the entire Torah??",
-     warm:"The answer is surprising, and it's hidden in the very last words of the Torah.",
-     dry:"This is the passage read on Simchas Torah."},
-  body:`<p>Full context in the thread. The Admin replied.</p>`,
-  src:"Shemos 32:19 · Shabbos 87a · Rashi, Devarim 34:12"},
-
- {id:"achnai", sub:"ThatsInsane", hol:"st", by:"u/Rabbi_Nassan", age:"1,880 yr", v:"66.3k", c:"5.5k", aw:"😂👑🏆",
-  t:{spicy:"Rabbis overrule a literal Voice from Heaven. God's reported reaction: laughing. “My children have beaten Me.”",
-     warm:"The Torah was given to us, and Hashem was proud when we took it seriously",
-     dry:"Bava Metzia 59b: halachic authority rests with the majority, not with a Heavenly Voice"},
-  h:{spicy:"R' Eliezer brings a carob tree, a river flowing backwards, collapsing walls, and a Bas Kol. The majority says no.",
-     warm:"This is why we dance with the Torah: it's really ours.",
-     dry:"The oven of Achnai dispute."},
-  body:`<p>R' Eliezer, outvoted, performed miracle after miracle. Finally a Heavenly Voice declared he was right. R' Yehoshua stood up: <span class="he">לֹא בַשָּׁמַיִם הִיא</span>. “It is not in heaven.” The Torah was already given at Sinai, and it says to follow the majority.</p>
-        <p>Later R' Nassan met Eliyahu HaNavi and asked what Hashem did at that moment. Eliyahu: <b>“He smiled and said: <span class="he">נִצְּחוּנִי בָנַי</span>, My children have defeated Me.”</b></p>`,
-  src:"Bava Metzia 59b · Devarim 30:12"},
-
- {id:"akiva", sub:"Humbled", hol:"st", by:"u/Moshe_Rabbeinu", age:"3,338 yr", v:"39.9k", c:"2.0k", aw:"🙇✨",
-  t:{spicy:"Time-traveled into a shiur on my own Torah. Understood NOTHING. Then the Rebbe cited me.",
-     warm:"Moshe visits Rabbi Akiva's class: the Torah keeps growing",
-     dry:"Menachos 29b: Moshe's visit to the beis medrash of R' Akiva"},
-  h:{spicy:"Went up to Heaven, saw Him tying little crowns on the letters. Asked why. He showed me the guy who'll learn mountains of halachos from each crown.",
-     warm:"Every generation adds to the Torah, and it all goes back to Sinai.",
-     dry:"A well-known aggadah on the continuity of transmission."},
-  body:`<p>Moshe sat in the eighth row and couldn't follow the discussion. His strength failed him. Then a student asked R' Akiva: “Rebbe, where do you know this from?” R' Akiva answered: <i>“It's a halacha given to Moshe at Sinai.”</i> Moshe's mind was put at ease.</p>
-        <p class="note">Which is why we start over every Simchas Torah: there's always more in it.</p>`,
-  src:"Menachos 29b"},
-
- {id:"lev", sub:"MikvahThoughts", hol:"st", by:"u/baal_koreh", age:"2 hr", v:"21.4k", c:"480", aw:"❤️",
-  t:{spicy:"The Torah ends on a ל and restarts on a ב. We literally put our heart (לב) into rewinding it.",
-     warm:"The last letter of the Torah and the first one together spell “heart”",
-     dry:"Observation: final letter (ל, Devarim 34:12) + initial letter (ב, Bereishis 1:1) = לב"},
-  h:{spicy:"Also, it's the only party where we celebrate finishing a book by immediately starting it again.",
-     warm:"That's why we go straight from the end back to the beginning.",
-     dry:"A popular vort. Source unknown to this poster."},
-  body:`<p><span class="he">...לְעֵינֵי כָּל יִשְׂרָאֵ<b>ל</b></span> → <span class="he"><b>בּ</b>ְרֵאשִׁית...</span></p>
-        <p class="note">Popular derush, widely quoted, author uncertain. Posted as a thought, not a source.</p>`,
-  src:"Devarim 34:12 · Bereishis 1:1 (popular vort)"},
-];
-
-/* Threads: a = author, f = flair, v = votes, x = text, s = source,
-   adm = ADMIN (pesukim/Chazal only), op = original poster, flav = invented line, k = replies */
-const THREADS = {
- tablets:{post:"tablets",
-  op:`<p>Context: I'd been up the mountain forty days. My Boss handed me two stone tablets, and <i>“the writing was the writing of G-d”</i> (Shemos 32:16). While I'm still up there He tells me the people made a calf. I come down, I see the calf and the dancing, and I threw the tablets from my hands and broke them at the foot of the mountain (32:19).</p>
-      <p>My reasoning: the Pesach offering is only one mitzvah, and a Jew who has abandoned the Torah may not eat it. Here's the <i>whole</i> Torah, and they're all serving an idol. Should I really hand it to them? (That's how Shabbos 87a reconstructs my kal vachomer.)</p>
-      <p>AITR?</p>
-      <p><b>EDIT:</b> I went back up and came down with the second set on the 10th of Tishrei. You know that day as Yom Kippur. (Taanis 30b; Rashi Shemos 33:11)</p>`,
-  cm:[
-   {a:"HaMelech", adm:1, f:"ADMIN", v:"∞", x:`<p class="quote"><span class="he">יִישַׁר כֹּחֲךָ שֶׁשִּׁבַּרְתָּ</span>: “Well done for breaking them.”</p>`,
-    s:"Shabbos 87a, reading “asher shibarta” (Shemos 34:1) as “yasher [koach] that you broke”",
-    k:[
-     {a:"Resh_Lakish", f:"Talmid", v:"3.2k", x:`<p>This is one of three things Moshe did on his own that Hashem agreed with. The others were adding a day before Matan Torah and separating from his wife.</p>`, s:"Shabbos 87a"},
-    ]},
-   {a:"Rashi", f:"Parshan · verified", v:"9.9k", x:`<p>Fun fact: the <b>last three words of the whole Torah</b>, <span class="he">לְעֵינֵי כָּל יִשְׂרָאֵל</span>, “before the eyes of all Israel,” refer to this. Moshe's heart moved him to break the tablets in front of everyone, and Hashem agreed.</p><p>So the Torah literally ends on this post. See you Simchas Torah.</p>`, s:"Rashi, Devarim 34:12"},
-   {a:"Aharon_HaKohen", f:"OP's brother", v:"1.1k", x:`<p>In my defense, I was stalling. I built the altar <i>myself</i> to buy time, and I announced “a festival for Hashem <b>tomorrow</b>,” hoping you'd be back before then.</p>`, img:"c_aharon", s:"Rashi, Shemos 32:5"},
-   {a:"Yehoshua_bin_Nun", f:"OP's attendant", v:"840", x:`<p>For the record, I thought the noise from the camp was a battle. OP corrected me: “it's not the sound of victory or of defeat, it's the sound of singing.”</p>`, s:"Shemos 32:17–18"},
-   {a:"Rav_Yosef", f:"Talmid", v:"2.6k", x:`<p>Wholesome detail: the whole tablets <i>and the broken pieces</i> were both kept in the Aron. That's why you respect an elder who has forgotten his learning. The broken ones still belong in the Aron.</p>`, img:"c_ark", s:"Berachos 8b · Bava Basra 14b"},
-   {a:"Moshe_Rabbeinu", op:1, v:"5.0k", x:`<p>Didn't expect that reply, ngl.</p>`, flav:1},
-  ]},
-
- calf:{post:"calf",
-  op:`<p>Posting the whole exchange because people keep asking why Yom Kippur exists. Lines are in order and every quote is cited.</p>`,
-  cm:[
-   {a:"HaMelech", adm:1, f:"ADMIN", v:"∞", x:`<p class="quote">“Go down, for <b>your</b> people, whom <b>you</b> brought up from Egypt, have become corrupt.”</p>`, s:"Shemos 32:7",
-    k:[{a:"Rashi", f:"Parshan · verified", v:"4.4k", x:`<p>Note the “<i>your</i> people”: this refers to the <i>erev rav</i> (mixed multitude), whom Moshe accepted on his own initiative.</p>`, s:"Rashi, Shemos 32:7"}]},
-   {a:"HaMelech", adm:1, f:"ADMIN", v:"∞", x:`<p class="quote">“Now <b>leave Me alone</b>, and My anger will blaze against them and I will destroy them, and I will make <b>you</b> into a great nation.”</p>`, s:"Shemos 32:10",
-    k:[
-     {a:"Rashi", f:"Parshan · verified", v:"7.8k", x:`<p>He hadn't asked Him anything yet! “Leave Me alone” was an opening: it showed Moshe that <b>it depended on his prayer.</b></p>`, s:"Rashi, Shemos 32:10"},
-     {a:"R_Abahu", f:"Amora", v:"6.1k", x:`<p>If this weren't written, it would be impossible to say it: Moshe <b>grabbed hold of the Holy One like a man who grabs his friend by the garment</b> and said, “Master of the World, I won't let go of You until You forgive them.”</p>`, s:"Berachos 32a"},
-    ]},
-   {a:"Moshe_Rabbeinu", op:1, v:"12k", x:`<p class="quote">“Why should Egypt say, ‘He took them out with evil intent, to kill them in the mountains’? … Remember Avraham, Yitzchak and Yisrael, Your servants.”</p>`, s:"Shemos 32:12–13",
-    k:[{a:"Torah_Narrator", f:"verified", v:"9k", x:`<p class="quote">“And Hashem relented from the evil He had spoken of doing to His people.”</p>`, s:"Shemos 32:14"}]},
-   {a:"Moshe_Rabbeinu", op:1, v:"15k", x:`<p class="quote">“Now, if You will forgive their sin… and if not, <b>erase me from Your book</b> that You have written.”</p>`, s:"Shemos 32:32",
-    k:[{a:"HaMelech", adm:1, f:"ADMIN", v:"∞", x:`<p class="quote">“Whoever has sinned against Me, him I will erase from My book.”</p>`, s:"Shemos 32:33"}]},
-   {a:"R_Yochanan", f:"Amora · pinned", v:"22k", x:`<p>If it weren't written, it would be impossible to say: <b>the Holy One wrapped Himself like a chazzan</b>, showed Moshe the order of prayer, and said: <i>“Whenever Israel sins, let them do this order before Me, and I will forgive them.”</i> That's the Thirteen Attributes: <span class="he">ה׳ ה׳ קֵל רַחוּם וְחַנּוּן…</span></p>`, s:"Rosh Hashana 17b · Shemos 34:6–7"},
-   {a:"Chazzan_Neilah", f:"shaliach tzibbur", v:"3.3k", x:`<p>Crossover episode: on Kol Nidrei night we say <span class="he">סָלַחְתִּי כִּדְבָרֶךָ</span>, “I have forgiven, as you asked.” That line is actually from a <i>different</i> negotiation, after the spies.</p>`, s:"Bamidbar 14:19–20"},
-   {a:"Klal_Yisrael", v:"40k", x:`<p>thank you for not taking the deal 🙏</p>`, flav:1},
-  ]},
-
- yonah:{post:"yonah",
-  op:`<p>Throwaway? No. Everyone knows who I am.</p>
-      <p>My Boss told me to go to Nineveh and call out against it. I booked a ship to Tarshish instead (1:3). Storm. The sailors threw me overboard after I told them to (1:12). A fish swallowed me for three days (2:1). Fine. I went.</p>
-      <p>My entire sermon: <span class="he">עוֹד אַרְבָּעִים יוֹם וְנִינְוֵה נֶהְפָּכֶת</span>, “Forty more days and Nineveh is overturned” (3:4). <b>Five words.</b> The whole city repented. The king sat in sackcloth. <i>Even the cattle</i> fasted (3:7). And He relented (3:10).</p>
-      <p>I told Him: “This is exactly why I ran. I knew You are a gracious and compassionate G-d, slow to anger… Now take my life” (4:2–3). AITR?</p>
-      <p><b>UPDATE:</b> I went and sat east of the city to watch. He grew a <i>kikayon</i> plant to shade me, and I was really happy. The next dawn a worm killed it. Then came a hot east wind and sun on my head, and I asked to die again (4:6–8).</p>`,
-  cm:[
-   {a:"HaMelech", adm:1, f:"ADMIN", v:"∞", x:`<p class="quote">“Are you that deeply angry?”</p>`, s:"Yonah 4:4",
-    k:[{a:"HaMelech", adm:1, f:"ADMIN", v:"∞", x:`<p class="quote">“You cared about the kikayon, which you didn't work for and didn't grow, which appeared overnight and was gone overnight. <b>And shall I not care about Nineveh, the great city, with more than 120,000 people who don't know their right hand from their left, and many animals?</b>”</p>`, s:"Yonah 4:10–11",
-      k:[{a:"Chazzan_Mincha", f:"reads it every YK", v:"6.6k", x:`<p>And that's the end of the book. It closes on His question. OP never replied. We read this at Mincha on Yom Kippur so that <i>we</i> answer it.</p>`, s:"Megillah 31a (Yonah as the YK Mincha haftarah)"}]}]},
-   {a:"Mechilta", f:"Midrash Halacha", v:"8.8k", x:`<p>In OP's defense: he ran because gentiles repent quickly, and he didn't want that to make Israel look bad by comparison. “He stood up for the honor of the son, not the honor of the Father.”</p>`, s:"Mechilta, Pischa 1"},
-   {a:"Nineveh_Resident", f:"reformed", v:"4.1k", x:`<p>We didn't just fast. “They turned from the violence in their hands”: if someone had built a stolen beam into his palace, <b>he tore down the palace</b> to give the beam back.</p>`, s:"Yonah 3:8 · Taanis 16a",
-    k:[{a:"Melech_Nineveh", f:"King · sackcloth edition", v:"31k", x:`<p>Look at the effort we went through!! Half my palace is gone. But: <b>FOUND IT</b> 🙌</p>`, img:"c_beam", flav:1,
-      k:[{a:"Yonah_ben_Amitai", op:1, v:"-2.4k", x:`<p>show-off</p>`, flav:1}]}]},
-   {a:"Tarshish_Sailor", f:"deckhand", v:"2.2k", x:`<p>We rowed hard to get back to land first. And we prayed <i>before</i> we threw him in. Meanwhile OP was <b>asleep below deck</b> during the storm.</p>`, img:"c_sailors", s:"Yonah 1:5, 1:13–14"},
-   {a:"random_cow", v:"19k", x:`<p>moo (fasting) (wearing sackcloth) (the king made us)</p>`, img:"c_cow", s:"Yonah 3:7–8, where even the animals wear sackcloth", flav:1},
-  ]},
-
- kgama:{post:"kgama",
-  op:`<p>Day 7 of lockdown. They have a <b>backup Kohen Gadol</b> warming up on the bench in case I get disqualified. According to R' Yehuda they also line up a <b>backup wife</b>, since the verse says I atone “for himself and his household” and I need to <i>have</i> a household. Nobody asked how she feels about this.</p>
-      <p>Tomorrow: five immersions, ten hand-and-foot washings, and the one room on earth nobody else walks into. AMA, but fast. I have a whole Iyov to get through.</p>`,
-  cm:[
-   {a:"curious_levi", v:"4.4k", x:`<p>How do you stay up all night?</p>`,
-    k:[{a:"KohenGadol", op:1, v:"5.1k", x:`<p>I don't “stay up.” I <b>get kept</b> up.</p><p>Elders read me Iyov. Then Ezra. Then Divrei HaYamim, the one with the genealogies. The second my eyelids droop, a squad of twenty-year-old kohanim snaps in my face like a poetry slam and orders me to go stand <b>barefoot on ice-cold marble</b>. At 3am. Before the most important day of my life.</p><p>Living the dream.</p>`, img:"c_floor", s:"Mishna Yoma 1:6–7"}]},
-   {a:"nervous_yisrael", v:"7.7k", x:`<p>What do you pray in there??</p>`,
-    k:[{a:"KohenGadol", op:1, v:"8.2k", x:`<p>SHORT. Mandatory short. If I take too long, everyone outside assumes I died. One guy once went long, and his fellow kohanim were about to <b>go in after him</b>. His excuse: “I was davening for you, so the Mikdash wouldn't be destroyed.” Sweet. Still, don't.</p><p>Best line in the prayer: <i>“Don't let the prayer of travelers come before You.”</i> Translation: guys on the road begging for no rain, you're getting <b>overruled</b>.</p>`, s:"Mishna Yoma 5:1 · Yoma 53b"}]},
-   {a:"first_timer", v:"6.0k", x:`<p>What's the moment you'll remember?</p>`,
-    k:[{a:"KohenGadol", op:1, v:"11k", x:`<p>I say the Name. Out loud. The actual Name. And the entire Azarah, thousands of people, <b>hits the floor at the same instant</b>, faces down, and roars <span class="he">בָּרוּךְ שֵׁם כְּבוֹד מַלְכוּתוֹ לְעוֹלָם וָעֶד</span>.</p><p>Goosebumps. Every. Time.</p>`, s:"Mishna Yoma 6:2"}]},
-   {a:"party_planner", v:"3.0k", x:`<p>After-party?</p>`,
-    k:[{a:"KohenGadol", op:1, v:"4.9k", x:`<p>OH YES. I throw a feast for all my friends. The theme: <b>“I walked out alive.”</b> That's the bar. That's the whole party.</p>`, s:"Mishna Yoma 7:4"}]},
-   {a:"Avtalyon_fan", v:"2.5k", x:`<p>Any comment on the Shemaya & Avtalyon incident? 👀 <a onclick="go('feed','roast')">(link)</a></p>`,
-    k:[{a:"KohenGadol", op:1, v:"-812", x:`<p>no comment</p>`, flav:1}]},
-  ]},
-};
-
-/* Spicy v2: louder titles + hooks (overrides t.spicy / h.spicy above) */
-const SPICY = {
- melech:["TIL ONE wrong word this week sends you back to the START of Shemoneh Esrei. Hardcore mode is on for 10 days.",
-         "No checkpoints. No save file. Rav said so. Speedrunners are shaking."],
- dirshu:["PSA: the King is taking walk-ins THIS WEEK ONLY and you're still scrolling??",
-         "Normally you need a minyan for priority service. This week the solo line moves just as fast. Log off. (After you upvote.)"],
- apology:["AITR for turning down my brother-in-law's apology? He showed up with THREE WITNESSES like it's a beis din",
-          "Third time. Three guys. One had a clipboard. I said “not feeling it.” Now my wife says the RAMBAM says I'm the problem??"],
- calf:["My Boss offered to wipe everyone out and make ME the new nation. I said no. Here's the whole negotiation.",
-       "Forty days after Sinai. FORTY. They made a cow. Out of EARRINGS."],
- kgama:["IAmA guy with the most stressful job in history. One slip and the backup goes in. They also have a backup WIFE. AMA",
-        "Seven days in a locked room with elders reading me Iyov. Tomorrow I walk in where nobody walks. Ask me anything (quickly)."],
- snap:["My coworkers snapped in my face ALL NIGHT, then told me to go stand on the freezing floor. HR says this is “the procedure.”",
-       "HR is the Mishna. There is no appeal."],
- roast:["High Priest throws shade at two sages from a convert family. The burn is so bad it's still in the Talmud 2,000 years later.",
-        "The whole parade ditches him mid-walk. He gets salty. Their comeback is still undefeated."],
- happy:["TIL the day you spend starving in shul used to end with the whole town DANCING in the vineyards. Your kiddush club could never.",
-        "Rabban Shimon ben Gamliel ranked it #1. Tied with Tu B'Av. The Chazal-approved shidduch event of the year."],
- thread:["Every Yom Kippur a red string turned WHITE by itself. Then one year it just… didn't. Forty years in a row.",
-         "Chazal knew what it meant. Nobody liked the answer. 🕯️"],
- rain:["I poured my King a drink and He dumped the whole pitcher in my face. That's what rain in the sukkah means. Thanks, Mishna.",
-       "Seven days outside and my forecast is “divine displeasure, 90% chance.”"],
- kick:["AITR for kicking my sukkah on the way out? He literally took the SUN out of its case.",
-       "ONE mitzvah. The easy one, they said. It hit 50°C on my roof. I left. My foot may have touched the wall. Forcefully."],
- torches:["Head of the Supreme Court juggles 8 FLAMING TORCHES at the Temple party, then does a handstand on his THUMBS",
-          "Your rosh yeshiva could never. (Please don't let your rosh yeshiva try.)"],
- clouds:["Hot take: your sukkah is basically cloud cosplay. Fight me. (R' Akiva did.)",
-         "“I made them dwell in sukkos” = Clouds of Glory. The huts are a costume. Mods, pin this."],
- bulls:["TIL we brought 70 bulls every year on behalf of every nation on earth. Their thank-you note: burning the place down.",
-        "R' Yochanan: “Woe to them. They lost something and don't even know what they lost.”"],
- minim:["ELI5: why is everyone in shul pointing a lemon and a bouquet at the walls like they're troubleshooting the WiFi",
-        "Asking for a friend who held it upside down and got The Look from the gabbai."],
- atzeres:["My Dad threw a 7-day party for the whole world, then quietly pulled just us aside: “Don't go yet.” I'm not crying, you're crying",
-          "70 bulls for the world. ONE for us. It's not a feast, it's a date."],
- tablets:["AITR for SMASHING the tablets my Boss wrote HIMSELF? In front of EVERYONE?",
-          "The whole nation saw it. And apparently it's the LAST THING in the ENTIRE TORAH?? No pressure."],
- achnai:["Rabbis get a literal Voice from Heaven. Their reply: “Not Your department.” God's reaction: LAUGHING.",
-         "R' Eliezer brought a flying tree, a river running backwards and collapsing walls. The majority said no. The walls are STILL leaning."],
- akiva:["Time-traveled into a shiur on my OWN Torah. Understood nothing. Then the Rebbe cited ME as the source. Existential crisis, AMA",
-        "Eighth row. Couldn't follow. Almost fainted. Then: “Halacha l'Moshe miSinai.” Okay, fine, I feel better."],
- lev:["Shower thought: we're the only people who finish a book, immediately rewind it, and do it DANCING",
-      "Plus the last letter and the first letter spell ❤️. Coincidence? The baal koreh says no."],
-};
-Object.entries(SPICY).forEach(([id,[t,h]])=>{const p=POSTS.find(x=>x.id===id); p.t.spicy=t; p.h.spicy=h;});
-
-/* Threads for every remaining post */
-Object.assign(THREADS, {
- melech:{cm:[
-   {a:"AYT_regular", f:"shul regular", v:"2.9k", x:`<p>Don't panic about the <i>other</i> additions: forget <span class="he">זָכְרֵנוּ לְחַיִּים</span>, <span class="he">מִי כָמוֹךָ</span>, <span class="he">וּכְתוֹב</span> or <span class="he">בְּסֵפֶר חַיִּים</span> and you just keep going. Only the King is a hard reset.</p>`, s:"Shulchan Aruch OC 582:5"},
-   {a:"not_sure_what_i_said", v:"1.8k", x:`<p>What if I honestly can't remember which one I said?</p>`,
-    k:[{a:"Shulchan_Aruch", f:"Mechaber", v:"3.3k", x:`<p>You assume you said it the way you say it all year, and you go back.</p>`, s:"Shulchan Aruch OC 582:1"}]},
-   {a:"Rema_fan", f:"Ashkenazi", v:"1.2k", x:`<p>Forgot <i>HaMelech HaMishpat</i> instead? Per the Rema you <b>don't</b> repeat, since you said “Melech” in the regular ending anyway. Sefardim do repeat.</p>`, s:"Rema & Shulchan Aruch OC 118:1"},
-   {a:"speedrunner_bochur", v:"4.4k", x:`<p>tried saying both at once to be safe. the gabbai crashed.</p>`, flav:1},
- ]},
- dirshu:{cm:[
-   {a:"Rambam_1138", f:"verified", v:"6.6k", x:`<p>Teshuva is always good. But in the ten days between Rosh Hashana and Yom Kippur it is <b>extra</b> good, and it is accepted right away.</p>`, s:"Rambam, Hilchos Teshuva 2:6"},
-   {a:"Rambam_1138", f:"verified", v:"5.2k", x:`<p>Also: a person should see himself all year as exactly half guilty and half innocent, and the whole world the same way. <b>One mitzvah could tip everything.</b> No pressure.</p>`, s:"Rambam, Hilchos Teshuva 3:4"},
-   {a:"still_in_bed", v:"3.1k", x:`<p>“extended office hours” and I'm here reading reddit at 5am instead of selichos 💀</p>`, flav:1},
- ]},
- apology:{cm:[
-   {a:"R_Zeira", f:"Amora · pro tip", v:"8.1k", x:`<p>When someone wronged me, I'd walk back and forth in front of them so they'd have a chance to come and apologize. Make it <b>easy</b> for him.</p>`, s:"Yoma 87a"},
-   {a:"Rav_Abba_Arikha", f:"Amora", v:"4.7k", x:`<p>Counterpoint: I went to apologize to R' Chanina <b>thirteen Erev Yom Kippurs in a row</b>. He never accepted. (The Gemara says he had his reasons.)</p>`, s:"Yoma 87b"},
-   {a:"butcher_story", v:"7.3k", x:`<p>Also Rav: a butcher wronged him and never came to apologize, so on Erev Yom Kippur <b>Rav went to him</b> to give him the chance. The butcher said “get lost, I have nothing to do with you.” He went back to chopping. A bone flew off and killed him.</p><p>Don't be the butcher.</p>`, s:"Yoma 87a"},
-   {a:"OPs_wife", v:"12k", x:`<p>told you.</p>`, flav:1},
- ]},
- snap:{cm:[
-   {a:"young_kohen_22", op:1, v:"3.4k", x:`<p>In our defense: if he fell asleep he might become <i>tamei</i>, and then the backup has to go in.</p>`, s:"Yoma 19b · Rambam, Avodas Yom HaKippurim 1:7"},
-   {a:"Zecharia_ben_Kevutal", f:"night-shift reader", v:"2.8k", x:`<p>I read to him from <b>Daniel</b>. Many times.</p>`, s:"Mishna Yoma 1:6"},
-   {a:"Abba_Shaul", f:"Tanna", v:"1.6k", x:`<p>Outside Jerusalem people started staying up all night too, in memory of the Mikdash. It… led to sin. So maybe don't.</p>`, s:"Yoma 19b"},
-   {a:"KohenGadol", v:"5.5k", x:`<p>the floor was SO cold</p>`, img:"c_floor", flav:1},
- ]},
- roast:{cm:[
-   {a:"Sancheriv_genealogy", f:"history nerd", v:"4.0k", x:`<p>Context: the Gemara says descendants of <b>Sancheriv</b> taught Torah in public. Namely, Shemaya and Avtalyon. The Assyrian emperor's great-great-grandkids ended up running the Sanhedrin.</p>`, s:"Gittin 57b"},
-   {a:"Avtalyon", f:"verified", v:"9.9k", x:`<p>For the record, my own motto is “Sages, be careful with your words.” I was very careful. It was one sentence.</p>`, s:"Pirkei Avos 1:11"},
-   {a:"Shemaya", f:"verified", v:"7.7k", x:`<p>And mine is “love work, hate positions of power.” We didn't ask for the parade.</p>`, s:"Pirkei Avos 1:10"},
-   {a:"Hillel", f:"their talmid", v:"15k", x:`<p>Since people are asking what “the deeds of Aharon” are: <b>love peace, pursue peace, love people and bring them close to Torah.</b></p>`, s:"Pirkei Avos 1:12"},
-   {a:"popcorn_levi", v:"2.2k", x:`<p>🍿</p>`, flav:1},
- ]},
- happy:{cm:[
-   {a:"RabbanShimonBG", op:1, v:"6.2k", x:`<p>And the girls would say: “Young man, lift your eyes and see what you're choosing. Don't look at looks, look at family.”</p>`, s:"Mishna Taanis 4:8"},
-   {a:"Taanis_31a", f:"Gemara", v:"8.8k", x:`<p>The Gemara adds the breakdown: the pretty ones said “look for beauty.” The ones from good families said “look at family.” The others said, “Take us for the sake of Heaven, <b>just crown us with gold</b>.”</p>`, s:"Taanis 31a"},
-   {a:"borrowed_dress", v:"5.0k", x:`<p>Everyone borrowed, top down. The <b>king's</b> daughter borrowed from the Kohen Gadol's daughter. Nobody could tell who was poor.</p>`, s:"Mishna Taanis 4:8"},
-   {a:"shadchan_2026", v:"3.3k", x:`<p>bring this back</p>`, flav:1},
- ]},
- thread:{cm:[
-   {a:"Shimon_HaTzadik_era", f:"archivist", v:"6.4k", x:`<p>All forty years that Shimon HaTzadik served, the lot for Hashem came up in his right hand <b>every time</b> and the thread turned white every time. After him: sometimes yes, sometimes no.</p>`, s:"Yoma 39a"},
-   {a:"RH_31b", f:"Gemara", v:"4.1k", x:`<p>Originally they tied it on the <b>outside of the Temple door</b>, where everyone could see. When it turned white people celebrated; when it didn't they were ashamed and depressed. So they moved it to the cliff, out of sight.</p>`, s:"Rosh Hashana 31b"},
-   {a:"Yochanan_ben_Zakai", op:1, v:"11k", x:`<p>Same forty years: the doors of the Heichal kept opening <b>by themselves</b>. I told them: “Heichal, Heichal, why are you frightening yourself? I know your end is to be destroyed.”</p>`, s:"Yoma 39b"},
-   {a:"chills", v:"2.0k", x:`<p>i did not need this before selichos</p>`, flav:1},
- ]},
- rain:{cm:[
-   {a:"Rema", f:"Acharon", v:"6.0k", x:`<p>Staying in a sukkah you're exempt from (the soup is soup now) to look extra frum earns you <b>no reward</b>, and you're called a <i>hedyot</i>.</p>`, s:"Rema OC 639:7"},
-   {a:"Rava", f:"Amora", v:"4.2k", x:`<p>General rule: if it's genuinely making you suffer, you're exempt. <i>Mitzta'er patur min hasukkah.</i></p>`, s:"Sukkah 26a"},
-   {a:"soggy_kugel", v:"3.8k", x:`<p>my kugel is now a soup. the halachic threshold has been met.</p>`, flav:1},
- ]},
- kick:{cm:[
-   {a:"HaMelech", adm:1, f:"ADMIN", v:"∞", x:`<p class="quote">“He who sits in heaven laughs.”</p>`, s:"Tehillim 2:4, quoted at this point in Avodah Zarah 3b"},
-   {a:"Umos_HaOlam", op:1, v:"-1.1k", x:`<p>EDIT: Also, isn't there a rule that He doesn't deal unfairly with His creations? A heatwave during SUKKOS??</p>`,
-    k:[{a:"Gemara_AZ", f:"Gemara", v:"5.4k", x:`<p>The Gemara asks exactly that. Answer: for them, the summer heat sometimes does run late into the festival. It's a realistic test.</p>`, s:"Avodah Zarah 3a"}]},
-   {a:"roof_neighbor", v:"4.8k", x:`<p>I left too. Folded my chair. Said goodnight to the ushpizin. Kicked nothing.</p>`, flav:1},
- ]},
- torches:{cm:[
-   {a:"Levi_bar_Sisi", f:"Amora", v:"9.1k", x:`<p>Honorable mentions from the same page: <b>Levi</b> juggled eight knives in front of Rebbi, <b>Shmuel</b> eight glasses of wine, and <b>Abaye</b> eight eggs (some say four).</p><p>Also Levi tried the thumb-bow in front of Rebbi and <b>came out limping.</b> Do not try kidah at home.</p>`, s:"Sukkah 53a"},
-   {a:"R_Yehoshua_ben_Chanania", f:"Levi · Tanna", v:"7.5k", x:`<p>We didn't sleep all week. Morning tamid, davening, mussaf, eat, beis medrash, afternoon tamid, then the party all night. We dozed on each other's shoulders.</p>`, s:"Sukkah 53a"},
-   {a:"Hillel_HaZaken", f:"Nasi", v:"6.3k", x:`<p>“If I am here, everything is here. If I'm not here, who is here?”</p>`, s:"Sukkah 53a"},
-   {a:"Levi_on_the_steps", op:1, v:"3.3k", x:`<p>We played on the fifteen steps between the courtyards, matching the fifteen <i>Shir HaMaalos</i> in Tehillim.</p>`, s:"Mishna Sukkah 5:4"},
- ]},
- clouds:{cm:[
-   {a:"R_Akiva", f:"Tanna", v:"9.0k", x:`<p><span class="he">סֻכּוֹת מַמָּשׁ</span>. Real huts. Respectfully.</p>`, s:"Sukkah 11b"},
-   {a:"Tur", f:"Rishon", v:"5.8k", x:`<p>Then why sit in Tishrei and not Nisan, when we actually left Egypt? Because in Nisan everyone sits outside for the nice weather. In Tishrei, when people move <i>indoors</i>, it's obvious you're doing it for the mitzvah.</p>`, s:"Tur OC 625"},
-   {a:"Gra_reader", f:"Vilna", v:"4.4k", x:`<p>The Vilna Gaon's version: the clouds left after the Golden Calf and came back when we started building the Mishkan, right after Yom Kippur. So the date is the <b>return</b> of the clouds.</p>`, s:"Gra on Shir HaShirim 1:4"},
-   {a:"both_is_good", v:"2.1k", x:`<p>why not both.gif</p>`, flav:1},
- ]},
- bulls:{cm:[
-   {a:"Rashi", f:"Parshan · verified", v:"7.2k", x:`<p>Notice the bulls <b>go down</b> each day: 13, 12, 11… A sign that the nations will diminish. And the 98 lambs over the week correspond to the 98 curses in Ki Savo, to atone them away.</p>`, s:"Rashi, Bamidbar 29:18"},
-   {a:"Zecharia_HaNavi", f:"verified", v:"6.0k", x:`<p>Future update: the nations will go up to Jerusalem <b>every year</b> to bow to the King and to celebrate Sukkos.</p>`, s:"Zecharia 14:16 (first-day Sukkos haftarah)"},
-   {a:"math_kohen", v:"1.5k", x:`<p>13+12+11+10+9+8+7 = 70. I checked twice. With a kohen's calculator.</p>`, flav:1},
- ]},
- minim:{cm:[
-   {a:"Midrash_body_parts", f:"Vayikra Rabbah", v:"4.9k", x:`<p>Another version: esrog = heart, lulav = spine, hadas = eyes, aravah = lips. Serve Hashem with <b>all</b> of you.</p>`, s:"Vayikra Rabbah 30:14"},
-   {a:"Rabbi_Yochanan", f:"Amora", v:"4.0k", x:`<p>Why the waving? You move it out and back to the One who owns the four directions, and up and down to the One who owns heaven and earth.</p>`, s:"Sukkah 37b"},
-   {a:"Aravah", f:"🍃 no taste no smell", v:"12k", x:`<p>Hey. I'm in the bundle too. And on Hoshana Rabbah I get <b>my own day</b>.</p>`, s:"Sukkah 44a"},
-   {a:"Esrog", v:"8.8k", x:`<p>I'm the only one who gets a velvet box. Just saying.</p>`, flav:1},
- ]},
- atzeres:{cm:[
-   {a:"Rashi", f:"Parshan · verified", v:"8.4k", x:`<p>Second version, from Bamidbar: the king tells his beloved one, “Make me a <b>small</b> meal, so I can enjoy <i>you</i>.” That's why it's just one bull.</p>`, s:"Rashi, Bamidbar 29:36"},
-   {a:"the_one_bull", v:"6.6k", x:`<p>honored to be the entire menu</p>`, flav:1},
-   {a:"EY_resident", f:"Eretz Yisrael", v:"3.0k", x:`<p>Here in Eretz Yisrael it's the same day as Simchas Torah. Maximum dancing per square hour.</p>`},
- ]},
- achnai:{cm:[
-   {a:"R_Eliezer", f:"Tanna", v:"5.5k", x:`<p>“If the halacha is like me, let this carob tree prove it.” (It moved 100 amos. Some say 400.)</p>`, s:"Bava Metzia 59b"},
-   {a:"R_Yirmiyah", f:"Amora", v:"6.8k", x:`<p>Why ignore a Heavenly Voice? Because the Torah was already given at Sinai, and it says in there <b>to follow the majority</b>.</p>`, s:"Bava Metzia 59b · Shemos 23:2"},
-   {a:"study_hall_wall", f:"load-bearing", v:"22k", x:`<p>We didn't fall, out of respect for R' Yehoshua. We didn't straighten up, out of respect for R' Eliezer. <b>We're still leaning.</b></p>`, s:"Bava Metzia 59b"},
-   {a:"R_Akiva", f:"Tanna", v:"9.3k", x:`<p>The part that isn't funny: they excommunicated R' Eliezer. I volunteered to tell him, dressed in black and sitting at a distance, so that someone careless wouldn't tell him harshly.</p>`, s:"Bava Metzia 59b"},
- ]},
- akiva:{cm:[
-   {a:"HaMelech", adm:1, f:"ADMIN", v:"∞", x:`<p>Moshe asked: “You have someone like this, and You give the Torah through <i>me</i>?”</p><p class="quote">“Be silent. This is what I have decided.”</p>`, s:"Menachos 29b"},
-   {a:"R_Akiva", f:"Tanna", v:"14k", x:`<p>In my defense, I was an illiterate shepherd until forty.</p>`, s:"Avos d'Rabbi Nosson 6"},
-   {a:"the_crowns", f:"tagin", v:"3.9k", x:`<p>Why the little crowns on the letters? He said R' Akiva would derive <b>heaps and heaps</b> of halachos from each one.</p>`, s:"Menachos 29b"},
-   {a:"eighth_row_regular", v:"2.7k", x:`<p>bro sat in MY seat</p>`, flav:1},
- ]},
- lev:{cm:[
-   {a:"Bereishis_Rabbah", f:"Midrash", v:"6.1k", x:`<p>And why does the Torah start with a <span class="he">ב</span>? It's closed on three sides and open forward. Don't ask what's above, below or before. Look ahead.</p>`, s:"Bereishis Rabbah 1:10"},
-   {a:"gabbai_ST", f:"gabbai", v:"3.5k", x:`<p>The custom: take out every sefer Torah, go around the bimah, and call everyone up, including the kids.</p>`, s:"Rema OC 669:1"},
-   {a:"kid_on_shoulders", v:"9.9k", x:`<p>the flags. the candy. 10/10 would rewind again.</p>`, flav:1},
- ]},
-});
-
+</script>
+<script src="content/subs.js"></script>
+<script src="content/users.js"></script>
+<script src="content/index.js"></script>
+<script>
 /* ============ SEFARIA LINKS ============ */
 // SEFARIA-START
 const SEF_NAMES = (()=>{
@@ -684,7 +206,6 @@ function linkSources(src){
 // SEFARIA-END
 
 /* ============ RENDER ============ */
-let tone = localStorage.getItem("shtiebl-tone") || "spicy";
 let pic = localStorage.getItem("shtiebl-pic") || "snapshot_gpt";
 if (pic === "vintage") pic = "snapshot";
 // cartoon = img/<id>.jpg; other styles = img/<style>/<id>.jpg (web copies made by img/optimize.py), falling back to the cartoon if missing
@@ -708,26 +229,28 @@ function vote(el,d){
 }
 function postCard(p, full){
   const open = `go('thread','${p.id}')`;
-  return `<div class="post">${voteCol(p.v)}<div class="pbody">
-    <div class="meta">${subTag(p.sub)} · Posted by ${p.by} · ${p.age} ago <span class="awards">${p.aw||""}</span>
+  return `<div class="post">${voteCol(p.votes)}<div class="pbody">
+    <div class="meta">${subTag(p.sub)} · Posted by u/${p.by} · ${p.age} ago <span class="awards">${p.awards||""}</span>
       <span class="tag">${HOLIDAYS[p.hol]}</span></div>
-    <div class="title" onclick="${open}">${p.t[tone]}${p.verdict?`<span class="flair verdict">${p.verdict}</span>`:""}</div>
-    <div class="hook">${p.h[tone]}</div>
-    <img class="pimg" src="${imgSrc(p.id)}" alt="" loading="lazy" onclick="${open}" onerror="${imgFallback(p.id)}">
-    <div class="text">${p.body}</div>
+    <div class="title" onclick="${open}">${p.title}${p.verdict?`<span class="flair verdict">${p.verdict}</span>`:""}</div>
+    <div class="hook">${p.hook}</div>
+    <img class="pimg" src="${imgSrc(p.img)}" alt="" loading="lazy" onclick="${open}" onerror="${imgFallback(p.img)}">
+    <div class="text">${full && p.op || p.body}</div>
     <div class="src">${linkSources(p.src)}</div>
-    <div class="actions"><span onclick="${open}">💬 ${p.c} Comments</span><span>🎁 Award</span><span onclick="share('${p.id}')">↪ Share</span><span>🔖 Save</span></div>
+    <div class="actions"><span onclick="${open}">💬 ${p.comments} Comments</span><span>🎁 Award</span><span onclick="share('${p.id}')">↪ Share</span><span>🔖 Save</span></div>
   </div></div>`;
 }
-function comment(c){
-  const cls = c.adm ? "c adm" : "c";
-  const av = c.adm ? "👑" : (c.op ? "🧔" : "🙂");
-  const badges = (c.adm?`<span class="badge">ADMIN</span>`:"")+(c.op?`<span class="badge op">OP</span>`:"")+(c.flav?`<span class="badge flav">FLAVOR</span>`:"");
-  const flair = c.f && !c.adm ? `<span class="flair">${c.f}</span>` : "";
-  return `<div class="${cls}">
-    <div class="ch"><span class="av">${av}</span><span class="u">u/${c.a}</span>${badges}${flair}<span>· ${c.v} points</span></div>
-    <div class="cb">${c.x}${c.img?`<img class="cimg" src="${imgSrc(c.img)}" alt="" onerror="${imgFallback(c.img)}">`:""}${c.s?`<div class="src">${linkSources(c.s)}</div>`:""}</div>
-    ${c.k?`<div class="kids">${c.k.map(comment).join("")}</div>`:""}
+// c = {by, flair?, votes, x, src?, img?, flavor?, replies?}; op = the post's author
+function comment(c, op){
+  const u = USERS[c.by] || {};
+  const isOp = c.by === op;
+  const flair = c.flair ?? u.flair;
+  const badges = (u.admin?`<span class="badge">ADMIN</span>`:"")+(isOp?`<span class="badge op">OP</span>`:"")+(c.flavor?`<span class="badge flav">FLAVOR</span>`:"");
+  const flairTag = flair && !u.admin ? `<span class="flair">${flair}</span>` : "";
+  return `<div class="${u.admin ? "c adm" : "c"}">
+    <div class="ch"><span class="av">${u.avatar || "🙂"}</span><span class="u">u/${c.by}</span>${badges}${flairTag}<span>· ${c.votes} points</span></div>
+    <div class="cb">${c.x}${c.img?`<img class="cimg" src="${imgSrc(c.img)}" alt="" onerror="${imgFallback(c.img)}">`:""}${c.src?`<div class="src">${linkSources(c.src)}</div>`:""}</div>
+    ${c.replies?`<div class="kids">${c.replies.map(r=>comment(r, op)).join("")}</div>`:""}
   </div>`;
 }
 function renderFeed(focus){
@@ -737,10 +260,9 @@ function renderFeed(focus){
   $("#col").innerHTML = `<div class="chips">${chips}</div>` + list.map(p=>`<div id="p-${p.id}">${postCard(p)}</div>`).join("");
 }
 function renderThread(id){
-  const p = POSTS.find(x=>x.id===id), th = THREADS[id] || {cm:[]};
-  const withOp = {...p, body: th.op || p.body};
-  $("#col").innerHTML = `<div class="thread-mode"><a class="back" onclick="backToFeed()">← Back to feed</a>` + postCard(withOp) +
-    `<div class="thread"><div class="sortbar">Sort by: <b>Best</b> · showing top comments · ADMIN comments quote only Tanach & Chazal</div>${th.cm.map(comment).join("")}</div>` +
+  const p = POSTS.find(x=>x.id===id);
+  $("#col").innerHTML = `<div class="thread-mode"><a class="back" onclick="backToFeed()">← Back to feed</a>` + postCard(p, true) +
+    `<div class="thread"><div class="sortbar">Sort by: <b>Best</b> · showing top comments · ADMIN comments quote only Tanach & Chazal</div>${p.thread.map(c=>comment(c, p.by)).join("")}</div>` +
     `<a class="back back-bottom" onclick="backToFeed()">← Back to feed</a></div>`;
 }
 
@@ -819,14 +341,11 @@ function toast(msg){
   clearTimeout(toast.t); toast.t = setTimeout(()=>el.classList.remove("show"), 2200);
 }
 function render(){
-  document.querySelectorAll("#toneSeg button").forEach(b=>b.classList.toggle("on",b.dataset.t===tone));
   document.querySelectorAll("#picSeg button").forEach(b=>b.classList.toggle("on",b.dataset.p===pic));
-  $("#toneDesc").innerHTML = TONES[tone];
-  $("#menuBtn").textContent = `${{spicy:"🌶",warm:"🤗",dry:"🎩"}[tone]} ${{snapshot_gpt:"📸",snapshot:"📷",cartoon:"🖍",cinematic:"🎬"}[pic]} ⚙`;
+  $("#menuBtn").textContent = `${{snapshot_gpt:"📸",snapshot:"📷",cartoon:"🖍",cinematic:"🎬"}[pic]} ⚙`;
   if(view[0]==="thread") renderThread(view[1]);
   else renderFeed(view[1]);
 }
-document.querySelectorAll("#toneSeg button").forEach(b=>b.onclick=()=>{tone=b.dataset.t;localStorage.setItem("shtiebl-tone",tone);render();});
 document.querySelectorAll("#picSeg button").forEach(b=>b.onclick=()=>{pic=b.dataset.p;localStorage.setItem("shtiebl-pic",pic);render();});
 
 // sidebar
@@ -841,10 +360,28 @@ const DATES = [["Yom Kippur","2026-09-21","10 Tishrei"],["Sukkos","2026-09-26","
   $("#subs").innerHTML = Object.entries(SUBS).map(([n,s])=>
     `<div class="cd"><span>${subTag(n)}</span><span class="note">${s.aka}</span></div>`).join("");
 })();
-// start: a shared #/p/<id> link opens that thread directly
-const start = routeFromHash();
-history.replaceState(start, "");
-if (start.v === "thread") go("thread", start.arg, true); else render();
+
+// Load content/posts/<id>.js for every id in POST_ORDER, then start.
+// A file that is missing or throws never calls post(): show a red banner naming it and render the rest.
+function loadPosts(done){
+  let left = POST_ORDER.length;
+  const finish = () => { if (--left === 0) done(); };
+  for (const id of POST_ORDER) {
+    const s = document.createElement("script");
+    s.src = `content/posts/${id}.js`;
+    s.onload = s.onerror = finish;
+    document.body.append(s);
+  }
+}
+loadPosts(()=>{
+  const bad = POST_ORDER.filter(id => !POSTS.some(p=>p.id===id));
+  if (bad.length) $("#loadErr").textContent = "⚠ Couldn't load: " + bad.map(id=>`content/posts/${id}.js`).join(", ");
+  POSTS.sort((a,b) => POST_ORDER.indexOf(a.id) - POST_ORDER.indexOf(b.id));
+  // start: a shared #/p/<id> link opens that thread directly
+  const start = routeFromHash();
+  history.replaceState(start, "");
+  if (start.v === "thread") go("thread", start.arg, true); else render();
+});
 </script>
 <div id="toast" role="status" aria-live="polite"></div>
 </body>
