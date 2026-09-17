@@ -1,5 +1,7 @@
 # Handoff: restructure shtiebl — sub pages, user profiles, richer threads
 
+> **Finished 2026-09-17 — all 5 steps done. This file is history, not a to-do list.** How the site works now: `README.md`. Writing content: `.claude/skills/shtiebl-post/SKILL.md`.
+
 You are picking this up cold. Read this file fully, then `README.md`, then skim `index.html`.
 The user has approved every decision below; don't re-ask them. Work in `C:\Users\Admin\coding\shtiebl`
 (Windows, use the PowerShell tool; Python and Node are available).
@@ -55,22 +57,14 @@ Line numbers drift; grep for the names.
 | Comment fields: `a` user, `f` flair, `v` votes, `x` HTML, `s` source, `img`, `adm`, `op`, `flav`, `k` replies | `comment()` renderer |
 | Sefaria linker (citation text → sefaria.org URL; unparsed → Sefaria search) | `SEF_NAMES`, `SEF_RE`, `linkSources()` |
 | Image path + fallback | `imgSrc()`, `imgFallback()` |
-| Navigation, scroll memory, permalinks, share toast | `go()`, `backToFeed()`, `routeFromHash()`, `share()`, `toast()` |
+| Navigation, scroll memory, permalinks, share toast | `go()`, `backLink()`, `logo()`, `routeFromHash()`, `share()`, `toast()` |
 | Countdown dates | `DATES` |
 
 When merging a post: title/hook = `SPICY[id]` (fallback `t.spicy`/`h.spicy`); body = `THREADS[id].op` **if present** for the thread view but `POSTS.body` for the feed card (today the thread view swaps in `op`). Keep both: `body` (feed) and `op` (thread, optional).
 
-## Navigation behavior that must survive (it was tuned with the user)
+## Navigation behavior that must survive
 
-| Situation | Behavior |
-|---|---|
-| Tap a post in the feed | Thread opens scrolled so only the bottom ~quarter of the image shows (they already saw it). Short threads get bottom padding on `body` (not the column — the sidebar is taller) so the scroll is possible. |
-| Shared link / reload of `#/p/<id>` | Opens at the **top** (whole post visible). |
-| Back to feed (top and bottom links), logo, browser Back | Return to the exact feed spot. Logo on the feed = jump to top. |
-| Share | Copies `…/#/p/<id>` and shows toast "Link copied to clipboard" (clipboard API with `execCommand` fallback). |
-| Phones (≤700px) | One-row header: logo + ⚙ button labelled with current picture emoji; tapping opens switchers + dark mode. Holiday chips scroll sideways. After dropping tones, the ⚙ label is just the picture emoji. |
-
-New routes should reuse the same machinery: `#/r/<sub>` and `#/u/<user>` are "feed-like" views (remember scroll anchor when leaving to a thread; Back returns there).
+Now described in `README.md` (Permalinks, Navigation) and tested by `tools/check.py`.
 
 ## The build, in 5 steps
 
