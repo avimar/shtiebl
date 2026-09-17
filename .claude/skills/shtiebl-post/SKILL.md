@@ -41,7 +41,7 @@ File layout, field names and the image commands are in `README.md`. Read it firs
 
        python img/gen_images.py snapshot <ids...> --as snapshot_gpt --fal-model openai/gpt-image-2.5/flare/text-to-image --quality low
 
-   Make the picture the **punchline** of the title, not a generic illustration (e.g. a kid aiming a lulav at the shul router, not "kid holding four minim"). **Look at every image** (Read the .jpg): modest dress, married women's hair covered, no crosses/church domes, no God. Redo a bad one with `--count 3 --force`, then `--pick N`.
+   Make the picture the **punchline** of the title, not a generic illustration (e.g. a kid aiming a lulav at the shul router, not "kid holding four minim"). **As few women as possible**: prefer men and boys, and when a scene can do without women, end the scene prompt with "Every person in the picture is a man or a boy; no women or girls anywhere." (the shared suffix alone isn't enough). No odd faces either (tongues out etc.). **Look at every image** (Read the .jpg): modest dress, married women's hair covered, no crosses/church domes, no God. Redo a bad one with `--count 3 --force`, then `--pick N`.
 6. `python tools/check.py` must pass (it checks users, images, links, Sefaria refs, scrolling).
 7. Commit only when asked to; pushing publishes the site.
 

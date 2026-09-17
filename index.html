@@ -147,7 +147,7 @@
   <div class="logo" onclick="logo()"><div class="dot">ש</div><div>shtiebl<small>the front page of the beis medrash</small></div></div>
   <div class="search">🔍 Search shtiebl</div>
   <div class="seg" id="picSeg" title="Picture style">
-    <button data-p="snapshot_gpt">📸 Snapshot HD</button><button data-p="snapshot">📷 Snapshot (FLUX)</button><button data-p="cartoon">🖍 Cartoon</button><button data-p="cinematic">🎬 Movie</button>
+    <button data-p="snapshot_gpt">📸 Snapshot HD</button><button data-p="snapshot">📷 Snapshot (FLUX)</button><button data-p="cartoon">🖍 Cartoon</button><button data-p="cinematic">🏛 Epic</button>
   </div>
   <button class="iconbtn" id="darkBtn" onclick="document.body.classList.toggle('dark')" title="Dark mode">🌓</button>
   <button class="iconbtn" id="menuBtn" onclick="$('header').classList.toggle('open')" title="Pictures & dark mode"></button>
@@ -438,7 +438,7 @@ function toast(msg){
 }
 function render(){
   document.querySelectorAll("#picSeg button").forEach(b=>b.classList.toggle("on",b.dataset.p===pic));
-  $("#menuBtn").textContent = `${{snapshot_gpt:"📸",snapshot:"📷",cartoon:"🖍",cinematic:"🎬"}[pic]} ⚙`;
+  $("#menuBtn").textContent = `${{snapshot_gpt:"📸",snapshot:"📷",cartoon:"🖍",cinematic:"🏛"}[pic]} ⚙`;
   if (view[0] === "thread") renderThread(view[1]);
   else if (view[0] === "sub") renderSub(view[1]);
   else if (view[0] === "user") renderUser(view[1]);

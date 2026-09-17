@@ -9,7 +9,7 @@ Locally, open `index.html` in a browser. There is no build step. The page loads 
 - **Navigation:** each list view (feed, sub page, profile) saves its scroll spot in its own history entry when you leave it. The thread's "← Back to …" links (top and bottom) and the browser's Back button return to that exact spot. The logo goes to the feed; on the feed it scrolls to the top.
 - **Holiday chips** filter the feed: Aseres Yemei Teshuva, Yom Kippur, Sukkos, Shemini Atzeres/Simchas Torah.
 - **Images:** the site loads `img/[<style>/]<id>.jpg`. Comment images are `c_*`, attached with `img: "c_name"`. The `.png` originals are local only (gitignored). `img/optimize.py` makes the `.jpg` copies and runs automatically after `gen_images.py`.
-- **Picture switcher** (Snapshot HD, the default, / Snapshot FLUX / Cartoon / Movie) swaps image sets. A missing image falls back to Snapshot HD.
+- **Picture switcher** (Snapshot HD, the default, / Snapshot FLUX / Cartoon / Epic) swaps image sets. A missing image falls back to Snapshot HD.
 - **Sources link to Sefaria.** `linkSources()` in `index.html` maps the citation names to Sefaria refs (the `SEF_NAMES` table). Anything it can't parse becomes a Sefaria search link. When you add a new book name, add it to the table.
 
 ## Content files
@@ -40,11 +40,11 @@ It checks for page errors, broken images in every style, source boxes without li
 ## Images
 Scene prompts and the per-style prefixes are in `img/prompts.json`. `img/manifest.json` records, for every `.png` original, the style, scene, full prompt sent, model, quality and date, so any image can be regenerated or tweaked.
 
-**New images are Snapshot HD only** (GPT Image 2.5 via fal, quality low, ~$0.004 each). The Snapshot FLUX, Cartoon and Movie sets are kept but not extended: a missing image in those styles falls back to the Snapshot HD one.
+**New images are Snapshot HD only** (GPT Image 2.5 via fal, quality low, ~$0.004 each). The Snapshot FLUX, Cartoon and Epic sets are kept but not extended: a missing image in those styles falls back to the Snapshot HD one.
 
     python img/gen_images.py snapshot <id> --as snapshot_gpt --fal-model openai/gpt-image-2.5/flare/text-to-image --quality low --count 3
     python img/gen_images.py snapshot <id> --as snapshot_gpt --pick 2     # keep take 2, recycle the others
 
 - Never drop `--quality low`: fal bills GPT Image at high (~9×) otherwise. Without `--fal-model` the script uses FLUX schnell.
 - New comment images get a `c_` scene key in `prompts.json`. `--prompt-override "<scene>"` tries a different scene for one image without editing the shared prompt (the manifest still records the full prompt).
-- Look at every take before publishing: modest dress (long sleeves and skirts, married women's hair covered), no crosses or church domes, God never depicted. **FLUX can't handle negatives** ("no crosses" put crosses *in*), so describe what you want instead.
+- Look at every take before publishing: as few women as possible (say "men and boys only" in the scene when it can do without them), modest dress (long sleeves and skirts, married women's hair covered), no crosses or church domes, God never depicted. **FLUX can't handle negatives** ("no crosses" put crosses *in*), so describe what you want instead.
