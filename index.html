@@ -751,6 +751,9 @@ let view = ["feed"];
 let feedAnchor = null;                       // {id, top}: post card's offset from the viewport top at click time
 const headerH = () => $("header").offsetHeight;
 function go(v, arg, fromHistory){
+  // Tapped in from the feed (already saw the picture) → skip most of it.
+  // Shared link / fresh load → no feedAnchor yet → show the whole post from the top.
+  const fromFeed = view[0] === "feed" && (!fromHistory || feedAnchor);
   if (v === "thread" && view[0] === "feed" && !fromHistory) {
     const el = document.getElementById("p-"+arg);
     feedAnchor = el ? {id:arg, top: el.getBoundingClientRect().top} : null;
@@ -759,7 +762,9 @@ function go(v, arg, fromHistory){
   if (!fromHistory) history.pushState({v, arg}, "", v === "thread" ? permalink(arg) : location.pathname + location.search);
   document.body.style.paddingBottom = "";
   render();
-  if (v === "thread") {
+  if (v === "thread" && !fromFeed) {
+    scrollTo(0, 0);
+  } else if (v === "thread") {
     const img = $("#col .pimg");
     const target = img ? img.getBoundingClientRect().top + scrollY + img.offsetHeight*0.75 - headerH() - 8
                        : $("#col .post").getBoundingClientRect().top + scrollY - headerH() - 8;

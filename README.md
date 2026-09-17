@@ -3,7 +3,7 @@
 **Live:** https://avimar.github.io/shtiebl/ (GitHub Pages, served from `main`, so pushing is publishing).
 Locally, open `index.html` in a browser. It is one file with no build step.
 
-- **Permalinks:** `#/p/<post id>` opens that thread. **Share** copies the permalink and shows "Link copied to clipboard".
+- **Permalinks:** `#/p/<post id>` opens that thread at the top, showing the whole post. Only a tap from the feed skips past most of the image, since that reader already saw it. **Share** copies the permalink and shows "Link copied to clipboard".
 - **Navigation:** Back to feed (top and bottom of a thread), the logo, and the browser's Back button all return to your spot in the feed. On the feed, the logo scrolls to the top.
 
 - **Tone switcher** (🌶 Spicy / 🤗 Warm / 🎩 Deadpan) changes only each post's title and opening line. The facts and sources stay the same.
