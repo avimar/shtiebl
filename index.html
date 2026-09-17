@@ -294,12 +294,18 @@ function vote(el,d){
 }
 function postCard(p, full){
   const open = hashFor("thread", p.id);
+  // full = the open thread: title and picture are plain there (a link would only lead back to this page)
+  const titleText = p.title + (p.verdict ? `<span class="flair verdict">${p.verdict}</span>` : "");
+  let title = `<a class="title" href="${open}">${titleText}</a>`;
+  let pic = `<img class="pimg" src="${imgSrc(p.img)}" alt="" loading="lazy" onerror="this.remove()">`;
+  if (full) title = `<div class="title">${titleText}</div>`;
+  else pic = `<a href="${open}">${pic}</a>`;
   return `<div class="post">${voteCol(p.votes)}<div class="pbody">
     <div class="meta">${subTag(p.sub)} · Posted by ${userLink(p.by)} · ${p.age} ago <span class="awards">${p.awards||""}</span>
       <span class="tag">${HOLIDAYS[p.hol]}</span></div>
-    <a class="title" href="${open}">${p.title}${p.verdict?`<span class="flair verdict">${p.verdict}</span>`:""}</a>
+    ${title}
     <div class="hook">${p.hook}</div>
-    <a href="${open}"><img class="pimg" src="${imgSrc(p.img)}" alt="" loading="lazy" onerror="this.remove()"></a>
+    ${pic}
     <div class="text">${full && p.op || p.body}</div>
     <div class="src">${linkSources(p.src)}</div>
     <div class="actions"><a href="${open}">💬 ${p.comments} Comments</a><span onclick="share('${p.id}')">↪ Share</span></div>
