@@ -771,6 +771,14 @@
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low"
  },
+ "snapshot_gpt/c_delicate.png": {
+  "style": "snapshot",
+  "scene": "c_delicate",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: inside an ancient Babylonian sukkah hut of reeds and palm fronds on a windy day: an elderly bearded rabbi in robes and a wound white turban (plain ears, no earrings or jewelry) sits at a low table and holds up one tiny twig between two fingers with a delicate, offended expression, as little bits of leaves and twigs blow down from the roof into his bowl of food; beside him a younger bearded student in robes gestures at the bowl as if to say it is perfectly fine. Every person in the picture is a man or a boy; no women or girls anywhere. Everyone modestly dressed: long sleeves, long skirts, high necklines. Show men and boys; include women only when the scene cannot work without them. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
  "snapshot_gpt/c_dinner.png": {
   "style": "snapshot",
   "scene": "c_dinner",
@@ -786,7 +794,21 @@
   "date": "2026-09-17",
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low",
-  "note": "retried once (transient fal error)"
+  "note": "retried once (transient fal error)",
+  "edit": {
+   "model": "openai/gpt-image-2.5/flare/edit",
+   "quality": "low",
+   "date": "2026-09-17",
+   "prompt": "Replace the three women on the right with young bearded priests in white, barefoot, snapping their fingers at the high priest; keep the high priest exactly as he is."
+  }
+ },
+ "snapshot_gpt/c_fold.png": {
+  "style": "snapshot",
+  "scene": "c_fold",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: flat ancient rooftops of a sprawling city under a huge blazing white-hot sun, heat haze in the air: on several roofs, sweating men in assorted ancient foreign dress (Roman togas, Persian robes and tall caps) angrily kick their flimsy leafy huts, which are toppling over; in the foreground, on his own roof, a calm bearded Jewish man in modest robes quietly walks out of his intact leafy sukkah hut carrying a neatly folded wooden chair, not looking back. Every person in the picture is a man or a boy; no women or girls anywhere. Everyone modestly dressed: long sleeves, long skirts, high necklines. Show men and boys; include women only when the scene cannot work without them. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
  },
  "snapshot_gpt/c_friday.png": {
   "style": "snapshot",
@@ -812,10 +834,34 @@
   "quality": "low",
   "date": "2026-09-17"
  },
+ "snapshot_gpt/c_kidah.png": {
+  "style": "snapshot",
+  "scene": "c_kidah",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: night in a vast stone temple courtyard lit by giant golden oil lamps on tall poles: an elderly bearded sage in white robes performs an impossible bow, his whole body stretched out straight and level just above the stone floor, balanced only on his two thumbs pressed into the ground, his lips touching the floor; a crowd of bearded men and young Levites with harps stare in amazement, one dropping his torch. Every person in the picture is a man or a boy; no women or girls anywhere. Everyone modestly dressed: long sleeves, long skirts, high necklines. Show men and boys; include women only when the scene cannot work without them. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
  "snapshot_gpt/c_kimchis.png": {
   "style": "snapshot",
   "scene": "c_kimchis",
   "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a proud elderly Jewish mother in an ancient stone home, wearing a long modest dress with long sleeves and a large headscarf covering all of her hair, beaming and clasping her hands, standing in front of her seven grown bearded sons of different heights lined up in a row, all wearing identical plain white linen priestly robes and white turbans Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_kugel.png": {
+  "style": "snapshot",
+  "scene": "c_kugel",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: close-up inside a modern backyard sukkah hut during a heavy downpour: rain pours through the leafy branch roof onto a wooden table, where a glass baking dish of golden potato kugel is completely flooded, chunks of kugel floating in rainwater like soup; a bearded man in a dripping black hat and white shirt holds a spoon over it with a resigned, defeated face. Every person in the picture is a man or a boy; no women or girls anywhere. Everyone modestly dressed: long sleeves, long skirts, high necklines. Show men and boys; include women only when the scene cannot work without them. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_limp.png": {
+  "style": "snapshot",
+  "scene": "c_limp",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: outside an ancient stone study hall: a bearded rabbi in robes limps out, leaning on a wooden crutch with one hand pressed to his hip and a pained but sheepish face, while an elderly dignified sage in white robes, seated on a carved chair in the doorway, watches with one raised eyebrow, and a few young students behind him try hard not to laugh. Every person in the picture is a man or a boy; no women or girls anywhere. Everyone modestly dressed: long sleeves, long skirts, high necklines. Show men and boys; include women only when the scene cannot work without them. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low",
   "date": "2026-09-17"
@@ -840,6 +886,14 @@
   "style": "snapshot",
   "scene": "c_menashe",
   "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: an elderly bearded patriarch in ancient robes sitting up on a bed with two boys standing in front of him: his arms are visibly CROSSED at the forearms in a big X, so his right hand reaches over to rest on the head of the boy on his LEFT side, and his left hand reaches over to rest on the head of the boy on his RIGHT side; their father in fine Egyptian-style robes stands beside the bed, reaching out to uncross the old man's hands, surprised Everyone modestly dressed: long sleeves, long skirts, high necklines. Show men and boys; include women only when the scene cannot work without them. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_menu.png": {
+  "style": "snapshot",
+  "scene": "c_menu",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a long wooden table in an ancient stone house with five dinner plates in a row, left to right each one plainer than the last: a whole roast fattened bird, a grilled fish, a piece of meat, a small bowl of beans, and finally a plate of plain green vegetables; at the far end sits a bearded guest in robes looking down at the vegetable plate with mild concern, while his smiling bearded host stands beside him with open hands. Every person in the picture is a man or a boy; no women or girls anywhere. Everyone modestly dressed: long sleeves, long skirts, high necklines. Show men and boys; include women only when the scene cannot work without them. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low",
   "date": "2026-09-17"
@@ -908,6 +962,14 @@
   "quality": "low",
   "date": "2026-09-17"
  },
+ "snapshot_gpt/c_ship.png": {
+  "style": "snapshot",
+  "scene": "c_ship",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: an ancient wooden sailing ship on a choppy windy sea: a small hut of branches and palm fronds is being blown clean off the deck into the air, fronds flying; a bearded sage in simple robes reaches after it with a sheepish look, while beside him an elderly dignified sage in fine robes and a wound turban stands with arms folded and one eyebrow raised, and two sailors hold on to the rigging. Every person in the picture is a man or a boy; no women or girls anywhere. Everyone modestly dressed: long sleeves, long skirts, high necklines. Show men and boys; include women only when the scene cannot work without them. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
  "snapshot_gpt/c_skylight.png": {
   "style": "snapshot",
   "scene": "c_skylight",
@@ -944,6 +1006,14 @@
   "style": "snapshot",
   "scene": "c_twoparties",
   "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: two separate festive banquet pavilions side by side in ancient Jerusalem, one decorated with gold temple vessels, the other with leafy palm-branch roofs, and a wise young king in royal robes standing between them, firmly holding the two pavilion doors apart with outstretched arms Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "date": "2026-09-17"
+ },
+ "snapshot_gpt/c_velvet.png": {
+  "style": "snapshot",
+  "scene": "c_velvet",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a flawless bright yellow citron fruit (esrog) resting like a precious jewel in an open wooden box lined with deep blue velvet and soft flax fibers, with a silver clasp, lit dramatically like a luxury watch advertisement on a synagogue table; a bearded man in a black hat and a young boy with a kippah lean in close, holding their breath, the man peering through a small magnifying glass. Every person in the picture is a man or a boy; no women or girls anywhere. Everyone modestly dressed: long sleeves, long skirts, high necklines. Show men and boys; include women only when the scene cannot work without them. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
   "model": "openai/gpt-image-2.5/flare/text-to-image",
   "quality": "low",
   "date": "2026-09-17"

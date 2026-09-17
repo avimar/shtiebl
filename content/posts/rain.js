@@ -26,12 +26,82 @@ post({
       votes: "4.2k",
       x: `<p>General rule: if it's genuinely making you suffer, you're exempt. <i>Mitzta'er patur min hasukkah.</i></p>`,
       src: "Sukkah 26a:9",
+      replies: [
+        {
+          by: "Rav_Yosef",
+          votes: "3.1k",
+          x: `<p>I was eating in the sukkah with Abaye. The wind blew little bits of schach into my food. I said: take my things inside, I'm eating in the house.</p>`,
+          img: "c_delicate",
+          src: "Sukkah 29a:4",
+          replies: [
+            {
+              by: "Abaye",
+              votes: "2.4k",
+              x: `<p>Rebbi, the Mishna says you stay until the porridge would spoil. Nothing is spoiled. It's a twig.</p>`,
+              src: "Sukkah 29a:4",
+              replies: [
+                {
+                  by: "Rav_Yosef",
+                  votes: "4.6k",
+                  x: `<p>For me, I'm delicate. For me, <b>this is</b> the porridge spoiling.</p>`,
+                  src: "Sukkah 29a:4",
+                },
+              ],
+            },
+          ],
+        },
+      ],
     },
     {
       by: "soggy_kugel",
       votes: "3.8k",
       x: `<p>my kugel is now a soup. the halachic threshold has been met.</p>`,
+      img: "c_kugel",
       flavor: true,
+      replies: [
+        {
+          by: "Rema",
+          votes: "2.9k",
+          x: `<p>You don't even need a dish on the table. No kugel? Ask yourself: if this much rain came into your <b>house</b>, would you leave the house? Then you may leave the sukkah.</p><p>Except the first night. Then you eat a <i>kezayis</i> in the sukkah even in the rain, and make Kiddush there.</p>`,
+          src: "Rema OC 639:5",
+        },
+      ],
+    },
+    {
+      by: "eved_neeman",
+      votes: "5.2k",
+      x: `<p>Update: the Gemara actually asked <b>who poured on whom</b>. I was hoping maybe I spilled on Him and this was all a misunderstanding.</p><p>Checked the baraita. The master poured the jug in the servant's face and said, “I don't want your service.”</p>`,
+      src: "Sukkah 29a:7",
+      replies: [
+        {
+          by: "Rema",
+          votes: "3.7k",
+          x: `<p>So when you go inside, go like that servant: quietly, head down. Not storming off.</p>`,
+          src: "Rema OC 639:7",
+          replies: [
+            {
+              by: "Umos_HaOlam",
+              votes: "-640",
+              x: `<p>asking for a friend. does a kick on the way out count as storming off</p>`,
+              flavor: true,
+              replies: [
+                {
+                  by: "Gemara_AZ",
+                  votes: "3.3k",
+                  x: `<p>We covered this. You're exempt, so you may leave. But kick it?</p>`,
+                  src: "Avodah Zarah 3b:1",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      by: "HaMelech",
+      votes: "∞",
+      x: `<p class="quote">“Pour water before Me on the festival, so that the rains of the year will be blessed for you.”</p>`,
+      src: "Rosh Hashana 16a:15",
     },
   ],
 });
