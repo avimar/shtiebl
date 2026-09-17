@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>shtiebl — the front page of the beis medrash</title>
 <!-- GoatCounter (https://shtiebl.goatcounter.com). The site is one page, so countView() sends the #/ route as the path. -->
+<script>
+// One GoatCounter hit per view. Runs when count.js loads (the landing view) and on each new navigation in go().
+// pushState fires no hashchange, so the hash can't be watched. Back/Forward are not counted.
+// GoatCounter skips localhost and file:// by itself. Defined here, before count.js, because count.js can load first.
+function countView(){
+  if (window.goatcounter && goatcounter.count) goatcounter.count({path: location.pathname + (location.hash || "#/")});
+}
+</script>
 <script data-goatcounter="https://shtiebl.goatcounter.com/count" data-goatcounter-settings='{"no_onload": true}'
         async src="https://gc.zgo.at/count.js" onload="countView()"></script>
 <meta name="description" content="Real Torah dressed up as the internet: Yom Kippur, Sukkos and Simchas Torah as Reddit threads. Every post cites its source on Sefaria.">
@@ -406,12 +414,6 @@ function currentSpot(clicked){
   const cards = [...document.querySelectorAll("#col [id^='p-'], #col [id^='c-']")];
   const el = clicked ? document.getElementById(clicked) : cards.find(c => c.getBoundingClientRect().bottom > headerH());
   return el ? {el: el.id, top: el.getBoundingClientRect().top} : null;
-}
-// One GoatCounter hit per view, path = the #/ route. Runs when count.js loads (the landing view)
-// and on each new navigation in go(). pushState fires no hashchange, so the hash can't be watched.
-// Back/Forward are not counted. GoatCounter skips localhost and file:// by itself.
-function countView(){
-  if (window.goatcounter && goatcounter.count) goatcounter.count({path: location.pathname + (location.hash || "#/")});
 }
 // state = the history entry being shown (browser Back/Forward, fresh load); omitted = a new navigation.
 function go(v, arg, state){
