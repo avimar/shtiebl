@@ -13,7 +13,7 @@ post({
   img: "kick",
   body: `<p>In the future the nations will say: “Give us the Torah now, and we'll keep it.” They get one easy mitzvah to try: <b>sukkah</b>. Each one builds a sukkah on his roof. Then Hashem takes the sun out of its sheath and makes it blaze, and each one <b>kicks his sukkah and leaves.</b></p>
         <p><b>Top comment:</b> the Gemara points out that a Jew also leaves when it's too hot, because he's exempt. But he doesn't <i>kick</i> it. <b>YTR.</b></p>`,
-  src: "Avodah Zarah 3a:10–3b:1",
+  src: "Avodah Zarah 3a:10–3b:1 · sun out of its sheath: Avodah Zarah 3b:18",
   thread: [
     {
       by: "HaMelech",
