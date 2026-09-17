@@ -7,7 +7,7 @@ subs({
   AmITheRasha: {
     icon: "⚖️",
     color: "#c2410c",
-    aka: "r/AmItheAsshole",
+    aka: "",
   },
   ThatsInsane: {
     icon: "😱",

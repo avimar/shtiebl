@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PORT = 8765
 BASE = f"http://localhost:{PORT}/"
 STYLES = ["snapshot_gpt", "snapshot", "cartoon", "cinematic"]
-ROUTE_KINDS = ["p", "r"]                    # add "u" when profiles ship
+ROUTE_KINDS = ["p", "r", "u"]
 SEF_CACHE = ROOT / "tools" / ".sefaria_ok.json"   # refs already verified (gitignored)
 QUICK = "--quick" in sys.argv
 
@@ -69,11 +69,19 @@ def check_views(pg, errors, hrefs):
 
 
 def check_permalinks(pg):
-    for i in pg.evaluate("POST_ORDER"):
-        pg.goto(BASE + f"?x={time.time()}#/p/{i}")
-        pg.wait_for_selector(".thread")
-        y = pg.evaluate("scrollY")
-        if y != 0: fail(f"#/p/{i} fresh load: scrollY={y}, expected 0")
+    """Fresh load of every permalink (new #/r/<Sub>/<id> and old #/p/<id>) opens that thread at the top.
+    A comment link (…/c/<cid>) lands on that comment."""
+    pg.goto(BASE); pg.wait_for_selector(".post")
+    links = pg.evaluate("POST_ORDER.map(id => [id, hashFor('thread', id)])")
+    for i, new in links:
+        for h in (new, f"#/p/{i}"):
+            pg.goto(BASE + f"?x={time.time()}{h}")
+            pg.wait_for_selector(".thread")
+            got = pg.evaluate("[view[1], scrollY]")
+            if got != [i, 0]: fail(f"{h} fresh load: view {got[0]}, scrollY {got[1]} (want {i}, 0)")
+    pg.goto(BASE + f"?x={time.time()}{links[0][1]}/c/1.0")
+    pg.wait_for_selector(".thread"); pg.wait_for_timeout(100)
+    if not pg.evaluate("!!document.querySelector('#cm-1\\\\.0.flash')"): fail("comment permalink …/c/1.0 did not highlight #cm-1.0")
 
 
 def check_scroll(pg, route="", back_link=False):
@@ -107,6 +115,35 @@ def check_sub(pg):
     pg.wait_for_selector(".thread")
     label = pg.inner_text(".back")
     if label != "← Back to r/AmITheRasha": fail(f"thread back link from a sub page says {label!r}")
+
+
+def check_profile(pg, name):
+    """Profile lists every comment by the user (counted from the files); each row jumps to that comment; Back restores the spot."""
+    in_files = sum(len(re.findall(rf'\bby: "{name}"', p.read_text(encoding="utf-8")))
+                   for p in (ROOT / "content" / "posts").glob("*.js"))
+    open_route(pg, f"#/u/{name}")
+    n_posts = pg.evaluate(f"POSTS.filter(p => p.by === '{name}').length")
+    rows = pg.evaluate("[...document.querySelectorAll('.uc')].map(e => e.id)")
+    if len(rows) + n_posts != in_files:
+        fail(f"u/{name}: {len(rows)} comments + {n_posts} posts shown, files have {in_files} by: lines")
+    for rid in rows:
+        pg.evaluate(f"""() => {{ const el = document.getElementById('{rid}');
+            scrollTo(0, el.getBoundingClientRect().top + scrollY - headerH() - 120); }}""")
+        before = pg.evaluate(f"document.getElementById('{rid}').getBoundingClientRect().top")
+        box = pg.locator(f"[id='{rid}'] .uctext").bounding_box()
+        pg.mouse.click(box["x"] + 10, box["y"] + 5)
+        pg.wait_for_selector(".thread")
+        got = pg.evaluate("""() => { const el = document.querySelector('.c.flash');
+            if (!el) return null;
+            const top = el.getBoundingClientRect().top - headerH();
+            return {by: el.querySelector(':scope > .ch .u').textContent, top}; }""")
+        if not got: fail(f"u/{name} {rid}: no highlighted comment")
+        elif got["by"] != f"u/{name}": fail(f"u/{name} {rid}: landed on {got['by']}")
+        elif not -2 <= got["top"] <= 60: fail(f"u/{name} {rid}: comment is {got['top']:.0f}px below the header")
+        pg.go_back()
+        pg.wait_for_selector(f"[id='{rid}']")
+        after = pg.evaluate(f"document.getElementById('{rid}').getBoundingClientRect().top")
+        if abs(after - before) > 2: fail(f"u/{name} {rid}: Back put the row at {after:.0f}px, was {before:.0f}px")
 
 
 def check_mobile(browser):
@@ -165,6 +202,7 @@ def main():
                 print("sub page -> thread -> back link, every sub")
                 for s in pg.evaluate("Object.keys(SUBS)"): check_scroll(pg, f"#/r/{s}", back_link=True)
             print("sub page contents"); check_sub(pg)
+            print("profiles: comment jumps"); check_profile(pg, "Rashi"); check_profile(pg, "KohenGadol")
             print("phone header"); check_mobile(browser)
             browser.close()
         if not QUICK: print("Sefaria refs"); check_sefaria(hrefs)

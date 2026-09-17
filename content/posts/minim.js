@@ -25,7 +25,7 @@ post({
       src: "Vayikra Rabbah 30:14",
     },
     {
-      by: "Rabbi_Yochanan",
+      by: "R_Yochanan",
       votes: "4.0k",
       x: `<p>Why the waving? You move it out and back to the One who owns the four directions, and up and down to the One who owns heaven and earth.</p>`,
       src: "Sukkah 37b",

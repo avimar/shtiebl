@@ -34,7 +34,8 @@ post({
       src: "Pirkei Avos 1:10",
     },
     {
-      by: "Hillel",
+      by: "Hillel_HaZaken",
+      flair: "their talmid",
       votes: "15k",
       x: `<p>Since people are asking what “the deeds of Aharon” are: <b>love peace, pursue peace, love people and bring them close to Torah.</b></p>`,
       src: "Pirkei Avos 1:12",

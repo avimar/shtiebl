@@ -1,7 +1,7 @@
 post({
   id: "clouds",
   sub: "MinorityOpinion",
-  by: "RebEliezer",
+  by: "R_Eliezer",
   hol: "suk",
   age: "1,900 yr",
   votes: "6.1k",

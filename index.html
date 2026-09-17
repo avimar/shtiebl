@@ -52,7 +52,6 @@
     .votes{width:34px}
     .pbody{padding:8px 10px 4px}
     .title{font-size:17px}
-    .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none} .chip{white-space:nowrap}
   }
   #loadErr:not(:empty){background:#b91c1c;color:#fff;padding:8px 18px;font-weight:600}
 
@@ -70,6 +69,7 @@
   .chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
   .chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:16px;padding:5px 12px;cursor:pointer;font:inherit;font-size:13px}
   .chip.on{background:var(--ink);color:var(--card)}
+  @media (max-width:700px){ .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none} .chip{white-space:nowrap} }
 
   /* post card */
   .post{display:flex;background:var(--card);border:1px solid var(--line);border-radius:6px;margin-bottom:10px;overflow:hidden}
@@ -79,10 +79,22 @@
   .votes b.up.on{color:var(--orange)} .votes b.down.on{color:#7193ff}
   .pbody{padding:8px 12px 4px;min-width:0;flex:1}
   .meta{font-size:12px;color:var(--muted);display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-  .sub{color:var(--ink);font-weight:700} a.sub:hover{text-decoration:underline}
+  .sub{color:var(--ink);font-weight:700} .subicon + .sub{margin-left:5px} a.sub:hover{text-decoration:underline}
   .head{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:12px 14px;margin-bottom:10px}
   .head h1{margin:0;font-size:22px;line-height:1.2}
   .head .subicon{width:52px;height:52px;font-size:28px;flex-shrink:0}
+  .meta a.u{color:var(--muted)} a.u:hover{text-decoration:underline}
+  .av.big{width:56px;height:56px;font-size:32px;flex-shrink:0}
+  .head .bio{margin:6px 0 4px}
+  .section{font-size:15px;margin:14px 0 8px}
+  .ucbox{margin-bottom:10px}
+  .uc{padding:10px 12px;border-top:1px solid var(--line)}
+  .uc:first-of-type{border-top:0}
+  .uctext{margin-top:3px;cursor:pointer}
+  @keyframes flash{from{background:#ffe58a}to{background:transparent}}
+  body.dark .flash > .ch, body.dark .flash > .cb{animation-name:flashdark}
+  @keyframes flashdark{from{background:#6b5a12}to{background:transparent}}
+  .flash > .ch, .flash > .cb{animation:flash 1.6s ease-out}
   .empty{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:24px;text-align:center;color:var(--muted)}
   .subicon{width:20px;height:20px;border-radius:50%;display:inline-grid;place-items:center;font-size:12px;color:#fff}
   .title{font-size:18px;font-weight:600;margin:6px 0;line-height:1.3;cursor:pointer}
@@ -234,7 +246,7 @@ function vote(el,d){
 function postCard(p, full){
   const open = `go('thread','${p.id}')`;
   return `<div class="post">${voteCol(p.votes)}<div class="pbody">
-    <div class="meta">${subTag(p.sub)} · Posted by u/${p.by} · ${p.age} ago <span class="awards">${p.awards||""}</span>
+    <div class="meta">${subTag(p.sub)} · Posted by ${userLink(p.by)} · ${p.age} ago <span class="awards">${p.awards||""}</span>
       <span class="tag">${HOLIDAYS[p.hol]}</span></div>
     <div class="title" onclick="${open}">${p.title}${p.verdict?`<span class="flair verdict">${p.verdict}</span>`:""}</div>
     <div class="hook">${p.hook}</div>
@@ -244,23 +256,34 @@ function postCard(p, full){
     <div class="actions"><span onclick="${open}">💬 ${p.comments} Comments</span><span>🎁 Award</span><span onclick="share('${p.id}')">↪ Share</span><span>🔖 Save</span></div>
   </div></div>`;
 }
-// c = {by, flair?, votes, x, src?, img?, flavor?, replies?}; op = the post's author
-function comment(c, op){
+const userLink = name => `<a class="u" onclick="go('user','${name}')">u/${name}</a>`;
+// c = {by, flair?, votes, x, src?, img?, flavor?, replies?}; op = the post's author;
+// cid = position path ("2.0.1" = 3rd comment, 1st reply, 2nd reply), used by #/p/<id>/c/<cid>
+function comment(c, op, cid){
   const u = USERS[c.by] || {};
   const isOp = c.by === op;
   const flair = c.flair ?? u.flair;
   const badges = (u.admin?`<span class="badge">ADMIN</span>`:"")+(isOp?`<span class="badge op">OP</span>`:"")+(c.flavor?`<span class="badge flav">FLAVOR</span>`:"");
   const flairTag = flair && !u.admin ? `<span class="flair">${flair}</span>` : "";
-  return `<div class="${u.admin ? "c adm" : "c"}">
-    <div class="ch"><span class="av">${u.avatar || "🙂"}</span><span class="u">u/${c.by}</span>${badges}${flairTag}<span>· ${c.votes} points</span></div>
+  return `<div class="${u.admin ? "c adm" : "c"}" id="cm-${cid}">
+    <div class="ch"><span class="av">${u.avatar || "🙂"}</span>${userLink(c.by)}${badges}${flairTag}<span>· ${c.votes} points</span></div>
     <div class="cb">${c.x}${c.img?`<img class="cimg" src="${imgSrc(c.img)}" alt="" onerror="${imgFallback(c.img)}">`:""}${c.src?`<div class="src">${linkSources(c.src)}</div>`:""}</div>
-    ${c.replies?`<div class="kids">${c.replies.map(r=>comment(r, op)).join("")}</div>`:""}
+    ${c.replies?`<div class="kids">${c.replies.map((r,i)=>comment(r, op, cid+"."+i)).join("")}</div>`:""}
   </div>`;
 }
-function renderList(head, posts){
+// Every comment in every thread, flattened: [{post, c, cid}]
+function allComments(){
+  const out = [];
+  const walk = (post, c, cid) => { out.push({post, c, cid}); (c.replies||[]).forEach((r,i)=>walk(post, r, cid+"."+i)); };
+  POSTS.forEach(p => p.thread.forEach((c,i)=>walk(p, c, String(i))));
+  return out;
+}
+// noChips: a profile with no posts has nothing to filter
+function renderList(head, posts, noChips){
   const chips = [["all","🔥 All"],...Object.entries(HOLIDAYS)].map(([k,l])=>
     `<button class="chip ${hol===k?"on":""}" onclick="hol='${k}';render()">${l}</button>`).join("");
   const list = posts.filter(p=>hol==="all"||p.hol===hol);
+  if (noChips) { $("#col").innerHTML = head; return; }
   $("#col").innerHTML = head + `<div class="chips">${chips}</div>` +
     (list.length ? list.map(p=>`<div id="p-${p.id}">${postCard(p)}</div>`).join("")
                  : `<div class="empty">Nothing here for ${HOLIDAYS[hol]} yet.</div>`);
@@ -268,14 +291,34 @@ function renderList(head, posts){
 function renderSub(name){
   const s = SUBS[name], posts = POSTS.filter(p=>p.sub===name);
   renderList(`<div class="head"><span class="subicon" style="background:${s.color}">${s.icon}</span>
-    <div><h1>r/${name}</h1><div class="note">aka ${s.aka} · ${posts.length} post${posts.length===1?"":"s"}</div></div></div>`, posts);
+    <div><h1>r/${name}</h1><div class="note">${s.aka ? `aka ${s.aka} · ` : ""}${posts.length} post${posts.length===1?"":"s"}</div></div></div>`, posts);
 }
-function renderThread(id){
+function renderUser(name){
+  const u = USERS[name];
+  const posts = POSTS.filter(p=>p.by===name);
+  const comments = allComments().filter(({c})=>c.by===name);
+  const plain = html => { const t = html.replace(/<\/p>/g," ").replace(/<[^>]+>/g,"").replace(/\s+/g," ").trim(); return t.length > 220 ? t.slice(0,220) + "…" : t; };
+  const list = comments.map(({post, c, cid})=>{
+    const jump = `go('thread','${post.id}/c/${cid}')`;
+    return `<div class="uc" id="c-${post.id}-${cid}">
+      <div class="note">💬 in <a class="sub" onclick="go('sub','${post.sub}')">r/${post.sub}</a> › <a onclick="${jump}">${post.title}</a> · ${c.votes} points${c.flavor?` <span class="badge flav">FLAVOR</span>`:""}</div>
+      <div class="uctext" onclick="${jump}">${plain(c.x)}</div></div>`;
+  }).join("");
+  renderList(`<div class="head"><span class="av big">${u.avatar || "🙂"}</span>
+    <div><h1>u/${name}${u.admin?` <span class="badge">ADMIN</span>`:""}</h1>
+    ${u.flair && !u.admin ? `<span class="flair">${u.flair}</span>` : ""}
+    <p class="bio">${u.bio || ""}</p>
+    <div class="note">${posts.length} post${posts.length===1?"":"s"} · ${comments.length} comment${comments.length===1?"":"s"}</div></div></div>`
+    + (comments.length ? `<div class="box ucbox"><h3>💬 Comments</h3>${list}</div>` : "")
+    + (posts.length ? `<h2 class="section">📝 Posts</h2>` : ""), posts, !posts.length);
+}
+function renderThread(arg){
+  const [id] = arg.split("/c/");
   const p = POSTS.find(x=>x.id===id);
   const from = history.state && history.state.from;
   const back = `<a class="back" onclick="backLink()">← Back to ${from ? viewName(from) : "feed"}</a>`;
   $("#col").innerHTML = `<div class="thread-mode">${back}` + postCard(p, true) +
-    `<div class="thread"><div class="sortbar">Sort by: <b>Best</b> · showing top comments · ADMIN comments quote only Tanach & Chazal</div>${p.thread.map(c=>comment(c, p.by)).join("")}</div>` +
+    `<div class="thread"><div class="sortbar">Sort by: <b>Best</b> · showing top comments · ADMIN comments quote only Tanach & Chazal</div>${p.thread.map((c,i)=>comment(c, p.by, String(i))).join("")}</div>` +
     back.replace('class="back"', 'class="back back-bottom"') + `</div>`;
 }
 
@@ -284,15 +327,14 @@ function renderThread(id){
    so Back puts the page exactly where it was.
    A thread tapped open from a list starts scrolled so only the bottom quarter of the image shows
    (you already saw it). A shared link / fresh load opens at the top. */
-const LISTS = ["feed", "sub"];
-const ROUTES = {thread:"#/p/", sub:"#/r/"};
+const LISTS = ["feed", "sub", "user"];
 let view = ["feed"];
 const headerH = () => $("header").offsetHeight;
-const viewName = ([v, arg]) => v === "sub" ? "r/" + arg : "feed";
+const viewName = ([v, arg]) => v === "sub" ? "r/" + arg : v === "user" ? "u/" + arg : "feed";
 
 // The card nearest the top of the screen (or the one just clicked) and its offset from the viewport top.
 function currentSpot(clicked){
-  const cards = [...document.querySelectorAll("#col [id^='p-']")];
+  const cards = [...document.querySelectorAll("#col [id^='p-'], #col [id^='c-']")];
   const el = clicked ? document.getElementById(clicked) : cards.find(c => c.getBoundingClientRect().bottom > headerH());
   return el ? {el: el.id, top: el.getBoundingClientRect().top} : null;
 }
@@ -301,15 +343,27 @@ function go(v, arg, state){
   if (!state) {
     if (v === view[0] && arg === view[1]) { scrollTo(0, 0); return; }
     const leavingList = LISTS.includes(view[0]);
-    if (leavingList) history.replaceState({...history.state, spot: currentSpot(v === "thread" && "p-"+arg)}, "");
+    // the element that was clicked: a post card (p-<id>) or, on a profile, a comment row (c-<id>-<cid>)
+    const clicked = v === "thread" && (arg.includes("/c/") ? "c-" + arg.replace("/c/", "-") : "p-" + arg);
+    if (leavingList) history.replaceState({...history.state, spot: currentSpot(clicked)}, "");
     state = {v, arg, from: v === "thread" && leavingList ? view : null};
-    history.pushState(state, "", location.pathname + location.search + (ROUTES[v] ? ROUTES[v] + arg : ""));
+    history.pushState(state, "", location.pathname + location.search + hashFor(v, arg));
   }
   view = [v, arg];
   document.body.style.paddingBottom = "";
   render();
   const spotEl = state.spot && document.getElementById(state.spot.el);
-  if (v === "thread" && state.from) {
+  const cid = v === "thread" && arg.split("/c/")[1];
+  const cEl = cid && document.getElementById("cm-" + cid);
+  if (cEl) {
+    // #/p/<id>/c/<cid>: scroll that comment just under the header and flash it
+    const target = cEl.getBoundingClientRect().top + scrollY - headerH() - 12;
+    const deficit = target + innerHeight - document.documentElement.scrollHeight;
+    if (deficit > 0) document.body.style.paddingBottom = deficit + "px";
+    scrollTo(0, Math.max(0, target));
+    cEl.classList.add("flash");
+    setTimeout(() => cEl.classList.remove("flash"), 1600);
+  } else if (v === "thread" && state.from) {
     const img = $("#col .pimg");
     const target = img ? img.getBoundingClientRect().top + scrollY + img.offsetHeight*0.75 - headerH() - 8
                        : $("#col .post").getBoundingClientRect().top + scrollY - headerH() - 8;
@@ -342,11 +396,22 @@ addEventListener("popstate", e=>{
 history.scrollRestoration = "manual";
 
 /* ---- permalinks + share ---- */
-function permalink(id){ return location.href.split("#")[0] + "#/p/" + id; }
+// Threads: #/r/<Sub>/<id>[/c/<cid>]. Old shared links #/p/<id>[/c/<cid>] still open.
+function hashFor(v, arg){
+  if (v === "sub") return "#/r/" + arg;
+  if (v === "user") return "#/u/" + arg;
+  if (v !== "thread") return "";
+  const [id, cid] = arg.split("/c/"), p = POSTS.find(x=>x.id===id);
+  return `#/r/${p.sub}/${id}` + (cid ? "/c/" + cid : "");
+}
+function permalink(id){ return location.href.split("#")[0] + hashFor("thread", id); }
 function routeFromHash(){
-  const [, kind, arg] = location.hash.match(/^#\/([pr])\/([\w-]+)/) || [];
-  if (kind === "p" && POSTS.some(p=>p.id===arg)) return {v:"thread", arg};
+  const h = location.hash;
+  const [, id, cid] = h.match(/^#\/r\/\w+\/([\w-]+)(?:\/c\/([\d.]+))?/) || h.match(/^#\/p\/([\w-]+)(?:\/c\/([\d.]+))?/) || [];
+  if (id && POSTS.some(p=>p.id===id)) return {v:"thread", arg: cid ? `${id}/c/${cid}` : id};
+  const [, kind, arg] = h.match(/^#\/([ru])\/(\w+)/) || [];
   if (kind === "r" && SUBS[arg]) return {v:"sub", arg};
+  if (kind === "u" && USERS[arg]) return {v:"user", arg};
   return {v:"feed"};
 }
 function share(id){
@@ -370,6 +435,7 @@ function render(){
   $("#menuBtn").textContent = `${{snapshot_gpt:"📸",snapshot:"📷",cartoon:"🖍",cinematic:"🎬"}[pic]} ⚙`;
   if (view[0] === "thread") renderThread(view[1]);
   else if (view[0] === "sub") renderSub(view[1]);
+  else if (view[0] === "user") renderUser(view[1]);
   else renderList("", POSTS);
 }
 document.querySelectorAll("#picSeg button").forEach(b=>b.onclick=()=>{pic=b.dataset.p;localStorage.setItem("shtiebl-pic",pic);render();});
