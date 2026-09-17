@@ -38,9 +38,13 @@ To add a post: write `content/posts/<id>.js`, add the id to `POST_ORDER`, and ad
 It checks for page errors, broken images in every style, source boxes without links, unknown users, the feed ↔ thread scroll behavior, the phone header, and that every Sefaria link resolves. Needs Playwright with Edge (`channel="msedge"`).
 
 ## Images
-Scene prompts and the per-style prefixes are in `img/prompts.json`. To generate:
+Scene prompts and the per-style prefixes are in `img/prompts.json`. `img/manifest.json` records, for every `.png` original, the style, scene, full prompt sent, model, quality and date, so any image can be regenerated or tweaked.
 
-    python img/gen_images.py <snapshot|cartoon|cinematic> [id ...] [--count 3] [--force]
+**New images are Snapshot HD only** (GPT Image 2.5 via fal, quality low, ~$0.004 each). The Snapshot FLUX, Cartoon and Movie sets are kept but not extended: a missing image in those styles falls back to the Snapshot HD one.
 
-- Snapshot HD = the same prompts through GPT Image 2.5 at low quality (~$0.004 each; the command is in the script's docstring). It follows instructions far better than FLUX. Everything else runs on FLUX schnell (~$0.003). **The budget is to stay cheap**: redo a bad image with `--count 3` and pick the best take by hand. Don't move up to Gemini.
-- **FLUX can't handle negatives.** Writing "no crosses" put crosses *in*. Describe what you want (a Jewish setting, a wound white turban, a flat-topped Second Temple facade). Still check every batch for crosses, church domes and short sleeves.
+    python img/gen_images.py snapshot <id> --as snapshot_gpt --fal-model openai/gpt-image-2.5/flare/text-to-image --quality low --count 3
+    python img/gen_images.py snapshot <id> --as snapshot_gpt --pick 2     # keep take 2, recycle the others
+
+- Never drop `--quality low`: fal bills GPT Image at high (~9×) otherwise. Without `--fal-model` the script uses FLUX schnell.
+- New comment images get a `c_` scene key in `prompts.json`. `--prompt-override "<scene>"` tries a different scene for one image without editing the shared prompt (the manifest still records the full prompt).
+- Look at every take before publishing: modest dress (long sleeves and skirts, married women's hair covered), no crosses or church domes, God never depicted. **FLUX can't handle negatives** ("no crosses" put crosses *in*), so describe what you want instead.

@@ -1,0 +1,902 @@
+{
+ "achnai.png": {
+  "style": "cartoon",
+  "scene": "achnai",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: inside an ancient study hall, bearded rabbis calmly debating at a table while outside the window a whole carob tree flies through the air and a stream flows uphill Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "akiva.png": {
+  "style": "cartoon",
+  "scene": "akiva",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: an old bearded man in ancient robes sitting in the back row of a crowded ancient Jewish study hall with plain stone walls and shelves of scrolls, scratching his head in confusion while a teacher lectures enthusiastically at the front Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "apology.png": {
+  "style": "cartoon",
+  "scene": "apology",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: a family dinner table where one man sits with arms crossed turning his face away, while at the doorway another man holds flowers with three friends behind him waving awkwardly Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "atzeres.png": {
+  "style": "cartoon",
+  "scene": "atzeres",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: a kind bearded king in a warm candlelit banquet hall hugging his children at the door as they get ready to leave, the table still set Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "bulls.png": {
+  "style": "cartoon",
+  "scene": "bulls",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: a long parade of many bulls walking in a line toward the Second Temple of Jerusalem on a hill, a massive flat-topped white-and-gold stone facade with tall columns, surrounded by stone walls Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "c_aharon.png": {
+  "style": "cartoon",
+  "scene": "c_aharon",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: a nervous bearded priest very slowly placing one single stone on an unfinished stone altar while glancing at a sundial Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "c_ark.png": {
+  "style": "cartoon",
+  "scene": "c_ark",
+  "prompt": null,
+  "date": "2026-09-17",
+  "model": "google/gemini-3.1-flash-image (OpenRouter)",
+  "quality": null,
+  "prompt_note": "hand-written detailed prompt, not recorded"
+ },
+ "c_beam.png": {
+  "style": "cartoon",
+  "scene": "c_beam",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: a triumphant ancient king in royal robes standing amid the smoking rubble of his own palace, which is torn half down: collapsed walls, a gaping hole in the roof, fallen columns, piles of broken stone; he holds a single wooden beam proudly over his head, huge grin Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "note": "picked from 3 takes",
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "c_cow.png": {
+  "style": "cartoon",
+  "scene": "c_cow",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: a solemn cow wearing a rough burlap sack as clothing, standing next to an empty feeding trough, looking hungry but determined Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "c_floor.png": {
+  "style": "cartoon",
+  "scene": "c_floor",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: a Jewish high priest in plain white linen robes, white sash and white turban standing barefoot on a cold marble floor at night, shivering, eyes wide open Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "c_sailors.png": {
+  "style": "cartoon",
+  "scene": "c_sailors",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: ancient sailors on a wooden ship in a huge storm rowing desperately toward a distant shore Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "calf.png": {
+  "style": "cartoon",
+  "scene": "calf",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: a bearded ancient leader in simple robes on a mountaintop raising his arms and pleading toward dramatic sunlit clouds, far below in the valley a tiny golden calf statue and a crowd Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "cinematic/achnai.png": {
+  "style": "cinematic",
+  "scene": "achnai",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: inside an ancient study hall, bearded rabbis calmly debating at a table while outside the window a whole carob tree flies through the air and a stream flows uphill Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/akiva.png": {
+  "style": "cinematic",
+  "scene": "akiva",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: an old bearded man in ancient robes sitting in the back row of a crowded ancient Jewish study hall with plain stone walls and shelves of scrolls, scratching his head in confusion while a teacher lectures enthusiastically at the front Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/apology.png": {
+  "style": "cinematic",
+  "scene": "apology",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a family dinner table where one man sits with arms crossed turning his face away, while at the doorway another man holds flowers with three friends behind him waving awkwardly Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/atzeres.png": {
+  "style": "cinematic",
+  "scene": "atzeres",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a kind bearded king in a warm candlelit banquet hall hugging his children at the door as they get ready to leave, the table still set Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/bulls.png": {
+  "style": "cinematic",
+  "scene": "bulls",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a long parade of many bulls walking in a line toward the Second Temple of Jerusalem on a hill, a massive flat-topped white-and-gold stone facade with tall columns, surrounded by stone walls Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "note": "picked from 3 takes"
+ },
+ "cinematic/c_aharon.png": {
+  "style": "cinematic",
+  "scene": "c_aharon",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a nervous bearded priest very slowly placing one single stone on an unfinished stone altar while glancing at a sundial Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/c_ark.png": {
+  "style": "cinematic",
+  "scene": "c_ark",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: inside an open golden chest, two whole smooth blank grey stone tablets with rounded tops standing upright next to a neat pile of broken pieces of the same blank tablets, soft light Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/c_beam.png": {
+  "style": "cinematic",
+  "scene": "c_beam",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a triumphant ancient king in royal robes standing amid the smoking rubble of his own palace, which is torn half down: collapsed walls, a gaping hole in the roof, fallen columns, piles of broken stone; he holds a single wooden beam proudly over his head, huge grin Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/c_cow.png": {
+  "style": "cinematic",
+  "scene": "c_cow",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a solemn cow wearing a rough burlap sack as clothing, standing next to an empty feeding trough, looking hungry but determined Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/c_floor.png": {
+  "style": "cinematic",
+  "scene": "c_floor",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a Jewish high priest in plain white linen robes, white sash and white turban standing barefoot on a cold marble floor at night, shivering, eyes wide open Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/c_sailors.png": {
+  "style": "cinematic",
+  "scene": "c_sailors",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: ancient sailors on a wooden ship in a huge storm rowing desperately toward a distant shore Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/calf.png": {
+  "style": "cinematic",
+  "scene": "calf",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a bearded ancient leader in simple robes on a mountaintop raising his arms and pleading toward dramatic sunlit clouds, far below in the valley a tiny golden calf statue and a crowd Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/clouds.png": {
+  "style": "cinematic",
+  "scene": "clouds",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a long line of ancient Israelite families with donkeys walking through the desert, completely surrounded by a giant ring of soft glowing white clouds wrapping around them like a protective blanket Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/dirshu.png": {
+  "style": "cinematic",
+  "scene": "dirshu",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a grand palace at night with its huge doors wide open and warm golden light pouring out, small people happily walking in, ten lanterns hanging along the path Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/happy.png": {
+  "style": "cinematic",
+  "scene": "happy",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: young women in long-sleeved, ankle-length, high-necked flowing white dresses dancing in a joyful circle in a lush green vineyard at golden hour, arms fully covered to the wrist Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/kgama.png": {
+  "style": "cinematic",
+  "scene": "kgama",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a Jewish high priest in plain white linen robes, white sash and white turban sitting behind a stone table with a microphone like a press conference, torches on the walls, curious people raising hands Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/kick.png": {
+  "style": "cinematic",
+  "scene": "kick",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a man in ancient robes angrily kicking a small wooden hut with a leafy roof on a flat rooftop under an enormous blazing sun Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/lev.png": {
+  "style": "cinematic",
+  "scene": "lev",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: an open parchment scroll on two wooden rollers being rewound from the end to the beginning, a glowing red heart between the rollers, people dancing in a circle around it Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/melech.png": {
+  "style": "cinematic",
+  "scene": "melech",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a surprised man wrapped in a white prayer shawl at a wooden synagogue lectern, behind him a giant board-game path where his game piece is sliding all the way back to the starting square Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/minim.png": {
+  "style": "cinematic",
+  "scene": "minim",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a yellow citron fruit, a tall green palm frond, a sprig of myrtle and a willow branch arranged together on a table, with a smiling child holding them Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/rain.png": {
+  "style": "cinematic",
+  "scene": "rain",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a family sitting at a table inside a sukkah hut with a palm-branch roof while heavy rain pours through, soup bowls overflowing with rainwater, everyone dismayed Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/roast.png": {
+  "style": "cinematic",
+  "scene": "roast",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a festive street procession in ancient Jerusalem: the whole crowd has turned its back on a pompous Jewish high priest (blue robe with a hem of little golden bells, jeweled breastplate with twelve colored stones, tall wound white cloth turban with a gold band on the forehead) and is happily following two humble smiling elderly bearded rabbis in plain robes; the high priest stands alone, arms crossed, offended Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "note": "picked from 3 takes"
+ },
+ "cinematic/snap.png": {
+  "style": "cinematic",
+  "scene": "snap",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: night in a stone temple courtyard: a Jewish high priest in plain white linen robes, white sash and white turban yawning with eyes half closed while two energetic young priests in white snap their fingers right next to his face Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/tablets.png": {
+  "style": "cinematic",
+  "scene": "tablets",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a bearded ancient leader on a rocky mountain slope hurling two large blank stone tablets that shatter on the ground, below a crowd dancing around a small golden calf Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/thread.png": {
+  "style": "cinematic",
+  "scene": "thread",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a rugged desert cliff at dawn, a long strip of wool tied to a rock visibly changing color along its length from deep scarlet red at one end to pure snow white at the other, gentle sparkles, no fire Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/torches.png": {
+  "style": "cinematic",
+  "scene": "torches",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: an elderly bearded sage in robes joyfully juggling eight flaming torches at night in a temple courtyard lit by giant golden lamps, crowd cheering, musicians with harps on wide stone steps Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "cinematic/yonah.png": {
+  "style": "cinematic",
+  "scene": "yonah",
+  "prompt": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: a grumpy bearded prophet sitting under a withered leafy gourd plant on a hot hill under a blazing sun, a small worm on the plant stem, a huge ancient walled city in the background Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "clouds.png": {
+  "style": "cartoon",
+  "scene": "clouds",
+  "prompt": null,
+  "date": "2026-09-17",
+  "model": "google/gemini-3.1-flash-image (OpenRouter)",
+  "quality": null,
+  "prompt_note": "hand-written detailed prompt, not recorded"
+ },
+ "dirshu.png": {
+  "style": "cartoon",
+  "scene": "dirshu",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: a grand palace at night with its huge doors wide open and warm golden light pouring out, small people happily walking in, ten lanterns hanging along the path Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "happy.png": {
+  "style": "cartoon",
+  "scene": "happy",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: young women in long-sleeved, ankle-length, high-necked flowing white dresses dancing in a joyful circle in a lush green vineyard at golden hour, arms fully covered to the wrist Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "note": "picked from 3 takes",
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "kgama.png": {
+  "style": "cartoon",
+  "scene": "kgama",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: a Jewish high priest in plain white linen robes, white sash and white turban sitting behind a stone table with a microphone like a press conference, torches on the walls, curious people raising hands Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "kick.png": {
+  "style": "cartoon",
+  "scene": "kick",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: a man in ancient robes angrily kicking a small wooden hut with a leafy roof on a flat rooftop under an enormous blazing sun Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "lev.png": {
+  "style": "cartoon",
+  "scene": "lev",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: an open parchment scroll on two wooden rollers being rewound from the end to the beginning, a glowing red heart between the rollers, people dancing in a circle around it Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "melech.png": {
+  "style": "cartoon",
+  "scene": "melech",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: a surprised man wrapped in a white prayer shawl at a wooden synagogue lectern, behind him a giant board-game path where his game piece is sliding all the way back to the starting square Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "minim.png": {
+  "style": "cartoon",
+  "scene": "minim",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: a yellow citron fruit, a tall green palm frond, a sprig of myrtle and a willow branch arranged together on a table, with a smiling child holding them Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "rain.png": {
+  "style": "cartoon",
+  "scene": "rain",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: a family sitting at a table inside a sukkah hut with a palm-branch roof while heavy rain pours through, soup bowls overflowing with rainwater, everyone dismayed Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "roast.png": {
+  "style": "cartoon",
+  "scene": "roast",
+  "prompt": null,
+  "date": "2026-09-17",
+  "model": "google/gemini-3.1-flash-image (OpenRouter)",
+  "quality": null,
+  "prompt_note": "hand-written detailed prompt, not recorded"
+ },
+ "snap.png": {
+  "style": "cartoon",
+  "scene": "snap",
+  "prompt": null,
+  "date": "2026-09-17",
+  "model": "google/gemini-3.1-flash-image (OpenRouter)",
+  "quality": null,
+  "prompt_note": "hand-written detailed prompt, not recorded"
+ },
+ "snapshot/achnai.png": {
+  "style": "snapshot",
+  "scene": "achnai",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: inside an ancient study hall, bearded rabbis calmly debating at a table while outside the window a whole carob tree flies through the air and a stream flows uphill Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/akiva.png": {
+  "style": "snapshot",
+  "scene": "akiva",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: an old bearded man in ancient robes sitting in the back row of a crowded ancient Jewish study hall with plain stone walls and shelves of scrolls, scratching his head in confusion while a teacher lectures enthusiastically at the front Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "note": "picked from 3 takes"
+ },
+ "snapshot/apology.png": {
+  "style": "snapshot",
+  "scene": "apology",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a family dinner table where one man sits with arms crossed turning his face away, while at the doorway another man holds flowers with three friends behind him waving awkwardly Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/atzeres.png": {
+  "style": "snapshot",
+  "scene": "atzeres",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a kind bearded king in a warm candlelit banquet hall hugging his children at the door as they get ready to leave, the table still set Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/bulls.png": {
+  "style": "snapshot",
+  "scene": "bulls",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a long parade of many bulls walking in a line toward the Second Temple of Jerusalem on a hill, a massive flat-topped white-and-gold stone facade with tall columns, surrounded by stone walls Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/c_aharon.png": {
+  "style": "snapshot",
+  "scene": "c_aharon",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a nervous bearded priest very slowly placing one single stone on an unfinished stone altar while glancing at a sundial Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/c_ark.png": {
+  "style": "snapshot",
+  "scene": "c_ark",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: inside an open golden chest, two whole smooth blank grey stone tablets with rounded tops standing upright next to a neat pile of broken pieces of the same blank tablets, soft light Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/c_beam.png": {
+  "style": "snapshot",
+  "scene": "c_beam",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a triumphant ancient king in royal robes standing amid the smoking rubble of his own palace, which is torn half down: collapsed walls, a gaping hole in the roof, fallen columns, piles of broken stone; he holds a single wooden beam proudly over his head, huge grin Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/c_cow.png": {
+  "style": "snapshot",
+  "scene": "c_cow",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a solemn cow wearing a rough burlap sack as clothing, standing next to an empty feeding trough, looking hungry but determined Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/c_floor.png": {
+  "style": "snapshot",
+  "scene": "c_floor",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a Jewish high priest in plain white linen robes, white sash and white turban standing barefoot on a cold marble floor at night, shivering, eyes wide open Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/c_sailors.png": {
+  "style": "snapshot",
+  "scene": "c_sailors",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: ancient sailors on a wooden ship in a huge storm rowing desperately toward a distant shore Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/calf.png": {
+  "style": "snapshot",
+  "scene": "calf",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a bearded ancient leader in simple robes on a mountaintop raising his arms and pleading toward dramatic sunlit clouds, far below in the valley a tiny golden calf statue and a crowd Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/clouds.png": {
+  "style": "snapshot",
+  "scene": "clouds",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a long line of ancient Israelite families with donkeys walking through the desert, completely surrounded by a giant ring of soft glowing white clouds wrapping around them like a protective blanket Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/dirshu.png": {
+  "style": "snapshot",
+  "scene": "dirshu",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a grand palace at night with its huge doors wide open and warm golden light pouring out, small people happily walking in, ten lanterns hanging along the path Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/happy.png": {
+  "style": "snapshot",
+  "scene": "happy",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: young women in long-sleeved, ankle-length, high-necked flowing white dresses dancing in a joyful circle in a lush green vineyard at golden hour, arms fully covered to the wrist Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/kgama.png": {
+  "style": "snapshot",
+  "scene": "kgama",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a Jewish high priest in plain white linen robes, white sash and white turban sitting behind a stone table with a microphone like a press conference, torches on the walls, curious people raising hands Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/kick.png": {
+  "style": "snapshot",
+  "scene": "kick",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a man in ancient robes angrily kicking a small wooden hut with a leafy roof on a flat rooftop under an enormous blazing sun Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/lev.png": {
+  "style": "snapshot",
+  "scene": "lev",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: an open parchment scroll on two wooden rollers being rewound from the end to the beginning, a glowing red heart between the rollers, people dancing in a circle around it Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "note": "picked from 3 takes"
+ },
+ "snapshot/melech.png": {
+  "style": "snapshot",
+  "scene": "melech",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a surprised man wrapped in a white prayer shawl at a wooden synagogue lectern, behind him a giant board-game path where his game piece is sliding all the way back to the starting square Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/minim.png": {
+  "style": "snapshot",
+  "scene": "minim",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a yellow citron fruit, a tall green palm frond, a sprig of myrtle and a willow branch arranged together on a table, with a smiling child holding them Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/rain.png": {
+  "style": "snapshot",
+  "scene": "rain",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a family sitting at a table inside a sukkah hut with a palm-branch roof while heavy rain pours through, soup bowls overflowing with rainwater, everyone dismayed Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/roast.png": {
+  "style": "snapshot",
+  "scene": "roast",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a festive street procession in ancient Jerusalem: the whole crowd has turned its back on a pompous Jewish high priest (blue robe with a hem of little golden bells, jeweled breastplate with twelve colored stones, tall wound white cloth turban with a gold band on the forehead) and is happily following two humble smiling elderly bearded rabbis in plain robes; the high priest stands alone, arms crossed, offended Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "note": "picked from 3 takes"
+ },
+ "snapshot/snap.png": {
+  "style": "snapshot",
+  "scene": "snap",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: night in a stone temple courtyard: a Jewish high priest in plain white linen robes, white sash and white turban yawning with eyes half closed while two energetic young priests in white snap their fingers right next to his face Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/tablets.png": {
+  "style": "snapshot",
+  "scene": "tablets",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a bearded ancient leader on a rocky mountain slope hurling two large blank stone tablets that shatter on the ground, below a crowd dancing around a small golden calf Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/thread.png": {
+  "style": "snapshot",
+  "scene": "thread",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a rugged desert cliff at dawn, a long strip of wool tied to a rock visibly changing color along its length from deep scarlet red at one end to pure snow white at the other, gentle sparkles, no fire Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/torches.png": {
+  "style": "snapshot",
+  "scene": "torches",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: an elderly bearded sage in robes joyfully juggling eight flaming torches at night in a temple courtyard lit by giant golden lamps, crowd cheering, musicians with harps on wide stone steps Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot/yonah.png": {
+  "style": "snapshot",
+  "scene": "yonah",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a grumpy bearded prophet sitting under a withered leafy gourd plant on a hot hill under a blazing sun, a small worm on the plant stem, a huge ancient walled city in the background Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null
+ },
+ "snapshot_gpt/achnai.png": {
+  "style": "snapshot",
+  "scene": "achnai",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: inside an ancient study hall, bearded rabbis calmly debating at a table while outside the window a whole carob tree flies through the air and a stream flows uphill Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/akiva.png": {
+  "style": "snapshot",
+  "scene": "akiva",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: an old bearded man in ancient robes sitting in the back row of a crowded ancient Jewish study hall with plain stone walls and shelves of scrolls, scratching his head in confusion while a teacher lectures enthusiastically at the front Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/apology.png": {
+  "style": "snapshot",
+  "scene": "apology",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a family dinner table where one man sits with arms crossed turning his face away, while at the doorway another man holds flowers with three friends behind him waving awkwardly Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/atzeres.png": {
+  "style": "snapshot",
+  "scene": "atzeres",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a kind bearded king in a warm candlelit banquet hall hugging his children at the door as they get ready to leave, the table still set Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/bulls.png": {
+  "style": "snapshot",
+  "scene": "bulls",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a long parade of many bulls walking in a line toward the Second Temple of Jerusalem on a hill, a massive flat-topped white-and-gold stone facade with tall columns, surrounded by stone walls Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/c_aharon.png": {
+  "style": "snapshot",
+  "scene": "c_aharon",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a nervous bearded priest very slowly placing one single stone on an unfinished stone altar while glancing at a sundial Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/c_ark.png": {
+  "style": "snapshot",
+  "scene": "c_ark",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: inside an open golden chest, two whole smooth blank grey stone tablets with rounded tops standing upright next to a neat pile of broken pieces of the same blank tablets, soft light Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/c_beam.png": {
+  "style": "snapshot",
+  "scene": "c_beam",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a triumphant ancient king in royal robes standing amid the smoking rubble of his own palace, which is torn half down: collapsed walls, a gaping hole in the roof, fallen columns, piles of broken stone; he holds a single wooden beam proudly over his head, huge grin Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/c_cow.png": {
+  "style": "snapshot",
+  "scene": "c_cow",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a solemn cow wearing a rough burlap sack as clothing, standing next to an empty feeding trough, looking hungry but determined Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/c_floor.png": {
+  "style": "snapshot",
+  "scene": "c_floor",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a Jewish high priest in plain white linen robes, white sash and white turban standing barefoot on a cold marble floor at night, shivering, eyes wide open Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "note": "retried once (transient fal error)"
+ },
+ "snapshot_gpt/c_sailors.png": {
+  "style": "snapshot",
+  "scene": "c_sailors",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: ancient sailors on a wooden ship in a huge storm rowing desperately toward a distant shore Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/calf.png": {
+  "style": "snapshot",
+  "scene": "calf",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a bearded ancient leader in simple robes on a mountaintop raising his arms and pleading toward dramatic sunlit clouds, far below in the valley a tiny golden calf statue and a crowd Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/clouds.png": {
+  "style": "snapshot",
+  "scene": "clouds",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a long line of ancient Israelite families with donkeys walking through the desert, completely surrounded by a giant ring of soft glowing white clouds wrapping around them like a protective blanket Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/dirshu.png": {
+  "style": "snapshot",
+  "scene": "dirshu",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a grand palace at night with its huge doors wide open and warm golden light pouring out, small people happily walking in, ten lanterns hanging along the path Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/happy.png": {
+  "style": "snapshot",
+  "scene": "happy",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: young women in long-sleeved, ankle-length, high-necked flowing white dresses dancing in a joyful circle in a lush green vineyard at golden hour, arms fully covered to the wrist Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/kgama.png": {
+  "style": "snapshot",
+  "scene": "kgama",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a Jewish high priest in plain white linen robes, white sash and white turban sitting behind a stone table with a microphone like a press conference, torches on the walls, curious people raising hands Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/kick.png": {
+  "style": "snapshot",
+  "scene": "kick",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a man in ancient robes angrily kicking a small wooden hut with a leafy roof on a flat rooftop under an enormous blazing sun Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/lev.png": {
+  "style": "snapshot",
+  "scene": "lev",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: an open parchment scroll on two wooden rollers being rewound from the end to the beginning, a glowing red heart between the rollers, people dancing in a circle around it Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/melech.png": {
+  "style": "snapshot",
+  "scene": "melech",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a surprised man wrapped in a white prayer shawl at a wooden synagogue lectern, behind him a giant board-game path where his game piece is sliding all the way back to the starting square Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/minim.png": {
+  "style": "snapshot",
+  "scene": "minim",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: inside a crowded wood-paneled synagogue on the festival of Sukkot: an eight-year-old boy with long curly sidelocks and a small black kippah, white shirt, standing on a wooden bench with one arm stretched out stiffly, aiming a tall green palm frond bundle (with myrtle and willow tied on) at a small black internet router with blinking green lights mounted high on the stone wall, a yellow citron held up in his other hand like a phone, squinting hard with his tongue out in concentration, as if hunting for a signal; behind him a row of bearded men in white prayer shawls all aim their own palm fronds at the same router in unison, and a stern old gabbai with a long white beard glares at the boy over his glasses Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/rain.png": {
+  "style": "snapshot",
+  "scene": "rain",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a family sitting at a table inside a sukkah hut with a palm-branch roof while heavy rain pours through, soup bowls overflowing with rainwater, everyone dismayed Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/roast.png": {
+  "style": "snapshot",
+  "scene": "roast",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a festive street procession in ancient Jerusalem: the whole crowd has turned its back on a pompous Jewish high priest (blue robe with a hem of little golden bells, jeweled breastplate with twelve colored stones, tall wound white cloth turban with a gold band on the forehead) and is happily following two humble smiling elderly bearded rabbis in plain robes; the high priest stands alone, arms crossed, offended Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/snap.png": {
+  "style": "snapshot",
+  "scene": "snap",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: night in a stone temple courtyard: a Jewish high priest in plain white linen robes, white sash and white turban yawning with eyes half closed while two energetic young priests in white snap their fingers right next to his face Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low",
+  "note": "retried once (transient fal error)"
+ },
+ "snapshot_gpt/tablets.png": {
+  "style": "snapshot",
+  "scene": "tablets",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a bearded ancient leader on a rocky mountain slope hurling two large blank stone tablets that shatter on the ground, below a crowd dancing around a small golden calf Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/thread.png": {
+  "style": "snapshot",
+  "scene": "thread",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: a rugged desert cliff at dawn, a long strip of wool tied to a rock visibly changing color along its length from deep scarlet red at one end to pure snow white at the other, gentle sparkles, no fire Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/torches.png": {
+  "style": "snapshot",
+  "scene": "torches",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: an elderly bearded sage in robes joyfully juggling eight flaming torches at night in a temple courtyard lit by giant golden lamps, crowd cheering, musicians with harps on wide stone steps Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "snapshot_gpt/yonah.png": {
+  "style": "snapshot",
+  "scene": "yonah",
+  "prompt": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: on a dusty hilltop east of a huge mud-brick Assyrian walled city, a bearded Jewish prophet in a long robe and head wrap lounges contentedly in the deep green shade of a giant leafy gourd vine that arches over him like a beach cabana, arms folded behind his head, a clay cup at his side, staring expectantly at the city like someone waiting for a fireworks show to start; the city is completely intact and peaceful, its people and even the cattle wearing rough sackcloth; a fat green worm is visibly chewing through the base of the vine stem right next to him, and he has not noticed; blazing sun everywhere outside the shade Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "openai/gpt-image-2.5/flare/text-to-image",
+  "quality": "low"
+ },
+ "tablets.png": {
+  "style": "cartoon",
+  "scene": "tablets",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: a bearded ancient leader on a rocky mountain slope hurling two large blank stone tablets that shatter on the ground, below a crowd dancing around a small golden calf Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "thread.png": {
+  "style": "cartoon",
+  "scene": "thread",
+  "prompt": null,
+  "date": "2026-09-17",
+  "model": "google/gemini-3.1-flash-image (OpenRouter)",
+  "quality": null,
+  "prompt_note": "hand-written detailed prompt, not recorded"
+ },
+ "torches.png": {
+  "style": "cartoon",
+  "scene": "torches",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: an elderly bearded sage in robes joyfully juggling eight flaming torches at night in a temple courtyard lit by giant golden lamps, crowd cheering, musicians with harps on wide stone steps Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ },
+ "yonah.png": {
+  "style": "cartoon",
+  "scene": "yonah",
+  "prompt": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: a grumpy bearded prophet sitting under a withered leafy gourd plant on a hot hill under a blazing sun, a small worm on the plant stem, a huge ancient walled city in the background Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "date": "2026-09-17",
+  "model": "fal-ai/flux/schnell",
+  "quality": null,
+  "prompt_note": "approximate — original prompt not recorded (style prefix/suffix changed since)"
+ }
+}

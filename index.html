@@ -224,9 +224,10 @@ function linkSources(src){
 /* ============ RENDER ============ */
 let pic = localStorage.getItem("shtiebl-pic") || "snapshot_gpt";
 if (pic === "vintage") pic = "snapshot";
-// cartoon = img/<id>.jpg; other styles = img/<style>/<id>.jpg (web copies made by img/optimize.py), falling back to the cartoon if missing
+// cartoon = img/<id>.jpg; other styles = img/<style>/<id>.jpg (web copies made by img/optimize.py).
+// New images are Snapshot HD only, so a missing one falls back to img/snapshot_gpt/<id>.jpg, then hides.
 const imgSrc = id => pic === "cartoon" ? `img/${id}.jpg` : `img/${pic}/${id}.jpg`;
-const imgFallback = id => `if(!this.dataset.fb){this.dataset.fb=1;this.src='img/${id}.jpg'}else{this.remove()}`;
+const imgFallback = id => `if(!this.dataset.fb && !this.src.includes('/snapshot_gpt/')){this.dataset.fb=1;this.src='img/snapshot_gpt/${id}.jpg'}else{this.remove()}`;
 let hol = "all";
 const $ = s => document.querySelector(s);
 

@@ -33,6 +33,17 @@ def check_files(pg):
       POSTS.forEach(p => { if (!USERS[p.by]) out.add(p.by); p.thread.forEach(walk); });
       return [...out]; }""")
     for u in missing: fail(f"user not in content/users.js: {u}")
+    # every image a post or comment uses exists in Snapshot HD (the fallback for every other style)
+    used = pg.evaluate("""() => { const out = new Set();
+      const walk = c => { if (c.img) out.add(c.img); (c.replies||[]).forEach(walk); };
+      POSTS.forEach(p => { out.add(p.img); p.thread.forEach(walk); });
+      return [...out]; }""")
+    for i in used:
+        if not (ROOT / "img" / "snapshot_gpt" / f"{i}.jpg").exists(): fail(f"missing img/snapshot_gpt/{i}.jpg")
+    # every local .png original has a provenance entry (the .png files are gitignored, so only checkable here)
+    manifest = json.loads((ROOT / "img" / "manifest.json").read_text(encoding="utf-8"))
+    for png in (ROOT / "img").rglob("*.png"):
+        if png.relative_to(ROOT / "img").as_posix() not in manifest: fail(f"no img/manifest.json entry for {png.name} ({png.parent.name})")
     if pg.inner_text("#loadErr"): fail(pg.inner_text("#loadErr"))
 
 
