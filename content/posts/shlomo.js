@@ -91,7 +91,7 @@ post({
         {
           by: "bnei_melachim",
           votes: "2.1k",
-          x: `<p>“They blessed the king and went home joyful.” Sounds like <a onclick="go('thread','atzeres')">a Shemini Atzeres I know</a>.</p>`,
+          x: `<p>“They blessed the king and went home joyful.” Sounds like <a href="#/r/MadeMeSmile/atzeres">a Shemini Atzeres I know</a>.</p>`,
           flavor: true,
         },
       ],

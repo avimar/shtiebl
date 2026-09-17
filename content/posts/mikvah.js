@@ -53,7 +53,7 @@ post({
         {
           by: "throwaway_shvigger",
           votes: "940",
-          x: `<p>ok ok I'll go reread <a onclick="go('thread','apology')">that thread</a></p>`,
+          x: `<p>ok ok I'll go reread <a href="#/r/AmITheRasha/apology">that thread</a></p>`,
           flavor: true,
         },
       ],

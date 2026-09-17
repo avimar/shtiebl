@@ -98,7 +98,7 @@ post({
     {
       by: "Avtalyon_fan",
       votes: "2.5k",
-      x: `<p>Any comment on the Shemaya & Avtalyon incident? 👀 <a onclick="go('thread','roast')">(link)</a></p>`,
+      x: `<p>Any comment on the Shemaya & Avtalyon incident? 👀 <a href="#/r/RespectfullyRoasted/roast">(link)</a></p>`,
       src: "Yoma 71b:2–3",
       replies: [
         {

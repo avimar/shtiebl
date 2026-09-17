@@ -31,6 +31,7 @@ File layout, field names and the image commands are in `README.md`. Read it firs
 5. No profanity, including in real-subreddit names (`aka`). Leave `aka: ""` rather than quote a crude sub name.
 6. **Gemara (any daf ref, incl. Rashi/Tosafos on the daf) links to the passage, not the page:** write `Shabbos 87a:5` (the Sefaria segment number; ranges like `Sotah 13b:9–14a:2`). Find the number by fetching the daf from the Sefaria API and matching the text. `tools/check.py` fails on a bare daf.
 7. Halacha claims: say whose opinion it is (Shulchan Aruch, Rema, Mishna Berura…) and cite the siman.
+8. A link to another thread is a real link: `<a href="#/r/<Sub>/<id>">…</a>` (add `/c/<cid>` for one comment). Never `onclick="go(…)"`: that can't be Ctrl-clicked or copied.
 
 ## Steps
 

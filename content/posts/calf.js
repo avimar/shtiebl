@@ -109,7 +109,7 @@ post({
     {
       by: "Chazzan_Neilah",
       votes: "3.3k",
-      x: `<p>Crossover episode: on Kol Nidrei night we say <span class="he">סָלַחְתִּי כִּדְבָרֶךָ</span>, “I have forgiven, as you asked.” That line is actually from a <i>different</i> negotiation, after the spies.</p>`,
+      x: `<p>Crossover episode: on Kol Nidrei night we say <span class="he">סָלַחְתִּי כִּדְבָרֶךָ</span>, “I have forgiven, as you asked.” That line is actually from a <i>different</i> negotiation, <a href="https://www.sefaria.org/Numbers.14.11-20?lang=bi" target="_blank" rel="noopener">after the spies</a>.</p>`,
       src: "Bamidbar 14:19–20",
     },
     {
