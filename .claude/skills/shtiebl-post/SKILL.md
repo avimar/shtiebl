@@ -1,0 +1,52 @@
+---
+name: shtiebl-post
+description: Write new shtiebl content — a Reddit-style post with its comment thread and Snapshot HD pictures, every line sourced to Sefaria. Use when asked for more posts, more comments, side discussions or comment images on the shtiebl site.
+---
+
+# Write shtiebl posts
+
+Real Torah told as Reddit posts. **The facts are Chazal's; only the packaging is ours.**
+File layout, field names and the image commands are in `README.md`. Read it first.
+
+## The voice (the part that makes it worth reading)
+
+**Take the metaphor or mashal Chazal already built, and say it in modern idiom.** The user's favorite lines all do this:
+
+| Line | What Chazal already said |
+|---|---|
+| "It's not a feast, it's a date." | Rashi Bamidbar 29:36: "make me a small meal so I can enjoy you" |
+| Nineveh king holding the beam: "Look at the effort we went through!! … FOUND IT" | Taanis 16a: they tore down palaces to return one stolen beam |
+| "I don't 'stay up.' I *get kept* up." | Mishna Yoma 1:7: the young kohanim kept him awake |
+
+- Loud for its own sake (ALL CAPS, "??") is weaker. Use the recipe instead.
+- Recurring characters cross-talk: Rashi correcting people, Aharon being defensive, the Nineveh king showing off, random_cow. Reuse existing users (`content/users.js`) before inventing new ones.
+- **Don't rewrite an existing post's title or hook.** Show the user the proposed wording and ask first. New posts get new titles freely.
+
+## Rules (non-negotiable)
+
+1. Every post and every non-flavor comment has a `src`, and the text there **really says it**. Read the source (Sefaria API: `https://www.sefaria.org/api/v3/texts/<Ref>`); a ref that merely exists is not enough.
+2. u/HaMelech (ADMIN) speaks **only** verbatim pesukim / Chazal, cited. Never invented words for Him. God is never shown in an image.
+3. Invented lines are `flavor: true`. Invented lines for real sages must not contradict what they actually held.
+4. No lashon hara. Affectionate, never mocking Torah or the sages.
+5. No profanity, including in real-subreddit names (`aka`). Leave `aka: ""` rather than quote a crude sub name.
+6. Halacha claims: say whose opinion it is (Shulchan Aruch, Rema, Mishna Berura…) and cite the siman.
+
+## Steps
+
+1. Pick the Torah first (a real, surprising, sourced fact), then the sub and the joke. Subs live in `content/subs.js`; add one if needed (icon, color, clean `aka`).
+2. Write `content/posts/<id>.js` (copy the shape of an existing post, e.g. `content/posts/yonah.js`). Aim for **6–12 comments, 1–3 comment images**, with at least one reply chain.
+3. Add the id to `POST_ORDER` in `content/index.js` (it controls feed order; group it with its holiday). Add new users to `content/users.js` with avatar, flair and a one-line in-character bio.
+4. New book name in a `src`? Add it to `SEF_NAMES` in `index.html`. Unknown Sefaria name: `https://www.sefaria.org/api/name/<text>`.
+5. Pictures (Snapshot HD only): add scene keys to `img/prompts.json` (`<id>` for the post, `c_<name>` for comments), then
+
+       python img/gen_images.py snapshot <ids...> --as snapshot_gpt --fal-model openai/gpt-image-2.5/flare/text-to-image --quality low
+
+   Make the picture the **punchline** of the title, not a generic illustration (e.g. a kid aiming a lulav at the shul router, not "kid holding four minim"). **Look at every image** (Read the .jpg): modest dress, married women's hair covered, no crosses/church domes, no God. Redo a bad one with `--count 3 --force`, then `--pick N`.
+6. `python tools/check.py` must pass (it checks users, images, links, Sefaria refs, scrolling).
+7. Commit only when asked to; pushing publishes the site.
+
+## Budget
+GPT Image low ≈ $0.004 per image. Never omit `--quality low` (fal bills high, ~9×). Don't use Gemini or higher quality without asking.
+
+## Still unverified from earlier rounds (check when touching those threads)
+Gra on Shir HaShirim 1:4 (clouds return after YK) · Rema OC 639:7 ("hedyot") · Rambam Avodas Yom HaKippurim 1:7 (reason for staying awake).

@@ -9,7 +9,7 @@ Locally, open `index.html` in a browser. There is no build step. The page loads 
 - **Navigation:** each list view (feed, sub page, profile) saves its scroll spot in its own history entry when you leave it. The thread's "← Back to …" links (top and bottom) and the browser's Back button return to that exact spot. The logo goes to the feed; on the feed it scrolls to the top.
 - **Holiday chips** filter the feed: Aseres Yemei Teshuva, Yom Kippur, Sukkos, Shemini Atzeres/Simchas Torah.
 - **Images:** the site loads `img/[<style>/]<id>.jpg`. Comment images are `c_*`, attached with `img: "c_name"`. The `.png` originals are local only (gitignored). `img/optimize.py` makes the `.jpg` copies and runs automatically after `gen_images.py`.
-- **Picture switcher** (Snapshot HD, the default, / Snapshot FLUX / Cartoon / Movie) swaps image sets. A missing image falls back to the cartoon.
+- **Picture switcher** (Snapshot HD, the default, / Snapshot FLUX / Cartoon / Movie) swaps image sets. A missing image falls back to Snapshot HD.
 - **Sources link to Sefaria.** `linkSources()` in `index.html` maps the citation names to Sefaria refs (the `SEF_NAMES` table). Anything it can't parse becomes a Sefaria search link. When you add a new book name, add it to the table.
 
 ## Content files
