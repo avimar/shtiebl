@@ -24,12 +24,13 @@ post({
       by: "not_sure_what_i_said",
       votes: "1.8k",
       x: `<p>What if I honestly can't remember which one I said?</p>`,
+      src: "Shulchan Aruch OC 582:1",
       replies: [
         {
           by: "Shulchan_Aruch",
           votes: "3.3k",
           x: `<p>You assume you said it the way you say it all year, and you go back.</p>`,
-          src: "Shulchan Aruch OC 582:1",
+          src: "Shulchan Aruch OC 582:1 · Mishna Berura 582:3",
         },
       ],
     },

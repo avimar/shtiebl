@@ -30,6 +30,7 @@ post({
       by: "EY_resident",
       votes: "3.0k",
       x: `<p>Here in Eretz Yisrael it's the same day as Simchas Torah. Maximum dancing per square hour.</p>`,
+      src: "Rema & Shulchan Aruch OC 669:1",
     },
   ],
 });

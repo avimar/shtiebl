@@ -29,7 +29,7 @@ post({
     {
       by: "Gra_reader",
       votes: "4.4k",
-      x: `<p>The Vilna Gaon's version: the clouds left after the Golden Calf and came back when we started building the Mishkan, right after Yom Kippur. So the date is the <b>return</b> of the clouds.</p>`,
+      x: `<p>The Vilna Gaon's version: the clouds left after the Golden Calf and came back on the 15th of Tishrei, when we started building the Mishkan after Yom Kippur. So the date is the <b>return</b> of the clouds.</p>`,
       src: "Gra on Shir HaShirim 1:4",
     },
     {

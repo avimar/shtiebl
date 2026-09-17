@@ -18,7 +18,7 @@ post({
       by: "young_kohen_22",
       votes: "3.4k",
       x: `<p>In our defense: if he fell asleep he might become <i>tamei</i>, and then the backup has to go in.</p>`,
-      src: "Yoma 19b · Rambam, Avodas Yom HaKippurim 1:7",
+      src: "Rambam, Avodas Yom HaKippurim 1:6 · Mishna Yoma 1:1",
     },
     {
       by: "Zecharia_ben_Kevutal",

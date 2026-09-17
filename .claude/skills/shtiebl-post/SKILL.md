@@ -47,6 +47,3 @@ File layout, field names and the image commands are in `README.md`. Read it firs
 
 ## Budget
 GPT Image low ≈ $0.004 per image. Never omit `--quality low` (fal bills high, ~9×). Don't use Gemini or higher quality without asking.
-
-## Still unverified from earlier rounds (check when touching those threads)
-Gra on Shir HaShirim 1:4 (clouds return after YK) · Rema OC 639:7 ("hedyot") · Rambam Avodas Yom HaKippurim 1:7 (reason for staying awake).

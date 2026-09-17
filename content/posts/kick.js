@@ -25,6 +25,7 @@ post({
       by: "Umos_HaOlam",
       votes: "-1.1k",
       x: `<p>EDIT: Also, isn't there a rule that He doesn't deal unfairly with His creations? A heatwave during SUKKOS??</p>`,
+      src: "Avodah Zarah 3a",
       replies: [
         {
           by: "Gemara_AZ",

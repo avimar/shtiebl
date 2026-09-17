@@ -19,6 +19,7 @@ post({
       by: "curious_levi",
       votes: "4.4k",
       x: `<p>How do you stay up all night?</p>`,
+      src: "Mishna Yoma 1:6",
       replies: [
         {
           by: "KohenGadol",
@@ -33,6 +34,7 @@ post({
       by: "nervous_yisrael",
       votes: "7.7k",
       x: `<p>What do you pray in there??</p>`,
+      src: "Mishna Yoma 5:1",
       replies: [
         {
           by: "KohenGadol",
@@ -46,6 +48,7 @@ post({
       by: "first_timer",
       votes: "6.0k",
       x: `<p>What's the moment you'll remember?</p>`,
+      src: "Mishna Yoma 6:2",
       replies: [
         {
           by: "KohenGadol",
@@ -59,6 +62,7 @@ post({
       by: "party_planner",
       votes: "3.0k",
       x: `<p>After-party?</p>`,
+      src: "Mishna Yoma 7:4",
       replies: [
         {
           by: "KohenGadol",
@@ -72,6 +76,7 @@ post({
       by: "Avtalyon_fan",
       votes: "2.5k",
       x: `<p>Any comment on the Shemaya & Avtalyon incident? 👀 <a onclick="go('thread','roast')">(link)</a></p>`,
+      src: "Yoma 71b",
       replies: [
         {
           by: "KohenGadol",

@@ -167,7 +167,7 @@ Images: ~20 new comment images, Snapshot HD only (~$0.004 each, ~$0.08 total). G
 2. **ADMIN (u/HaMelech) speaks only in verbatim pesukim / Chazal**, cited. Never put invented words in His mouth. God is never depicted in images.
 3. **Invented lines are `flavor: true`** (grey FLAVOR badge). Invented lines for real sages must not contradict what they actually held.
 4. No lashon hara; the tone is affectionate, not mocking of Torah or of the sages.
-5. Still unverified from the earlier round — check when touching those threads: Gra on Shir HaShirim 1:4 (clouds return after YK), Rema OC 639:7 ("hedyot"), Rambam Avodas Yom HaKippurim 1:7 (reason for staying awake).
+5. Earlier-round refs checked 2026-09-17: Gra on Shir HaShirim 1:4 and Rema OC 639:7 are correct; the Rambam cite was 1:7 (the Tzedukim oath) and is now 1:6 (the keri reason) plus Mishna Yoma 1:1 (the backup kohen).
 
 ## Image rules (learned the hard way)
 
