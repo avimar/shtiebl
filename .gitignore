@@ -4,3 +4,4 @@ __pycache__/
 
 tools/.sefaria_ok.json
 .claude/engineering-journal/
+.claude/handoffs/
