@@ -18,7 +18,6 @@ post({
       by: "RabbanShimonBG",
       votes: "11.2k",
       x: `<p>Everyone asks about the torches. The torches were the easy part.</p><p>The hard part: two thumbs in the floor, bow all the way down, kiss the stones, come back up. Nobody else could do that one.</p>`,
-      img: "c_kidah",
       src: "Sukkah 53a:7",
     },
     {
