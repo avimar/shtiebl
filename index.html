@@ -302,7 +302,7 @@ function postCard(p, full){
     <a href="${open}"><img class="pimg" src="${imgSrc(p.img)}" alt="" loading="lazy" onerror="this.remove()"></a>
     <div class="text">${full && p.op || p.body}</div>
     <div class="src">${linkSources(p.src)}</div>
-    <div class="actions"><a href="${open}">💬 ${p.comments} Comments</a><span>🎁 Award</span><span onclick="share('${p.id}')">↪ Share</span><span>🔖 Save</span></div>
+    <div class="actions"><a href="${open}">💬 ${p.comments} Comments</a><span onclick="share('${p.id}')">↪ Share</span></div>
   </div></div>`;
 }
 const userLink = name => `<a class="u" href="#/u/${name}">u/${name}</a>`;
