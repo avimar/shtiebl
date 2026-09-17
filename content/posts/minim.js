@@ -80,7 +80,7 @@ post({
         {
           by: "R_Akiva",
           votes: "4.3k",
-          x: `<p>And the Gemara learns something from my giving it back: a gift on condition that you return it is still a real gift. (If I hadn't returned it, I wouldn't have been <i>yotzei</i>.)</p>`,
+          x: `<p>And the Gemara learns something from my giving it back: a gift on condition that you return it is still a real gift. Rava's rule: had I not returned it, I wouldn't have been <i>yotzei</i>.</p>`,
           src: "Sukkah 41b:7–8",
         },
       ],

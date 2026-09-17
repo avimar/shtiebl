@@ -46,7 +46,7 @@ users({
   Resh_Lakish:       { avatar: "💪", flair: "Talmid", bio: "Former gladiator. Now R' Yochanan's study partner. Brings 24 questions to every answer." },
   Rav_Yosef:         { avatar: "🫙", flair: "Talmid", bio: "Amora in Pumbedisa. Keeps the broken tablets next to the whole ones." },
   Rava:              { avatar: "⚖️", flair: "Amora", bio: "Amora in Mechoza. If it's making you suffer, you're exempt. That's the rule." },
-  Abaye:             { avatar: "🥚", flair: "Amora", bio: "Amora in Pumbedisa, Rav Yosef's student. Juggled eight eggs in front of Rabbah (some say four)." },
+  Abaye:             { avatar: "🥚", flair: "Amora", bio: "Amora, Rav Yosef's student. Made head of the yeshiva because nobody could refute him. Juggled eight eggs in front of Rabbah (some say four)." },
   Levi_bar_Sisi:     { avatar: "🔪", flair: "Amora", bio: "Talmid of Rebbi. Juggled eight knives once. Would like you not to try." },
   Taanis_30b:        { avatar: "📄", flair: "Gemara", bio: "The page of Gemara with six reasons Tu B'Av is a happy day." },
   Taanis_31a:        { avatar: "📄", flair: "Gemara", bio: "The page of Gemara that covers the dancing in the vineyards." },

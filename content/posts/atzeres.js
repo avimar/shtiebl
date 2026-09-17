@@ -83,7 +83,7 @@ post({
       by: "R_Yehoshua_ben_Chanania",
       votes: "3.8k",
       x: `<p>Also, this is the day we start saying <i>mashiv haruach umorid hageshem</i>. Not on the first day of Sukkos. Rain during Sukkos is a sign of a curse. (<a href="#/r/MildlyInfuriating/rain">See: the pitcher in the face.</a>)</p>`,
-      src: "Mishna Taanis 1:1",
+      src: "Mishna Taanis 1:1 · Shulchan Aruch OC 114:1",
       replies: [
         {
           by: "R_Eliezer",
