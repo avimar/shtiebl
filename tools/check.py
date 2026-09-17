@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PORT = 8765
 BASE = f"http://localhost:{PORT}/"
 STYLES = ["snapshot_gpt", "snapshot", "cartoon", "cinematic"]
-ROUTE_KINDS = ["p"]                         # add "r", "u" as those views ship
+ROUTE_KINDS = ["p", "r"]                    # add "u" when profiles ship
 SEF_CACHE = ROOT / "tools" / ".sefaria_ok.json"   # refs already verified (gitignored)
 QUICK = "--quick" in sys.argv
 
@@ -76,10 +76,12 @@ def check_permalinks(pg):
         if y != 0: fail(f"#/p/{i} fresh load: scrollY={y}, expected 0")
 
 
-def check_scroll(pg):
-    """Feed -> thread shows ~22-30% of the image; Back puts the card back where it was."""
-    pg.goto(BASE); pg.wait_for_selector(".post")
-    for i in pg.evaluate("POST_ORDER"):
+def check_scroll(pg, route="", back_link=False):
+    """List -> thread shows ~22-30% of the image; Back puts the card back where it was.
+    back_link=True uses the thread's "Back to ..." link instead of the browser Back button."""
+    open_route(pg, route)
+    ids = pg.evaluate("[...document.querySelectorAll('#col [id^=p-]')].map(e => e.id.slice(2))")
+    for i in ids:
         # place the card 150px below the header ourselves (Playwright's auto-scroll fakes offsets)
         pg.evaluate(f"""() => {{ const el = document.getElementById('p-{i}');
             scrollTo(0, el.getBoundingClientRect().top + scrollY - headerH() - 150); }}""")
@@ -90,10 +92,21 @@ def check_scroll(pg):
         frac = pg.evaluate("""() => { const r = document.querySelector('#col .pimg').getBoundingClientRect();
             return (r.bottom - headerH()) / r.height; }""")
         if not 0.22 <= frac <= 0.30: fail(f"{i}: thread opened with {frac:.0%} of the image visible (want 22-30%)")
-        pg.go_back()
+        if back_link: pg.click(".back-bottom")
+        else: pg.go_back()
         pg.wait_for_selector(f"#p-{i}")
         after = pg.evaluate(f"document.getElementById('p-{i}').getBoundingClientRect().top")
         if abs(after - before) > 2: fail(f"{i}: Back put the card at {after:.0f}px, was {before:.0f}px")
+
+
+def check_sub(pg):
+    open_route(pg, "#/r/AmITheRasha")
+    n = pg.evaluate("document.querySelectorAll('#col .post').length")
+    if n != 4: fail(f"r/AmITheRasha shows {n} posts, expected 4")
+    pg.click("#col .post .title")
+    pg.wait_for_selector(".thread")
+    label = pg.inner_text(".back")
+    if label != "← Back to r/AmITheRasha": fail(f"thread back link from a sub page says {label!r}")
 
 
 def check_mobile(browser):
@@ -147,7 +160,11 @@ def main():
             print("files + users"); check_files(pg)
             print("views, images, sources"); check_views(pg, errors, hrefs)
             print("permalinks open at top"); check_permalinks(pg)
-            if not QUICK: print("feed -> thread -> back, every post"); check_scroll(pg)
+            if not QUICK:
+                print("feed -> thread -> back, every post"); check_scroll(pg)
+                print("sub page -> thread -> back link, every sub")
+                for s in pg.evaluate("Object.keys(SUBS)"): check_scroll(pg, f"#/r/{s}", back_link=True)
+            print("sub page contents"); check_sub(pg)
             print("phone header"); check_mobile(browser)
             browser.close()
         if not QUICK: print("Sefaria refs"); check_sefaria(hrefs)

@@ -4,7 +4,8 @@
 Locally, open `index.html` in a browser. There is no build step. The page loads the content files directly.
 
 - **Permalinks:** `#/p/<post id>` opens that thread at the top, showing the whole post. Only a tap from the feed skips past most of the image, since that reader already saw it. **Share** copies the permalink and shows "Link copied to clipboard".
-- **Navigation:** Back to feed (top and bottom of a thread), the logo, and the browser's Back button all return to your spot in the feed. On the feed, the logo scrolls to the top.
+- **Sub pages:** `#/r/<Sub>` shows that community's header and only its posts. Tap any `r/…` name to go there.
+- **Navigation:** each list view (feed, sub page) saves its scroll spot in its own history entry when you leave it. The thread's "← Back to …" links (top and bottom) and the browser's Back button return to that exact spot. The logo goes to the feed; on the feed it scrolls to the top.
 - **Holiday chips** filter the feed: Aseres Yemei Teshuva, Yom Kippur, Sukkos, Shemini Atzeres/Simchas Torah.
 - **Images:** the site loads `img/[<style>/]<id>.jpg`. Comment images are `c_*`, attached with `img: "c_name"`. The `.png` originals are local only (gitignored). `img/optimize.py` makes the `.jpg` copies and runs automatically after `gen_images.py`.
 - **Picture switcher** (Snapshot HD, the default, / Snapshot FLUX / Cartoon / Movie) swaps image sets. A missing image falls back to the cartoon.

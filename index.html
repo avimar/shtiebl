@@ -79,7 +79,11 @@
   .votes b.up.on{color:var(--orange)} .votes b.down.on{color:#7193ff}
   .pbody{padding:8px 12px 4px;min-width:0;flex:1}
   .meta{font-size:12px;color:var(--muted);display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-  .meta .sub{color:var(--ink);font-weight:700}
+  .sub{color:var(--ink);font-weight:700} a.sub:hover{text-decoration:underline}
+  .head{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:12px 14px;margin-bottom:10px}
+  .head h1{margin:0;font-size:22px;line-height:1.2}
+  .head .subicon{width:52px;height:52px;font-size:28px;flex-shrink:0}
+  .empty{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:24px;text-align:center;color:var(--muted)}
   .subicon{width:20px;height:20px;border-radius:50%;display:inline-grid;place-items:center;font-size:12px;color:#fff}
   .title{font-size:18px;font-weight:600;margin:6px 0;line-height:1.3;cursor:pointer}
   .flair{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:10px;background:var(--flair);color:var(--accent);margin-left:4px;vertical-align:middle}
@@ -128,7 +132,7 @@
 </head>
 <body>
 <header>
-  <div class="logo" onclick="backToFeed()"><div class="dot">ש</div><div>shtiebl<small>the front page of the beis medrash</small></div></div>
+  <div class="logo" onclick="logo()"><div class="dot">ש</div><div>shtiebl<small>the front page of the beis medrash</small></div></div>
   <div class="search">🔍 Search shtiebl</div>
   <div class="seg" id="picSeg" title="Picture style">
     <button data-p="snapshot_gpt">📸 Snapshot HD</button><button data-p="snapshot">📷 Snapshot (FLUX)</button><button data-p="cartoon">🖍 Cartoon</button><button data-p="cinematic">🎬 Movie</button>
@@ -216,7 +220,7 @@ const $ = s => document.querySelector(s);
 
 function subTag(name){
   const s = SUBS[name];
-  return `<span class="subicon" style="background:${s.color}">${s.icon}</span><span class="sub">r/${name}</span>`;
+  return `<span class="subicon" style="background:${s.color}">${s.icon}</span><a class="sub" onclick="go('sub','${name}')">r/${name}</a>`;
 }
 function voteCol(v){
   return `<div class="votes"><b class="up" onclick="vote(this,1)">⬆</b><span>${v}</span><b class="down" onclick="vote(this,-1)">⬇</b></div>`;
@@ -253,40 +257,59 @@ function comment(c, op){
     ${c.replies?`<div class="kids">${c.replies.map(r=>comment(r, op)).join("")}</div>`:""}
   </div>`;
 }
-function renderFeed(focus){
+function renderList(head, posts){
   const chips = [["all","🔥 All"],...Object.entries(HOLIDAYS)].map(([k,l])=>
     `<button class="chip ${hol===k?"on":""}" onclick="hol='${k}';render()">${l}</button>`).join("");
-  const list = POSTS.filter(p=>hol==="all"||p.hol===hol);
-  $("#col").innerHTML = `<div class="chips">${chips}</div>` + list.map(p=>`<div id="p-${p.id}">${postCard(p)}</div>`).join("");
+  const list = posts.filter(p=>hol==="all"||p.hol===hol);
+  $("#col").innerHTML = head + `<div class="chips">${chips}</div>` +
+    (list.length ? list.map(p=>`<div id="p-${p.id}">${postCard(p)}</div>`).join("")
+                 : `<div class="empty">Nothing here for ${HOLIDAYS[hol]} yet.</div>`);
+}
+function renderSub(name){
+  const s = SUBS[name], posts = POSTS.filter(p=>p.sub===name);
+  renderList(`<div class="head"><span class="subicon" style="background:${s.color}">${s.icon}</span>
+    <div><h1>r/${name}</h1><div class="note">aka ${s.aka} · ${posts.length} post${posts.length===1?"":"s"}</div></div></div>`, posts);
 }
 function renderThread(id){
   const p = POSTS.find(x=>x.id===id);
-  $("#col").innerHTML = `<div class="thread-mode"><a class="back" onclick="backToFeed()">← Back to feed</a>` + postCard(p, true) +
+  const from = history.state && history.state.from;
+  const back = `<a class="back" onclick="backLink()">← Back to ${from ? viewName(from) : "feed"}</a>`;
+  $("#col").innerHTML = `<div class="thread-mode">${back}` + postCard(p, true) +
     `<div class="thread"><div class="sortbar">Sort by: <b>Best</b> · showing top comments · ADMIN comments quote only Tanach & Chazal</div>${p.thread.map(c=>comment(c, p.by)).join("")}</div>` +
-    `<a class="back back-bottom" onclick="backToFeed()">← Back to feed</a></div>`;
+    back.replace('class="back"', 'class="back back-bottom"') + `</div>`;
 }
 
 /* ---- navigation + scroll memory ----
-   Opening a thread remembers where the clicked post sat on screen; going back puts it there again.
-   The thread opens scrolled so the bottom quarter of the image is still visible (you see you're in the same place). */
+   List views (feed, sub page) remember their scroll spot in their own history entry when you leave them,
+   so Back puts the page exactly where it was.
+   A thread tapped open from a list starts scrolled so only the bottom quarter of the image shows
+   (you already saw it). A shared link / fresh load opens at the top. */
+const LISTS = ["feed", "sub"];
+const ROUTES = {thread:"#/p/", sub:"#/r/"};
 let view = ["feed"];
-let feedAnchor = null;                       // {id, top}: post card's offset from the viewport top at click time
 const headerH = () => $("header").offsetHeight;
-function go(v, arg, fromHistory){
-  // Tapped in from the feed (already saw the picture) → skip most of it.
-  // Shared link / fresh load → no feedAnchor yet → show the whole post from the top.
-  const fromFeed = view[0] === "feed" && (!fromHistory || feedAnchor);
-  if (v === "thread" && view[0] === "feed" && !fromHistory) {
-    const el = document.getElementById("p-"+arg);
-    feedAnchor = el ? {id:arg, top: el.getBoundingClientRect().top} : null;
+const viewName = ([v, arg]) => v === "sub" ? "r/" + arg : "feed";
+
+// The card nearest the top of the screen (or the one just clicked) and its offset from the viewport top.
+function currentSpot(clicked){
+  const cards = [...document.querySelectorAll("#col [id^='p-']")];
+  const el = clicked ? document.getElementById(clicked) : cards.find(c => c.getBoundingClientRect().bottom > headerH());
+  return el ? {el: el.id, top: el.getBoundingClientRect().top} : null;
+}
+// state = the history entry being shown (browser Back/Forward, fresh load); omitted = a new navigation.
+function go(v, arg, state){
+  if (!state) {
+    if (v === view[0] && arg === view[1]) { scrollTo(0, 0); return; }
+    const leavingList = LISTS.includes(view[0]);
+    if (leavingList) history.replaceState({...history.state, spot: currentSpot(v === "thread" && "p-"+arg)}, "");
+    state = {v, arg, from: v === "thread" && leavingList ? view : null};
+    history.pushState(state, "", location.pathname + location.search + (ROUTES[v] ? ROUTES[v] + arg : ""));
   }
   view = [v, arg];
-  if (!fromHistory) history.pushState({v, arg}, "", v === "thread" ? permalink(arg) : location.pathname + location.search);
   document.body.style.paddingBottom = "";
   render();
-  if (v === "thread" && !fromFeed) {
-    scrollTo(0, 0);
-  } else if (v === "thread") {
+  const spotEl = state.spot && document.getElementById(state.spot.el);
+  if (v === "thread" && state.from) {
     const img = $("#col .pimg");
     const target = img ? img.getBoundingClientRect().top + scrollY + img.offsetHeight*0.75 - headerH() - 8
                        : $("#col .post").getBoundingClientRect().top + scrollY - headerH() - 8;
@@ -294,35 +317,37 @@ function go(v, arg, fromHistory){
     const deficit = target + innerHeight - document.documentElement.scrollHeight;
     if (deficit > 0) document.body.style.paddingBottom = deficit + "px";
     scrollTo(0, Math.max(0, target));
-  } else if (arg) {
-    document.getElementById("p-"+arg)?.scrollIntoView({behavior:"smooth"});
-  } else if (feedAnchor) {
-    const el = document.getElementById("p-"+feedAnchor.id);
-    if (el) scrollTo(0, el.getBoundingClientRect().top + scrollY - feedAnchor.top);
+  } else if (spotEl) {
+    scrollTo(0, spotEl.getBoundingClientRect().top + scrollY - state.spot.top);
   } else {
     scrollTo(0, 0);
   }
 }
-// Back link (top + bottom of thread) and the logo all come here.
-function backToFeed(){
-  if (view[0] !== "feed") {
-    if (history.state && history.state.v === "thread" && feedAnchor) history.back();   // popstate restores the spot
-    else go("feed");                                                                    // deep link: no spot to restore
-  } else {
-    feedAnchor = null; scrollTo(0, 0);                            // already on feed: logo = top
-  }
+// "← Back to …" links in a thread: return to the list it was opened from, else the feed.
+function backLink(){
+  if (history.state && history.state.from) history.back();   // popstate restores the spot
+  else go("feed");                                           // shared link: nowhere to return to
+}
+// Logo: on the feed = top; in a thread opened from the feed = back to the spot; anywhere else = feed.
+function logo(){
+  const from = history.state && history.state.from;
+  if (view[0] === "feed") scrollTo(0, 0);
+  else if (from && from[0] === "feed") history.back();
+  else go("feed");
 }
 addEventListener("popstate", e=>{
   const s = e.state || routeFromHash();
-  go(s.v, s.v === "thread" ? s.arg : undefined, true);
+  go(s.v, s.arg, s);
 });
 history.scrollRestoration = "manual";
 
 /* ---- permalinks + share ---- */
 function permalink(id){ return location.href.split("#")[0] + "#/p/" + id; }
 function routeFromHash(){
-  const m = location.hash.match(/^#\/p\/([\w-]+)/);
-  return m && POSTS.some(p=>p.id===m[1]) ? {v:"thread", arg:m[1]} : {v:"feed"};
+  const [, kind, arg] = location.hash.match(/^#\/([pr])\/([\w-]+)/) || [];
+  if (kind === "p" && POSTS.some(p=>p.id===arg)) return {v:"thread", arg};
+  if (kind === "r" && SUBS[arg]) return {v:"sub", arg};
+  return {v:"feed"};
 }
 function share(id){
   const url = permalink(id);
@@ -343,8 +368,9 @@ function toast(msg){
 function render(){
   document.querySelectorAll("#picSeg button").forEach(b=>b.classList.toggle("on",b.dataset.p===pic));
   $("#menuBtn").textContent = `${{snapshot_gpt:"📸",snapshot:"📷",cartoon:"🖍",cinematic:"🎬"}[pic]} ⚙`;
-  if(view[0]==="thread") renderThread(view[1]);
-  else renderFeed(view[1]);
+  if (view[0] === "thread") renderThread(view[1]);
+  else if (view[0] === "sub") renderSub(view[1]);
+  else renderList("", POSTS);
 }
 document.querySelectorAll("#picSeg button").forEach(b=>b.onclick=()=>{pic=b.dataset.p;localStorage.setItem("shtiebl-pic",pic);render();});
 
@@ -380,7 +406,7 @@ loadPosts(()=>{
   // start: a shared #/p/<id> link opens that thread directly
   const start = routeFromHash();
   history.replaceState(start, "");
-  if (start.v === "thread") go("thread", start.arg, true); else render();
+  go(start.v, start.arg, start);
 });
 </script>
 <div id="toast" role="status" aria-live="polite"></div>
