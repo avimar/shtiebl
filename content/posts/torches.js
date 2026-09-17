@@ -12,25 +12,25 @@ post({
   img: "torches",
   body: `<p>“Whoever has not seen the Simchas Beis HaSho'eivah has never seen joy in his life.” There were golden lamps so bright that <b>every courtyard in Jerusalem</b> was lit up. The wicks were made from the kohanim's worn-out garments. Pious men danced with torches, and the Levi'im played on the fifteen steps.</p>
         <p>Rabban Shimon ben Gamliel juggled eight torches of fire, and none touched the ground. He also did <i>kidah</i>: a bow balanced on his two thumbs.</p>`,
-  src: "Mishna Sukkah 5:1–4 · Sukkah 51a, 53a",
+  src: "Mishna Sukkah 5:1–4 · Sukkah 51a:16 · Sukkah 53a:7",
   thread: [
     {
       by: "Levi_bar_Sisi",
       votes: "9.1k",
       x: `<p>Honorable mentions from the same page: <b>Levi</b> juggled eight knives in front of Rebbi, <b>Shmuel</b> eight glasses of wine, and <b>Abaye</b> eight eggs (some say four).</p><p>Also Levi tried the thumb-bow in front of Rebbi and <b>came out limping.</b> Do not try kidah at home.</p>`,
-      src: "Sukkah 53a",
+      src: "Sukkah 53a:8–9",
     },
     {
       by: "R_Yehoshua_ben_Chanania",
       votes: "7.5k",
       x: `<p>We didn't sleep all week. Morning tamid, davening, mussaf, eat, beis medrash, afternoon tamid, then the party all night. We dozed on each other's shoulders.</p>`,
-      src: "Sukkah 53a",
+      src: "Sukkah 53a:10–11",
     },
     {
       by: "Hillel_HaZaken",
       votes: "6.3k",
       x: `<p>“If I am here, everything is here. If I'm not here, who is here?”</p>`,
-      src: "Sukkah 53a",
+      src: "Sukkah 53a:3",
     },
     {
       by: "Levi_on_the_steps",

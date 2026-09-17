@@ -12,7 +12,7 @@ post({
   img: "atzeres",
   body: `<p>Rashi explains <i>atzeres</i> as “holding back.” It's like a king who invited his children to a feast for several days. When it was time to go, he said: <span class="he">קָשָׁה עָלַי פְּרֵידַתְכֶם</span>, “My children, please, stay one more day. <b>Your leaving is hard for me.</b>”</p>
         <p class="note">Sukkos had 70 bulls for the nations. Shemini Atzeres has just one, for Israel alone.</p>`,
-  src: "Rashi, Vayikra 23:36 · Sukkah 55b",
+  src: "Rashi, Vayikra 23:36 · Sukkah 55b:9–10",
   thread: [
     {
       by: "Rashi",

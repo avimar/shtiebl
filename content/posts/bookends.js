@@ -15,7 +15,7 @@ post({
       <p><b>Start:</b> Adam and Chava, just sent out, and Hashem <b>makes them clothes</b> and dresses them.</p>
       <p><b>End:</b> Moshe passes away in the land of Moav, and Hashem <b>buries him</b>.</p>
       <p>The Torah opens with chesed and closes with chesed. Everything in between is how to live that way.</p>`,
-  src: "Sotah 14a",
+  src: "Sotah 14a:6",
   thread: [
     {
       by: "Torah_Narrator",
@@ -35,7 +35,7 @@ post({
       by: "R_Chama_bar_Chanina",
       votes: "15k",
       x: `<p><i>“Walk after Hashem your G-d.”</i> Can a person walk after the Shechinah? It says He is <b>a consuming fire</b>! So: walk after His <b>ways</b>. He clothes the naked, so you clothe the naked. He visits the sick, so you visit. He comforts mourners, so you comfort. He buries the dead, so you bury.</p>`,
-      src: "Sotah 14a · Devarim 13:5",
+      src: "Sotah 14a:3–4 · Devarim 13:5",
       replies: [
         {
           by: "curious_cheder_kid",
@@ -50,13 +50,13 @@ post({
       votes: "6.2k",
       x: `<p>The government sent us to find that grave. Standing on top, it looked like it was below. Standing below, it looked like it was on top. So we split up. Same thing happened to both groups. <i>“No man knows his burial place.”</i></p>`,
       img: "c_grave",
-      src: "Sotah 13b · Devarim 34:6",
+      src: "Sotah 13b:27–14a:1 · Devarim 34:6",
       replies: [
         {
           by: "R_Chama_bar_Chanina",
           votes: "7.4k",
           x: `<p>Even <b>Moshe himself</b> doesn't know where he's buried. And why opposite Beis Peor? To atone for what happened at Peor.</p>`,
-          src: "Sotah 14a",
+          src: "Sotah 14a:2",
           replies: [
             {
               by: "Moshe_Rabbeinu",
@@ -72,7 +72,7 @@ post({
       by: "Moshe_Rabbeinu",
       votes: "22k",
       x: `<p>Since people ask why I wanted so badly to go into Eretz Yisrael: not for the fruit. There are mitzvos you can only do there, and I wanted to do <b>all</b> of them. I was told I'd get the reward as if I had.</p>`,
-      src: "Sotah 14a",
+      src: "Sotah 14a:7–8",
       replies: [
         {
           by: "EY_resident",
@@ -86,7 +86,7 @@ post({
       by: "R_Simlai",
       votes: "5.1k",
       x: `<p>Same me, different drasha: <b>613 mitzvos</b> were said to Moshe. 365 prohibitions, like the days of the solar year. 248 positive mitzvos, like the limbs of a person.</p>`,
-      src: "Makkos 23b",
+      src: "Makkos 23b:18",
     },
   ],
 });

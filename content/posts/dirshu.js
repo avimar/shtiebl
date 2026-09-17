@@ -12,7 +12,7 @@ post({
   img: "dirshu",
   body: `<p><span class="he">דִּרְשׁוּ ה׳ בְּהִמָּצְאוֹ, קְרָאֻהוּ בִּהְיוֹתוֹ קָרוֹב</span>: “Seek Hashem when He can be found, call Him when He is near.”</p>
         <p>The Gemara asks when that is, and answers: <b>the ten days between Rosh Hashana and Yom Kippur</b>. It says this in the context of an <i>individual's</i> prayer, which is otherwise weaker than a community's.</p>`,
-  src: "Yeshayahu 55:6 · Rosh Hashana 18a",
+  src: "Yeshayahu 55:6 · Rosh Hashana 18a:11–12",
   thread: [
     {
       by: "Rambam_1138",

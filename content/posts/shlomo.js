@@ -15,13 +15,13 @@ post({
       <p>Afterward everyone got nervous. Eating on Yom Kippur is <i>kares</i>. Did we just…?</p>
       <p>A Bas Kol: <b>“All of you are destined for the World to Come.”</b></p>
       <p><i>“On the eighth day he sent the people away. They blessed the king and went to their tents, joyful and glad of heart.”</i> The Gemara makes that chapter the haftara of Shemini Atzeres.</p>`,
-  src: "Moed Katan 9a · Melachim I 8:65–66 · Megillah 31a",
+  src: "Moed Katan 9a:8 · Melachim I 8:65–66 · Megillah 31a:15",
   thread: [
     {
       by: "R_Yochanan",
       votes: "14k",
       x: `<p>R' Parnach said it in my name: that year Yisrael <b>didn't observe Yom Kippur</b>. They were worried. A Bas Kol went out and said: all of you are destined for the World to Come.</p>`,
-      src: "Moed Katan 9a",
+      src: "Moed Katan 9a:8",
       replies: [
         {
           by: "nervous_yisrael",
@@ -43,7 +43,7 @@ post({
       by: "math_kohen",
       votes: "7.0k",
       x: `<p>How did they figure it was allowed? <b>Kal vachomer.</b> At the Mishkan's dedication, a <i>temporary</i> holiness, the princes' offerings, <i>individual</i> offerings, overrode Shabbos, which is stoning. The Mikdash is <i>permanent</i> holiness with <i>communal</i> offerings. Surely it overrides Yom Kippur, which is only kares.</p>`,
-      src: "Moed Katan 9a",
+      src: "Moed Katan 9a:9",
       replies: [
         {
           by: "chills",
@@ -55,7 +55,7 @@ post({
               by: "math_kohen",
               votes: "4.4k",
               x: `<p>Because the Mishkan overrode Shabbos for <b>offerings to Hashem</b>. Here they overrode Yom Kippur for <b>people eating</b>. So why not bring the offerings and skip the food? The Gemara's answer: <b>there's no complete joy without eating and drinking.</b></p>`,
-              src: "Moed Katan 9a",
+              src: "Moed Katan 9a:10",
             },
           ],
         },
@@ -66,13 +66,13 @@ post({
       votes: "19k",
       x: `<p>Why not just merge the two parties? <b>You don't mix one simcha with another.</b> That's why the pasuk says “seven days <i>and</i> seven days,” and doesn't just say fourteen.</p>`,
       img: "c_twoparties",
-      src: "Moed Katan 9a · Melachim I 8:65",
+      src: "Moed Katan 9a:4–7 · Melachim I 8:65",
       replies: [
         {
           by: "shadchan_2026",
           votes: "4.0k",
           x: `<p>And that's one of the Gemara's reasons you don't make a wedding on Chol HaMoed. One simcha at a time.</p>`,
-          src: "Moed Katan 9a",
+          src: "Moed Katan 9a:2",
         },
       ],
     },

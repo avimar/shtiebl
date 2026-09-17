@@ -12,7 +12,7 @@ post({
   img: "happy",
   body: `<p>Rabban Shimon ben Gamliel: “Israel had no days as joyous as the 15th of Av and Yom Kippur.” The young women went out in <b>borrowed</b> white clothes so that nobody who owned no nice clothes would be embarrassed, and they danced in the vineyards.</p>
         <p>The Gemara explains why for Yom Kippur: it's a day of forgiveness, and the day the second tablets were given.</p>`,
-  src: "Mishna Taanis 4:8 · Taanis 30b",
+  src: "Mishna Taanis 4:8 · Taanis 30b:8",
   thread: [
     {
       by: "RabbanShimonBG",
@@ -24,7 +24,7 @@ post({
       by: "Taanis_31a",
       votes: "8.8k",
       x: `<p>The Gemara adds the breakdown: the pretty ones said “look for beauty.” The ones from good families said “look at family.” The others said, “Take us for the sake of Heaven, <b>just crown us with gold</b>.”</p>`,
-      src: "Taanis 31a",
+      src: "Taanis 31a:8",
     },
     {
       by: "borrowed_dress",

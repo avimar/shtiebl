@@ -11,7 +11,7 @@ post({
   hook: "R' Yochanan: “Woe to them. They lost something and don't even know what they lost.”",
   img: "bulls",
   body: `<p>R' Elazar: the seventy bulls brought over the seven days of Sukkos correspond to the seventy nations. R' Yochanan added: woe to the nations, who lost and don't know what they lost. While the Temple stood, the altar atoned for them. Now, who will?</p>`,
-  src: "Bamidbar 29:12–34 · Sukkah 55b",
+  src: "Bamidbar 29:12–34 · Sukkah 55b:9–11",
   thread: [
     {
       by: "Rashi",

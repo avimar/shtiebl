@@ -17,7 +17,7 @@ post({
       <p>My entire sermon: <span class="he">עוֹד אַרְבָּעִים יוֹם וְנִינְוֵה נֶהְפָּכֶת</span>, “Forty more days and Nineveh is overturned” (3:4). <b>Five words.</b> The whole city repented. The king sat in sackcloth. <i>Even the cattle</i> fasted (3:7). And He relented (3:10).</p>
       <p>I told Him: “This is exactly why I ran. I knew You are a gracious and compassionate G-d, slow to anger… Now take my life” (4:2–3). AITR?</p>
       <p><b>UPDATE:</b> I went and sat east of the city to watch. He grew a <i>kikayon</i> plant to shade me, and I was really happy. The next dawn a worm killed it. Then came a hot east wind and sun on my head, and I asked to die again (4:6–8).</p>`,
-  src: "Yonah 1–4 · Megillah 31a",
+  src: "Yonah 1–4 · Megillah 31a:11",
   thread: [
     {
       by: "HaMelech",
@@ -35,7 +35,7 @@ post({
               by: "Chazzan_Mincha",
               votes: "6.6k",
               x: `<p>And that's the end of the book. It closes on His question. OP never replied. We read this at Mincha on Yom Kippur so that <i>we</i> answer it.</p>`,
-              src: "Megillah 31a (Yonah as the YK Mincha haftarah)",
+              src: "Megillah 31a:11 (Yonah as the YK Mincha haftarah)",
             },
           ],
         },
@@ -51,7 +51,7 @@ post({
       by: "Nineveh_Resident",
       votes: "4.1k",
       x: `<p>We didn't just fast. “They turned from the violence in their hands”: if someone had built a stolen beam into his palace, <b>he tore down the palace</b> to give the beam back.</p>`,
-      src: "Yonah 3:8 · Taanis 16a",
+      src: "Yonah 3:8 · Taanis 16a:13",
       replies: [
         {
           by: "Melech_Nineveh",

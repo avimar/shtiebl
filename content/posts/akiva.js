@@ -12,13 +12,13 @@ post({
   img: "akiva",
   body: `<p>Moshe sat in the eighth row and couldn't follow the discussion. His strength failed him. Then a student asked R' Akiva: “Rebbe, where do you know this from?” R' Akiva answered: <i>“It's a halacha given to Moshe at Sinai.”</i> Moshe's mind was put at ease.</p>
         <p class="note">Which is why we start over every Simchas Torah: there's always more in it.</p>`,
-  src: "Menachos 29b",
+  src: "Menachos 29b:4",
   thread: [
     {
       by: "HaMelech",
       votes: "∞",
       x: `<p>Moshe asked: “You have someone like this, and You give the Torah through <i>me</i>?”</p><p class="quote">“Be silent. This is what I have decided.”</p>`,
-      src: "Menachos 29b",
+      src: "Menachos 29b:5",
     },
     {
       by: "R_Akiva",
@@ -30,7 +30,7 @@ post({
       by: "the_crowns",
       votes: "3.9k",
       x: `<p>Why the little crowns on the letters? He said R' Akiva would derive <b>heaps and heaps</b> of halachos from each one.</p>`,
-      src: "Menachos 29b",
+      src: "Menachos 29b:3",
     },
     {
       by: "eighth_row_regular",

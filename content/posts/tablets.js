@@ -16,19 +16,19 @@ post({
       <p>My reasoning: the Pesach offering is only one mitzvah, and a Jew who has abandoned the Torah may not eat it. Here's the <i>whole</i> Torah, and they're all serving an idol. Should I really hand it to them? (That's how Shabbos 87a reconstructs my kal vachomer.)</p>
       <p>AITR?</p>
       <p><b>EDIT:</b> I went back up and came down with the second set on the 10th of Tishrei. You know that day as Yom Kippur. (Taanis 30b; Rashi Shemos 33:11)</p>`,
-  src: "Shemos 32:19 · Shabbos 87a · Rashi, Devarim 34:12",
+  src: "Shemos 32:19 · Shabbos 87a:5 · Rashi, Devarim 34:12",
   thread: [
     {
       by: "HaMelech",
       votes: "∞",
       x: `<p class="quote"><span class="he">יִישַׁר כֹּחֲךָ שֶׁשִּׁבַּרְתָּ</span>: “Well done for breaking them.”</p>`,
-      src: "Shabbos 87a, reading “asher shibarta” (Shemos 34:1) as “yasher [koach] that you broke”",
+      src: "Shabbos 87a:5, reading “asher shibarta” (Shemos 34:1) as “yasher [koach] that you broke”",
       replies: [
         {
           by: "Resh_Lakish",
           votes: "3.2k",
-          x: `<p>This is one of three things Moshe did on his own that Hashem agreed with. The others were adding a day before Matan Torah and separating from his wife.</p>`,
-          src: "Shabbos 87a",
+          x: `<p>The baraita on this daf counts it as one of three things Moshe did on his own that Hashem agreed with. The others were adding a day before Matan Torah and separating from his wife.</p>`,
+          src: "Shabbos 87a:2",
         },
       ],
     },
@@ -57,7 +57,7 @@ post({
       votes: "2.6k",
       x: `<p>Wholesome detail: the whole tablets <i>and the broken pieces</i> were both kept in the Aron. That's why you respect an elder who has forgotten his learning. The broken ones still belong in the Aron.</p>`,
       img: "c_ark",
-      src: "Berachos 8b · Bava Basra 14b",
+      src: "Berachos 8b:7 · Bava Basra 14b:6",
     },
     {
       by: "Moshe_Rabbeinu",

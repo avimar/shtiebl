@@ -13,25 +13,25 @@ post({
   img: "kick",
   body: `<p>In the future the nations will say: “Give us the Torah now, and we'll keep it.” They get one easy mitzvah to try: <b>sukkah</b>. Each one builds a sukkah on his roof. Then Hashem takes the sun out of its sheath and makes it blaze, and each one <b>kicks his sukkah and leaves.</b></p>
         <p><b>Top comment:</b> the Gemara points out that a Jew also leaves when it's too hot, because he's exempt. But he doesn't <i>kick</i> it. <b>YTR.</b></p>`,
-  src: "Avodah Zarah 3a",
+  src: "Avodah Zarah 3a:10–3b:1",
   thread: [
     {
       by: "HaMelech",
       votes: "∞",
       x: `<p class="quote">“He who sits in heaven laughs.”</p>`,
-      src: "Tehillim 2:4, quoted at this point in Avodah Zarah 3b",
+      src: "Tehillim 2:4, quoted at this point in Avodah Zarah 3b:2",
     },
     {
       by: "Umos_HaOlam",
       votes: "-1.1k",
       x: `<p>EDIT: Also, isn't there a rule that He doesn't deal unfairly with His creations? A heatwave during SUKKOS??</p>`,
-      src: "Avodah Zarah 3a",
+      src: "Avodah Zarah 3a:13",
       replies: [
         {
           by: "Gemara_AZ",
           votes: "5.4k",
           x: `<p>The Gemara asks exactly that. Answer: for them, the summer heat sometimes does run late into the festival. It's a realistic test.</p>`,
-          src: "Avodah Zarah 3a",
+          src: "Avodah Zarah 3a:13–3b:1",
         },
       ],
     },

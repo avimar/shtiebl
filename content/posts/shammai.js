@@ -14,13 +14,13 @@ post({
   op: `<p>New baby, Baruch Hashem, and it's Sukkos. I'm resting. And from the ceiling I hear chipping.</p>
       <p>It's my father-in-law. He took off the plaster, left the beams, and put schach <b>over the baby's bed</b>. The Gemara says the Mishna tells this story because Shammai was stringent even with the tiniest kids.</p>
       <p>The actual rule, for the rest of you: a child who <b>doesn't need his mother</b> is obligated in sukkah. How do you know your kid is there? Read the comments.</p>`,
-  src: "Mishna Sukkah 2:8 · Sukkah 28b",
+  src: "Mishna Sukkah 2:8 · Sukkah 28b:7",
   thread: [
     {
       by: "Gemara_Sukkah",
       votes: "14k",
       x: `<p>What's a child who doesn't need his mother? The school of R' Yannai: one who goes to the bathroom and his mother doesn't have to wipe him. The other opinion: one who wakes up and <b>doesn't call “Ima! Ima!”</b></p><p>But big kids call Ima too! So: one who wakes up and doesn't keep calling <b>“Ima, Ima”</b> until she comes.</p>`,
-      src: "Sukkah 28b",
+      src: "Sukkah 28b:6",
       replies: [
         {
           by: "tired_abba",
@@ -56,13 +56,13 @@ post({
       votes: "16k",
       x: `<p>R' Yehuda brings my sukkah as a proof. It was <b>over twenty amos</b> tall, the elders went in and out, and nobody said a word. The Rabbis: she's a woman, she's exempt. R' Yehuda: she had <b>seven sons</b>. And she did everything the way the Sages said.</p>`,
       img: "c_helene",
-      src: "Sukkah 2b",
+      src: "Sukkah 2b:15",
       replies: [
         {
           by: "math_kohen",
           votes: "3.1k",
           x: `<p>The Gemara's math: seven sons, even one a year, and at least one is old enough <b>not to need his mother</b>. So someone in that sukkah was obligated.</p>`,
-          src: "Sukkah 2b",
+          src: "Sukkah 2b:17",
           replies: [
             {
               by: "Queen_Helene",

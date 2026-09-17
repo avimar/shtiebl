@@ -35,7 +35,7 @@ post({
               by: "Gemara_Sukkah",
               votes: "8.1k",
               x: `<p>The Rabbis worried someone would <b>carry it four amos</b> in the street to go learn how to shake it. Same reason as shofar and Megillah on Shabbos. And today we don't know for sure which day Beis Din sanctified the month, so we don't push aside the decree for it.</p><p>Fun part: back when Eretz Yisrael had a Beis Din that knew the exact day, <b>they did take the lulav on Shabbos</b> on the first day. They brought it to shul on Friday.</p>`,
-              src: "Sukkah 43a",
+              src: "Sukkah 43a:1–5",
               replies: [
                 {
                   by: "EY_resident",
@@ -74,13 +74,13 @@ post({
           by: "chills",
           votes: "2.0k",
           x: `<p>wait. R' Yitzchak says any year the shofar isn't blown at its beginning ends badly??</p>`,
-          src: "Rosh Hashana 16b",
+          src: "Rosh Hashana 16b:2",
           replies: [
             {
               by: "Tosafos",
               votes: "6.9k",
               x: `<p>The Behag explains: that's <b>not</b> when Rosh Hashana falls on Shabbos. It's when something went wrong and they couldn't blow.</p>`,
-              src: "Tosafos, Rosh Hashana 16b",
+              src: "Tosafos, Rosh Hashana 16b:2",
             },
           ],
         },

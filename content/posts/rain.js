@@ -13,7 +13,7 @@ post({
   body: `<p>When is it raining hard enough to go inside? “When the porridge would spoil.”</p>
         <p>The Mishna gives a parable: a servant comes to pour a cup for his master, and the master pours the pitcher in his face. Rain on Sukkos means He isn't accepting our service right now.</p>
         <p class="note">Related: someone who is genuinely uncomfortable in the sukkah (<i>mitzta'er</i>) is exempt (Sukkah 26a).</p>`,
-  src: "Mishna Sukkah 2:9 (28b) · Sukkah 26a",
+  src: "Mishna Sukkah 2:9 (28b) · Sukkah 26a:9",
   thread: [
     {
       by: "Rema",
@@ -25,7 +25,7 @@ post({
       by: "Rava",
       votes: "4.2k",
       x: `<p>General rule: if it's genuinely making you suffer, you're exempt. <i>Mitzta'er patur min hasukkah.</i></p>`,
-      src: "Sukkah 26a",
+      src: "Sukkah 26a:9",
     },
     {
       by: "soggy_kugel",

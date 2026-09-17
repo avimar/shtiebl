@@ -42,7 +42,7 @@ post({
       by: "Yoma_82a",
       votes: "4.3k",
       x: `<p>Why does the Mishna say “a year <i>or</i> two”? Rav Chisda: a year before for a <b>weak</b> child, two years for a <b>healthy</b> one. Then Rav Huna, Rav Nachman and R' Yochanan each give a different age chart.</p>`,
-      src: "Yoma 82a",
+      src: "Yoma 82a:2–3",
       replies: [
         {
           by: "math_kohen",

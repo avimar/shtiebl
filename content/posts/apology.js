@@ -21,19 +21,19 @@ post({
       flair: "Amora · pro tip",
       votes: "8.1k",
       x: `<p>When someone wronged me, I'd walk back and forth in front of them so they'd have a chance to come and apologize. Make it <b>easy</b> for him.</p>`,
-      src: "Yoma 87a",
+      src: "Yoma 87a:15",
     },
     {
       by: "Rav_Abba_Arikha",
       votes: "4.7k",
       x: `<p>Counterpoint: I went to apologize to R' Chanina <b>thirteen Erev Yom Kippurs in a row</b>. He never accepted. (The Gemara says he had his reasons.)</p>`,
-      src: "Yoma 87b",
+      src: "Yoma 87b:1–3",
     },
     {
       by: "butcher_story",
       votes: "7.3k",
       x: `<p>Also Rav: a butcher wronged him and never came to apologize, so on Erev Yom Kippur <b>Rav went to him</b> to give him the chance. The butcher said “get lost, I have nothing to do with you.” He went back to chopping. A bone flew off and killed him.</p><p>Don't be the butcher.</p>`,
-      src: "Yoma 87a",
+      src: "Yoma 87a:16",
     },
     {
       by: "OPs_wife",

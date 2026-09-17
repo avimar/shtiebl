@@ -14,7 +14,7 @@ post({
   op: `<p>Rosh Hashana: three books open. Tzaddikim: written and sealed <b>on the spot</b>. The wicked: same, the other way. Me, a <i>beinoni</i>, exactly in the middle: “your application is under review.” Ten days.</p>
       <p>The Rambam confirms it: a beinoni's verdict stays open until Yom Kippur. If he does teshuva, he's sealed for life. If not, not.</p>
       <p>So I have a pending status, a hard deadline, and the only person who can move my file forward is <b>me</b>. Mildly infuriating. Mostly motivating. Don't tell anyone.</p>`,
-  src: "Rosh Hashana 16b · Rambam, Hilchos Teshuva 3:3",
+  src: "Rosh Hashana 16b:12 · Rambam, Hilchos Teshuva 3:3",
   thread: [
     {
       by: "HaMelech",
@@ -26,13 +26,13 @@ post({
       by: "R_Yitzchak",
       votes: "12k",
       x: `<p>Four things <b>tear up</b> a person's decree: tzedakah, crying out in prayer, a change of name, and a change of deeds. Some add a fifth: a change of place.</p>`,
-      src: "Rosh Hashana 16b",
+      src: "Rosh Hashana 16b:6–7",
       replies: [
         {
           by: "Yonah_ben_Amitai",
           votes: "3.3k",
           x: `<p>The proof text for “change of deeds” is my city. <i>“And G-d saw their deeds.”</i> I was there. I was not happy about it.</p>`,
-          src: "Rosh Hashana 16b, citing Yonah 3:10",
+          src: "Rosh Hashana 16b:6, citing Yonah 3:10",
           replies: [
             {
               by: "Melech_Nineveh",
@@ -47,7 +47,7 @@ post({
           votes: "2.9k",
           x: `<p>“Change of place” is from Avram: <i>“Go for yourself from your land”</i> and then <i>“I will make you a great nation.”</i> The other opinion says that wasn't the move itself, it was the merit of Eretz Yisrael. Either way the answer is the same. Come on over 🌴</p>`,
           img: "c_moving",
-          src: "Rosh Hashana 16b · Bereishis 12:1–2",
+          src: "Rosh Hashana 16b:7 · Bereishis 12:1–2",
         },
         {
           by: "speedrunner_bochur",
@@ -69,13 +69,13 @@ post({
       by: "Moshe_Rabbeinu",
       votes: "9.4k",
       x: `<p>Rav Nachman bar Yitzchak finds all three books in something I once said: <i>“Erase me, please, from Your book that You have written.”</i> For the record, I said it for the people after the calf. It wasn't a filing strategy.</p>`,
-      src: "Rosh Hashana 16b · Shemos 32:32",
+      src: "Rosh Hashana 16b:14 · Shemos 32:32",
     },
     {
       by: "AYT_regular",
       votes: "4.0k",
       x: `<p>Also R' Yitzchak, same page: a person is judged only by his deeds <b>at the time of judgment</b>. From Yishmael: <i>“G-d heard the lad's voice <b>where he is</b>.”</i> Your file shows who you are right now.</p>`,
-      src: "Rosh Hashana 16b · Bereishis 21:17",
+      src: "Rosh Hashana 16b:4 · Bereishis 21:17",
     },
     {
       by: "still_in_bed",

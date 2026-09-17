@@ -12,7 +12,7 @@ post({
   img: "calf",
   body: `<p>Full exchange in the comments. TL;DR: I came down with the second tablets on the 10th of Tishrei, and that day became a day of forgiveness forever.</p>`,
   op: `<p>Posting the whole exchange because people keep asking why Yom Kippur exists. Lines are in order and every quote is cited.</p>`,
-  src: "Shemos 32–34 · Taanis 30b · Rashi Shemos 33:11",
+  src: "Shemos 32–34 · Taanis 30b:8 · Rashi Shemos 33:11",
   thread: [
     {
       by: "HaMelech",
@@ -44,7 +44,7 @@ post({
           by: "R_Abahu",
           votes: "6.1k",
           x: `<p>If this weren't written, it would be impossible to say it: Moshe <b>grabbed hold of the Holy One like a man who grabs his friend by the garment</b> and said, “Master of the World, I won't let go of You until You forgive them.”</p>`,
-          src: "Berachos 32a",
+          src: "Berachos 32a:16",
         },
       ],
     },
@@ -81,7 +81,7 @@ post({
       flair: "Amora · pinned",
       votes: "22k",
       x: `<p>If it weren't written, it would be impossible to say: <b>the Holy One wrapped Himself like a chazzan</b>, showed Moshe the order of prayer, and said: <i>“Whenever Israel sins, let them do this order before Me, and I will forgive them.”</i> That's the Thirteen Attributes: <span class="he">ה׳ ה׳ קֵל רַחוּם וְחַנּוּן…</span></p>`,
-      src: "Rosh Hashana 17b · Shemos 34:6–7",
+      src: "Rosh Hashana 17b:5 · Shemos 34:6–7",
     },
     {
       by: "Chazzan_Neilah",

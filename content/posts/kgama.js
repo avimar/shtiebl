@@ -40,7 +40,7 @@ post({
           by: "KohenGadol",
           votes: "8.2k",
           x: `<p>SHORT. Mandatory short. If I take too long, everyone outside assumes I died. One guy once went long, and his fellow kohanim were about to <b>go in after him</b>. His excuse: “I was davening for you, so the Mikdash wouldn't be destroyed.” Sweet. Still, don't.</p><p>Best line in the prayer: <i>“Don't let the prayer of travelers come before You.”</i> Translation: guys on the road begging for no rain, you're getting <b>overruled</b>.</p>`,
-          src: "Mishna Yoma 5:1 · Yoma 53b",
+          src: "Mishna Yoma 5:1 · Yoma 53b:7–9",
         },
       ],
     },
@@ -76,7 +76,7 @@ post({
       by: "Avtalyon_fan",
       votes: "2.5k",
       x: `<p>Any comment on the Shemaya & Avtalyon incident? 👀 <a onclick="go('thread','roast')">(link)</a></p>`,
-      src: "Yoma 71b",
+      src: "Yoma 71b:2–3",
       replies: [
         {
           by: "KohenGadol",

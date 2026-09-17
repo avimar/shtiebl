@@ -15,7 +15,7 @@ post({
       <p>1. Great is teshuva: your intentional sins count as <b>unintentional</b>. Proof: <i>“Return, Yisrael… for you have <b>stumbled</b> in your sin.”</i> A sin on purpose, and the pasuk calls it a stumble.</p>
       <p>2. Great is teshuva: your intentional sins count as <b>merits</b>. Proof: <i>“When the wicked man turns from his wickedness and does what is just and right, he shall live <b>by them</b>.”</i></p>
       <p>The Gemara resolves it: <b>from fear</b>, level 1. <b>From love</b>, level 2. Same history, different ending. Choose your upgrade.</p>`,
-  src: "Yoma 86b · Hoshea 14:2 · Yechezkel 33:19",
+  src: "Yoma 86b:3 · Hoshea 14:2 · Yechezkel 33:19",
   thread: [
     {
       by: "HaMelech",
@@ -33,13 +33,13 @@ post({
       by: "R_Yochanan",
       votes: "11k",
       x: `<p>I open with a different one. Great is teshuva: it <b>overrides a prohibition of the Torah</b>. A man may not take back a wife who left and married someone else. And yet: <i>“You strayed with many… and return to Me, says Hashem.”</i></p>`,
-      src: "Yoma 86b · Yirmiyahu 3:1",
+      src: "Yoma 86b:1 · Yirmiyahu 3:1",
     },
     {
       by: "math_kohen",
       votes: "3.9k",
       x: `<p>The Gemara keeps going. When you do teshuva, <i>“we will pay bulls with our lips”</i>: it counts as if you <b>brought bulls</b>. And not the required kind. <i>“I will love them freely”</i>: a <b>voluntary</b> offering.</p>`,
-      src: "Yoma 86b · Hoshea 14:3",
+      src: "Yoma 86b:6 · Hoshea 14:3",
       replies: [
         {
           by: "the_one_bull",
@@ -68,13 +68,13 @@ post({
       by: "R_Abahu",
       votes: "9.9k",
       x: `<p>In the place where <b>baalei teshuva</b> stand, even the completely righteous <b>cannot stand</b>. <i>“Peace, peace to the far and to the near”</i>: the far one gets greeted first.</p>`,
-      src: "Berachos 34b",
+      src: "Berachos 34b:22",
       replies: [
         {
           by: "R_Yochanan",
           votes: "5.0k",
           x: `<p>I read “far” as the tzaddik who stayed far from sin from the start.</p>`,
-          src: "Berachos 34b",
+          src: "Berachos 34b:23",
           replies: [
             {
               by: "Rambam_1138",

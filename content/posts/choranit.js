@@ -43,7 +43,7 @@ post({
       by: "Gemara_Sukkah",
       votes: "9.3k",
       x: `<p>Rav Nachman bar Yitzchak: they're arguing about a big sukkah. Beis Shammai make a <b>decree</b>: if your table is in the house, you might <b>get pulled after your table</b>, and soon your head is in the house too.</p>`,
-      src: "Sukkah 3a",
+      src: "Sukkah 3a:6",
       replies: [
         {
           by: "Shulchan_Aruch",
@@ -57,7 +57,7 @@ post({
       by: "Beis_Hillel",
       votes: "12k",
       x: `<p>Usually the halacha follows us. On the sukkah's minimum size, Rav Shmuel bar Yitzchak ruled that it must hold head, most of the body and the table. Rabbi Abba asked: “Like Beis Shammai?” He answered: “Yes. <b>Here, that's the halacha.</b>”</p>`,
-      src: "Sukkah 3a",
+      src: "Sukkah 3a:4",
       replies: [
         {
           by: "Beis_Shammai",

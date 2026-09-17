@@ -12,13 +12,13 @@ post({
   img: "clouds",
   body: `<p><b>R' Eliezer:</b> the sukkos in the verse were the Clouds of Glory.<br><b>R' Akiva:</b> they were real booths.</p>
         <p>Plot twist for a “minority opinion”: the Tur and Shulchan Aruch present the Clouds of Glory as the reason, so this take won the upvotes in the long run.</p>`,
-  src: "Vayikra 23:43 · Sukkah 11b · Tur OC 625",
+  src: "Vayikra 23:43 · Sukkah 11b:15 · Tur OC 625",
   thread: [
     {
       by: "R_Akiva",
       votes: "9.0k",
       x: `<p><span class="he">סֻכּוֹת מַמָּשׁ</span>. Real huts. Respectfully.</p>`,
-      src: "Sukkah 11b",
+      src: "Sukkah 11b:15",
     },
     {
       by: "Tur",

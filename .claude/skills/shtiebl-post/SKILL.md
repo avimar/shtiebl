@@ -29,7 +29,8 @@ File layout, field names and the image commands are in `README.md`. Read it firs
 3. Invented lines are `flavor: true`. Invented lines for real sages must not contradict what they actually held.
 4. No lashon hara. Affectionate, never mocking Torah or the sages.
 5. No profanity, including in real-subreddit names (`aka`). Leave `aka: ""` rather than quote a crude sub name.
-6. Halacha claims: say whose opinion it is (Shulchan Aruch, Rema, Mishna Berura…) and cite the siman.
+6. **Gemara (any daf ref, incl. Rashi/Tosafos on the daf) links to the passage, not the page:** write `Shabbos 87a:5` (the Sefaria segment number; ranges like `Sotah 13b:9–14a:2`). Find the number by fetching the daf from the Sefaria API and matching the text. `tools/check.py` fails on a bare daf.
+7. Halacha claims: say whose opinion it is (Shulchan Aruch, Rema, Mishna Berura…) and cite the siman.
 
 ## Steps
 
@@ -41,7 +42,7 @@ File layout, field names and the image commands are in `README.md`. Read it firs
 
        python img/gen_images.py snapshot <ids...> --as snapshot_gpt --fal-model openai/gpt-image-2.5/flare/text-to-image --quality low
 
-   Make the picture the **punchline** of the title, not a generic illustration (e.g. a kid aiming a lulav at the shul router, not "kid holding four minim"). **As few women as possible**: prefer men and boys, and when a scene can do without women, end the scene prompt with "Every person in the picture is a man or a boy; no women or girls anywhere." (the shared suffix alone isn't enough). No odd faces either (tongues out etc.). **Look at every image** (Read the .jpg): modest dress, married women's hair covered, no crosses/church domes, no God. Redo a bad one with `--count 3 --force`, then `--pick N`.
+   Make the picture the **punchline** of the title, not a generic illustration (e.g. a kid aiming a lulav at the shul router, not "kid holding four minim"). **As few women as possible**: prefer men and boys, and when a scene can do without women, end the scene prompt with "Every person in the picture is a man or a boy; no women or girls anywhere." (the shared suffix alone isn't enough). Faces and poses should serve the joke; nothing the scene doesn't call for. **Look at every image** (Read the .jpg): modest dress, married women's hair covered, no crosses/church domes, no God. Redo a bad one with `--count 3 --force`, then `--pick N`.
 6. `python tools/check.py` must pass (it checks users, images, links, Sefaria refs, scrolling).
 7. Commit only when asked to; pushing publishes the site.
 

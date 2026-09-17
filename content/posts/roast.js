@@ -13,13 +13,13 @@ post({
   body: `<p>After Yom Kippur the whole crowd was escorting the Kohen Gadol home. Then they saw Shemaya and Avtalyon, the leading sages, who descended from converts, and <b>everyone left him to follow them.</b></p>
         <p>Later the sages came to say goodbye to him. <b>KG:</b> “Let the descendants of gentiles go in peace.”</p>
         <p><b>Shemaya & Avtalyon:</b> “Let the descendants of gentiles who do the deeds of Aharon go in peace, and not the descendant of Aharon who does not do the deeds of Aharon.”</p>`,
-  src: "Yoma 71b",
+  src: "Yoma 71b:2–3",
   thread: [
     {
       by: "Sancheriv_genealogy",
       votes: "4.0k",
       x: `<p>Context: the Gemara says descendants of <b>Sancheriv</b> taught Torah in public. Namely, Shemaya and Avtalyon. The Assyrian emperor's great-great-grandkids ended up running the Sanhedrin.</p>`,
-      src: "Gittin 57b",
+      src: "Gittin 57b:7",
     },
     {
       by: "Avtalyon",

@@ -28,13 +28,13 @@ post({
       by: "R_Yochanan",
       votes: "4.0k",
       x: `<p>Why the waving? You move it out and back to the One who owns the four directions, and up and down to the One who owns heaven and earth.</p>`,
-      src: "Sukkah 37b",
+      src: "Sukkah 37b:10",
     },
     {
       by: "Aravah",
       votes: "12k",
       x: `<p>Hey. I'm in the bundle too. And on Hoshana Rabbah I get <b>my own day</b>.</p>`,
-      src: "Sukkah 44a",
+      src: "Sukkah 44a:3 · Mishna Sukkah 4:3",
     },
     {
       by: "Esrog",

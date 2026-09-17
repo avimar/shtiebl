@@ -12,7 +12,7 @@ post({
   img: "melech",
   body: `<p>All year the third bracha ends <i>HaKel HaKadosh</i>. From Rosh Hashana through Yom Kippur it ends <i>HaMelech HaKadosh</i>, “the holy King.” <i>Melech ohev tzedakah u'mishpat</i> likewise becomes <i>HaMelech HaMishpat</i>.</p>
         <p><b>Pro tip:</b> if you catch the mistake right away (within <i>toch k'dei dibbur</i>, about 2 seconds), just say it correctly and keep going.</p>`,
-  src: "Berachos 12b · Shulchan Aruch OC 582:1",
+  src: "Berachos 12b:2–5 · Shulchan Aruch OC 582:1",
   thread: [
     {
       by: "AYT_regular",

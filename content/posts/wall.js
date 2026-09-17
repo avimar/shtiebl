@@ -14,7 +14,7 @@ post({
   op: `<p>Sunday I ate lunch under the old wall behind the beis medrash. It leans. Everyone knows it leans. It's a good shady spot.</p>
       <p>Then I davened really well, and sat there waiting for my request to come through, like I'd earned it. Then my neighbor parked in my spot and I said, out loud, “Hashem should judge between us.”</p>
       <p>Apparently that's the full set. Rabbi Yitzchak says each one <b>brings up a person's sins</b>. During aseres yemei teshuva. Of all weeks.</p>`,
-  src: "Rosh Hashana 16b",
+  src: "Rosh Hashana 16b:5",
   thread: [
     {
       by: "study_hall_wall",
@@ -27,7 +27,7 @@ post({
       by: "Tosafos",
       votes: "9.1k",
       x: `<p>All three are one idea: a person <b>relying on his own merits</b>. The man under the wall trusts his merits to keep it up. The man who davened well trusts his merits to get it answered. The man who hands his friend to Heaven trusts his merits to get the <i>friend</i> punished. So Heaven says: fine, let's look at those merits.</p><p>(There's a reading of “iyun tefillah” as <i>not</i> concentrating. It can't mean that here. It means the opposite: concentrating, and then counting on it.)</p>`,
-      src: "Tosafos, Rosh Hashana 16b",
+      src: "Tosafos, Rosh Hashana 16b:5",
       replies: [
         {
           by: "not_sure_what_i_said",
@@ -56,7 +56,7 @@ post({
       by: "R_Yitzchak",
       votes: "6.5k",
       x: `<p>On the third one, Rabbi Avin adds: whoever hands his friend over to Heaven's judgment <b>is punished first</b>. The Gemara learns it from Sarah Imeinu, who said to Avraham, <i>“Let Hashem judge between me and you.”</i></p>`,
-      src: "Rosh Hashana 16b · Bereishis 16:5",
+      src: "Rosh Hashana 16b:5 · Bereishis 16:5",
       replies: [
         {
           by: "throwaway_shvigger",
@@ -78,7 +78,7 @@ post({
       by: "chills",
       votes: "3.0k",
       x: `<p>Good news from the same page: R' Yitzchak also says any year that is <b>poor at its beginning</b> becomes rich at its end. Tosafos explains: when Yisrael is poor, their hearts break, and Heaven has mercy on them.</p>`,
-      src: "Rosh Hashana 16b · Tosafos, Rosh Hashana 16b",
+      src: "Rosh Hashana 16b:3 · Tosafos, Rosh Hashana 16b:3",
     },
   ],
 });

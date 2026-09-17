@@ -14,7 +14,7 @@ post({
   op: `<p>We Tzedukim don't accept the water libation. On Sukkos I was the one holding the gold jug, so I made my point and poured it <b>on my feet</b>.</p>
       <p>Thousands of people. Each holding an esrog. You can guess the rest.</p>
       <p>Now it's a whole procedure. The official stands there and says <b>“Raise your hand”</b> so everyone can see the water go into the basin. Because of me. Specifically me.</p>`,
-  src: "Mishna Sukkah 4:9 · Rashi, Sukkah 48b",
+  src: "Mishna Sukkah 4:9 · Rashi, Sukkah 48b:2",
   thread: [
     {
       by: "Temple_appointee",
@@ -43,13 +43,13 @@ post({
       by: "R_Yochanan",
       votes: "8.4k",
       x: `<p>For the record: the water libation is a <b>halacha l'Moshe mi-Sinai</b>, in the name of R' Nechunya of Bik'as Beis Chortan. Not written doesn't mean not given.</p>`,
-      src: "Sukkah 44a",
+      src: "Sukkah 44a:5",
     },
     {
       by: "math_kohen",
       votes: "5.9k",
       x: `<p>Damage report from the baraita: that day <b>a horn of the altar got chipped</b>. They plugged it with a fistful of salt, so the altar wouldn't be seen damaged.</p>`,
-      src: "Sukkah 48b",
+      src: "Sukkah 48b:12",
     },
     {
       by: "Esrog",
@@ -75,7 +75,7 @@ post({
       by: "R_Abahu",
       votes: "9.6k",
       x: `<p>Same page, another heretic. His name was Sason, and he told me: “You'll all draw water for me in the World to Come. It says <i>‘you shall draw water <b>b'sason</b>.’</i>” I told him: if it said <i>l'sason</i>, “for Sason,” you'd be right. It says <i>b'sason</i>, “with Sason.” <b>Your skin will be the waterskin.</b></p>`,
-      src: "Sukkah 48b · Yeshayahu 12:3",
+      src: "Sukkah 48b:6 · Yeshayahu 12:3",
       replies: [
         {
           by: "popcorn_levi",

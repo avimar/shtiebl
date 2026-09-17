@@ -53,6 +53,15 @@
     .pbody{padding:8px 10px 4px}
     .title{font-size:17px}
   }
+  /* thread mode: a colored bar pinned under the header + a different page background, so it's obvious you're inside a thread */
+  #threadbar:empty{display:none}
+  #threadbar{order:9;flex:0 0 calc(100% + 36px);box-sizing:border-box;display:flex;align-items:center;gap:12px;margin:0 -18px -8px;padding:7px 18px;
+    background:var(--accent);color:#fff;font-weight:700}
+  .tb-back{border:0;border-radius:16px;background:#fff;color:var(--accent);font:inherit;font-weight:800;padding:5px 14px;cursor:pointer}
+  .tb-where{display:flex;align-items:center;gap:6px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  body.in-thread{--bg:#c9d3de}
+  body.dark.in-thread{--bg:#0e1621}
+  @media (max-width:700px){ #threadbar{flex-basis:calc(100% + 20px);margin:0 -10px -6px;padding:6px 10px} }
   #loadErr:not(:empty){background:#b91c1c;color:#fff;padding:8px 18px;font-weight:600}
 
   main{display:flex;gap:24px;max-width:1100px;margin:18px auto;padding:0 14px;align-items:flex-start}
@@ -151,6 +160,7 @@
   </div>
   <button class="iconbtn" id="darkBtn" onclick="document.body.classList.toggle('dark')" title="Dark mode">🌓</button>
   <button class="iconbtn" id="menuBtn" onclick="$('header').classList.toggle('open')" title="Pictures & dark mode"></button>
+  <div id="threadbar"></div>
 </header>
 <div id="loadErr"></div>
 
@@ -210,8 +220,10 @@ const SEF_NAMES = (()=>{
   for (const [he,en] of Object.entries(bavli)) { m[he]=en; m["Mishna "+he]="Mishnah_"+en; }
   return m;
 })();
+// Daf refs cite the Sefaria segment (line) too: "Shabbos 87a:5", "Sotah 13b:9–14a:2" link straight to that passage.
+const DAF = "\\d+[ab](?::\\d+)?(?:[–-]\\d+[ab]?(?::\\d+)?)?";
 const SEF_RE = new RegExp("(" + Object.keys(SEF_NAMES).sort((a,b)=>b.length-a.length)
-  .map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|") + ")\\s+(\\d+[ab]|\\d+(?::\\d+)?(?:[–-]\\d+(?::\\d+)?)?)", "g");
+  .map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|") + ")\\s+(" + DAF + "|\\d+(?::\\d+)?(?:[–-]\\d+(?::\\d+)?)?)", "g");
 function sefUrl(name, num){
   return "https://www.sefaria.org/" + SEF_NAMES[name] + "." + num.replace(/:/g,".").replace("–","-") + "?lang=bi";
 }
@@ -323,16 +335,18 @@ function renderThread(arg){
   const p = POSTS.find(x=>x.id===id);
   const from = history.state && history.state.from;
   const back = `<a class="back" onclick="backLink()">← Back to ${from ? viewName(from) : "feed"}</a>`;
-  $("#col").innerHTML = `<div class="thread-mode">${back}` + postCard(p, true) +
+  const s = SUBS[p.sub];
+  $("#threadbar").innerHTML = `<button class="tb-back" onclick="backLink()">← Back to ${from ? viewName(from) : "feed"}</button>
+    <span class="tb-where">💬 Thread · <span class="subicon" style="background:${s.color}">${s.icon}</span> r/${p.sub}</span>`;
+  $("#col").innerHTML = `<div class="thread-mode">` + postCard(p, true) +
     `<div class="thread"><div class="sortbar">Sort by: <b>Best</b> · showing top comments · ADMIN comments quote only Tanach & Chazal</div>${p.thread.map((c,i)=>comment(c, p.by, String(i))).join("")}</div>` +
     back.replace('class="back"', 'class="back back-bottom"') + `</div>`;
 }
 
 /* ---- navigation + scroll memory ----
-   List views (feed, sub page) remember their scroll spot in their own history entry when you leave them,
+   List views (feed, sub page, profile) remember their scroll spot in their own history entry when you leave them,
    so Back puts the page exactly where it was.
-   A thread tapped open from a list starts scrolled so only the bottom quarter of the image shows
-   (you already saw it). A shared link / fresh load opens at the top. */
+   A thread always opens at the top (full picture). The blue thread bar in the header shows you're inside one. */
 const LISTS = ["feed", "sub", "user"];
 let view = ["feed"];
 const headerH = () => $("header").offsetHeight;
@@ -369,14 +383,6 @@ function go(v, arg, state){
     scrollTo(0, Math.max(0, target));
     cEl.classList.add("flash");
     setTimeout(() => cEl.classList.remove("flash"), 1600);
-  } else if (v === "thread" && state.from) {
-    const img = $("#col .pimg");
-    const target = img ? img.getBoundingClientRect().top + scrollY + img.offsetHeight*0.75 - headerH() - 8
-                       : $("#col .post").getBoundingClientRect().top + scrollY - headerH() - 8;
-    // short threads: pad the bottom so the page can actually scroll that far
-    const deficit = target + innerHeight - document.documentElement.scrollHeight;
-    if (deficit > 0) document.body.style.paddingBottom = deficit + "px";
-    scrollTo(0, Math.max(0, target));
   } else if (spotEl) {
     scrollTo(0, spotEl.getBoundingClientRect().top + scrollY - state.spot.top);
   } else {
@@ -439,6 +445,8 @@ function toast(msg){
 function render(){
   document.querySelectorAll("#picSeg button").forEach(b=>b.classList.toggle("on",b.dataset.p===pic));
   $("#menuBtn").textContent = `${{snapshot_gpt:"📸",snapshot:"📷",cartoon:"🖍",cinematic:"🏛"}[pic]} ⚙`;
+  document.body.classList.toggle("in-thread", view[0] === "thread");
+  $("#threadbar").innerHTML = "";
   if (view[0] === "thread") renderThread(view[1]);
   else if (view[0] === "sub") renderSub(view[1]);
   else if (view[0] === "user") renderUser(view[1]);

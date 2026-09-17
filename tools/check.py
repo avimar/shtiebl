@@ -3,13 +3,13 @@
 usage: python tools/check.py [--quick]      (--quick skips the per-post scroll test and Sefaria lookups)
 Exit code 0 = safe to push. Every failure is printed.
 """
-import json, re, subprocess, sys, time, urllib.parse, urllib.request
+import json, os, re, subprocess, sys, time, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
-PORT = 8765
+PORT = int(os.environ.get("SHTIEBL_PORT", 8765))   # override to run two checks at once
 BASE = f"http://localhost:{PORT}/"
 STYLES = ["snapshot_gpt", "snapshot", "cartoon", "cinematic"]
 ROUTE_KINDS = ["p", "r", "u"]
@@ -70,7 +70,12 @@ def check_views(pg, errors, hrefs):
             pg.evaluate("document.querySelectorAll('img').forEach(i => i.loading = 'eager')")
             pg.wait_for_function("[...document.images].every(i => i.complete)", timeout=20000)
             for e in errors: fail(f"{r}: pageerror {e}")
-            bad = pg.evaluate("[...document.querySelectorAll('#col img')].filter(i => !i.naturalWidth).map(i => i.src)")
+            bad_js = "[...document.querySelectorAll('#col img')].filter(i => !i.naturalWidth).map(i => i.src)"
+            if pg.evaluate(bad_js):
+                # a missing style image swaps to its Snapshot HD fallback in onerror; give those a moment to load
+                pg.wait_for_load_state("networkidle")
+                pg.wait_for_function("[...document.images].every(i => i.complete)", timeout=20000)
+            bad = pg.evaluate(bad_js)
             for b in bad: fail(f"[{style}] {r}: image did not load {b}")
             if style == STYLES[0]:
                 empty = pg.evaluate("[...document.querySelectorAll('.src')].filter(s => !s.querySelector('a')).map(s => s.textContent)")
@@ -96,7 +101,7 @@ def check_permalinks(pg):
 
 
 def check_scroll(pg, route="", back_link=False):
-    """List -> thread shows ~22-30% of the image; Back puts the card back where it was.
+    """List -> thread opens at the top with the thread bar showing; Back puts the card back where it was.
     back_link=True uses the thread's "Back to ..." link instead of the browser Back button."""
     open_route(pg, route)
     ids = pg.evaluate("[...document.querySelectorAll('#col [id^=p-]')].map(e => e.id.slice(2))")
@@ -108,9 +113,9 @@ def check_scroll(pg, route="", back_link=False):
         box = pg.locator(f"#p-{i} .title").bounding_box()
         pg.mouse.click(box["x"] + 10, box["y"] + box["height"] / 2)
         pg.wait_for_selector(".thread")
-        frac = pg.evaluate("""() => { const r = document.querySelector('#col .pimg').getBoundingClientRect();
-            return (r.bottom - headerH()) / r.height; }""")
-        if not 0.22 <= frac <= 0.30: fail(f"{i}: thread opened with {frac:.0%} of the image visible (want 22-30%)")
+        got = pg.evaluate("[scrollY, document.querySelector('#threadbar').offsetHeight, document.body.classList.contains('in-thread')]")
+        if got[0] != 0: fail(f"{i}: thread opened at scrollY={got[0]}, expected 0")
+        if not got[1] or not got[2]: fail(f"{i}: thread bar / in-thread background missing")
         if back_link: pg.click(".back-bottom")
         else: pg.go_back()
         pg.wait_for_selector(f"#p-{i}")
@@ -124,8 +129,9 @@ def check_sub(pg):
     if n != 4: fail(f"r/AmITheRasha shows {n} posts, expected 4")
     pg.click("#col .post .title")
     pg.wait_for_selector(".thread")
-    label = pg.inner_text(".back")
-    if label != "← Back to r/AmITheRasha": fail(f"thread back link from a sub page says {label!r}")
+    for sel in (".tb-back", ".back-bottom"):
+        label = pg.inner_text(sel)
+        if label != "← Back to r/AmITheRasha": fail(f"thread back link {sel} from a sub page says {label!r}")
 
 
 def check_profile(pg, name):
@@ -183,6 +189,11 @@ def sef_ok(url):
 
 
 def check_sefaria(hrefs):
+    # daf refs must point at the passage: "Shabbos 87a:5", not "Shabbos 87a"
+    for h in sorted(hrefs):
+        path = urllib.parse.unquote(urllib.parse.urlparse(h).path)
+        if not path.startswith("/search") and re.search(r"\.\d+[ab](?:-|$)", path):
+            fail(f"daf link without a line number (write e.g. 87a:5): {h}")
     known = set(json.loads(SEF_CACHE.read_text())) if SEF_CACHE.exists() else set()
     todo = sorted(h for h in hrefs if "sefaria.org" in h and h.split("?")[0] not in known)
     print(f"  {len(todo)} new Sefaria refs to verify")

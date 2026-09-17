@@ -30,7 +30,7 @@ post({
       by: "Abba_Shaul",
       votes: "1.6k",
       x: `<p>Outside Jerusalem people started staying up all night too, in memory of the Mikdash. It… led to sin. So maybe don't.</p>`,
-      src: "Yoma 19b",
+      src: "Yoma 19b:15",
     },
     {
       by: "KohenGadol",
