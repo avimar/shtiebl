@@ -1,0 +1,37 @@
+{
+  "_styles": {
+    "cartoon": "Whimsical flat cartoon illustration, bright cheerful colors, clean bold outlines, modern children's picture-book style, ancient Israel. Scene: ",
+    "cinematic": "Photorealistic still frame from an epic big-budget historical film set in ancient Israel, dramatic golden-hour lighting, shallow depth of field, anamorphic 35mm look, rich color grade. Scene: ",
+    "snapshot": "Candid amateur 1990s disposable-camera snapshot, harsh on-camera flash, slight motion blur, oversaturated colors, awkward tilted framing, as if a tourist stumbled into ancient Israel. Scene: "
+  },
+  "_suffix": " Everyone modestly dressed: long sleeves, long skirts, high necklines. Jewish setting in ancient Israel. No text, letters or writing anywhere.",
+  "_kg": "a Jewish high priest in plain white linen robes, white sash and white turban",
+
+  "melech": "a surprised man wrapped in a white prayer shawl at a wooden synagogue lectern, behind him a giant board-game path where his game piece is sliding all the way back to the starting square",
+  "dirshu": "a grand palace at night with its huge doors wide open and warm golden light pouring out, small people happily walking in, ten lanterns hanging along the path",
+  "apology": "a family dinner table where one man sits with arms crossed turning his face away, while at the doorway another man holds flowers with three friends behind him waving awkwardly",
+  "calf": "a bearded ancient leader in simple robes on a mountaintop raising his arms and pleading toward dramatic sunlit clouds, far below in the valley a tiny golden calf statue and a crowd",
+  "kgama": "{kg} sitting behind a stone table with a microphone like a press conference, torches on the walls, curious people raising hands",
+  "snap": "night in a stone temple courtyard: {kg} yawning with eyes half closed while two energetic young priests in white snap their fingers right next to his face",
+  "roast": "a festive street procession in ancient Jerusalem: the whole crowd has turned its back on a pompous Jewish high priest (blue robe with a hem of little golden bells, jeweled breastplate with twelve colored stones, tall wound white cloth turban with a gold band on the forehead) and is happily following two humble smiling elderly bearded rabbis in plain robes; the high priest stands alone, arms crossed, offended",
+  "happy": "young women in long-sleeved, ankle-length, high-necked flowing white dresses dancing in a joyful circle in a lush green vineyard at golden hour, arms fully covered to the wrist",
+  "thread": "a rugged desert cliff at dawn, a long strip of wool tied to a rock visibly changing color along its length from deep scarlet red at one end to pure snow white at the other, gentle sparkles, no fire",
+  "yonah": "a grumpy bearded prophet sitting under a withered leafy gourd plant on a hot hill under a blazing sun, a small worm on the plant stem, a huge ancient walled city in the background",
+  "rain": "a family sitting at a table inside a sukkah hut with a palm-branch roof while heavy rain pours through, soup bowls overflowing with rainwater, everyone dismayed",
+  "kick": "a man in ancient robes angrily kicking a small wooden hut with a leafy roof on a flat rooftop under an enormous blazing sun",
+  "torches": "an elderly bearded sage in robes joyfully juggling eight flaming torches at night in a temple courtyard lit by giant golden lamps, crowd cheering, musicians with harps on wide stone steps",
+  "clouds": "a long line of ancient Israelite families with donkeys walking through the desert, completely surrounded by a giant ring of soft glowing white clouds wrapping around them like a protective blanket",
+  "bulls": "a long parade of many bulls walking in a line toward the Second Temple of Jerusalem on a hill, a massive flat-topped white-and-gold stone facade with tall columns, surrounded by stone walls",
+  "minim": "a yellow citron fruit, a tall green palm frond, a sprig of myrtle and a willow branch arranged together on a table, with a smiling child holding them",
+  "atzeres": "a kind bearded king in a warm candlelit banquet hall hugging his children at the door as they get ready to leave, the table still set",
+  "tablets": "a bearded ancient leader on a rocky mountain slope hurling two large blank stone tablets that shatter on the ground, below a crowd dancing around a small golden calf",
+  "achnai": "inside an ancient study hall, bearded rabbis calmly debating at a table while outside the window a whole carob tree flies through the air and a stream flows uphill",
+  "akiva": "an old bearded man in ancient robes sitting in the back row of a crowded ancient Jewish study hall with plain stone walls and shelves of scrolls, scratching his head in confusion while a teacher lectures enthusiastically at the front",
+  "lev": "an open parchment scroll on two wooden rollers being rewound from the end to the beginning, a glowing red heart between the rollers, people dancing in a circle around it",
+  "c_beam": "a triumphant ancient king in royal robes standing amid the smoking rubble of his own palace, which is torn half down: collapsed walls, a gaping hole in the roof, fallen columns, piles of broken stone; he holds a single wooden beam proudly over his head, huge grin",
+  "c_cow": "a solemn cow wearing a rough burlap sack as clothing, standing next to an empty feeding trough, looking hungry but determined",
+  "c_sailors": "ancient sailors on a wooden ship in a huge storm rowing desperately toward a distant shore",
+  "c_aharon": "a nervous bearded priest very slowly placing one single stone on an unfinished stone altar while glancing at a sundial",
+  "c_ark": "inside an open golden chest, two whole smooth blank grey stone tablets with rounded tops standing upright next to a neat pile of broken pieces of the same blank tablets, soft light",
+  "c_floor": "{kg} standing barefoot on a cold marble floor at night, shivering, eyes wide open"
+}
