@@ -85,6 +85,18 @@ function countView(){
   #signup .formkit-alert-error{background:#fde8e2;color:#b3300c}
   #signup .formkit-alert-success{background:#d3fbeb;color:#0c6b45}
   #signup [data-element="powered-by"]{display:inline-block;margin-top:6px}
+  #feedback{margin-top:14px}
+  #feedback form{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+  #feedback input,#feedback textarea{width:100%;padding:9px 10px;font:inherit;border:1px solid var(--line);border-radius:4px;background:var(--card);color:var(--ink)}
+  #feedback textarea{min-height:90px;resize:vertical}
+  #feedback .row{display:flex;gap:8px;flex-wrap:wrap}
+  #feedback .row input{flex:1 1 200px;min-width:0}
+  #feedback button{align-self:flex-start;padding:9px 18px;font:inherit;font-weight:700;border:0;border-radius:4px;background:var(--accent);color:#fff;cursor:pointer}
+  #feedback button:disabled{opacity:.6;cursor:default}
+  #fbStatus:empty{display:none}
+  #fbStatus{padding:8px;border-radius:4px}
+  #fbStatus.ok{background:#d3fbeb;color:#0c6b45}
+  #fbStatus.err{background:#fde8e2;color:#b3300c}
   aside{width:312px;flex-shrink:0;display:flex;flex-direction:column;gap:14px}
   @media (max-width:900px){aside{display:none}}
 
@@ -200,6 +212,26 @@ function countView(){
         <a href="https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic" data-element="powered-by" class="note" target="_blank" rel="nofollow noopener">Built with Kit</a>
       </form>
       <script async src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+    </div></div>
+    <!-- Feedback: posts to Web3Forms (docs.web3forms.com), which emails it to us. The access key is public by design.
+         Spam: hCaptcha (turn it on in the Web3Forms dashboard, or it isn't enforced) + the botcheck honeypot.
+         To switch it off: delete or disable the key at app.web3forms.com, or remove this box. -->
+    <div class="box" id="feedback"><h3>💬 Feedback</h3><div class="in">
+      Spotted a mistake, have an idea for a thread, or just want to say something? Tell us.
+      <form id="fbForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="a962efda-732c-4fa4-91d0-0a54fc67f142">
+        <input type="hidden" name="subject" value="shtiebl feedback">
+        <input type="hidden" name="from_name" value="shtiebl site">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <textarea name="message" required placeholder="Your message" aria-label="Your message"></textarea>
+        <div class="row">
+          <input type="text" name="name" placeholder="Name (optional)" aria-label="Name">
+          <input type="email" name="email" placeholder="Email, if you want a reply" aria-label="Email">
+        </div>
+        <div class="h-captcha" data-captcha="true"></div>
+        <div id="fbStatus"></div>
+        <button type="submit">Send</button>
+      </form>
     </div></div>
   </div>
   <aside>
@@ -584,6 +616,27 @@ const DATES = [["Yom Kippur","2026-09-21","10 Tishrei"],["Sukkos","2026-09-26","
     `<div class="cd"><span>${subTag(n)}</span><span class="note">${s.aka}</span></div>`).join("");
 })();
 
+// Feedback form: send with fetch so the reader stays on the page, and show the result in #fbStatus.
+$("#fbForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+  const form = e.target, status = $("#fbStatus"), btn = form.querySelector("button");
+  const show = (cls, msg) => { status.className = cls; status.textContent = msg; };
+  const captcha = form.querySelector("[name=h-captcha-response]");
+  if (captcha && !captcha.value) { show("err", "Please tick the “I am human” box first."); return; }
+  btn.disabled = true; show("", "");
+  try {
+    const res = await fetch(form.action, {method: "POST", headers: {Accept: "application/json"}, body: new FormData(form)});
+    const data = await res.json();
+    if (!data.success) throw new Error(data.message);
+    form.reset();
+    show("ok", "Thanks! Your message was sent.");
+  } catch (err) {
+    show("err", "Couldn't send: " + (err.message || "network error") + ". Please try again later.");
+  }
+  if (window.hcaptcha) hcaptcha.reset();   // a captcha token works only once
+  btn.disabled = false;
+});
+
 // Load content/posts/<id>.js for every id in POST_ORDER, then start.
 // A file that is missing or throws never calls post(): show a red banner naming it and render the rest.
 function loadPosts(done){
@@ -607,5 +660,7 @@ loadPosts(()=>{
 });
 </script>
 <div id="toast" role="status" aria-live="polite"></div>
+<!-- Web3Forms client script: draws the hCaptcha box in #feedback -->
+<script src="https://web3forms.com/client/script.js" async defer></script>
 </body>
 </html>
